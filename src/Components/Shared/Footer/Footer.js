@@ -10,8 +10,9 @@ const Footer = () => {
             })
     }, [])
     return (
-        <div className='text-center my-3'>
-            <p className="text-light">Copyright &copy; 2022 Flight NFT.</p>
+        <div className='text-center my-3 footer'>
+            <span className='underline2'></span>
+            <p className="text-light position-relative">Copyright &copy; 2022 flightnft.net </p>
             <div className="d-flex justify-content-center gap-3 flex-row">
             <p className='text-light mb-0'>Follow Us: </p>
 

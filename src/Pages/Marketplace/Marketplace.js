@@ -4,9 +4,9 @@ import "./Marketplace.css";
 
 const Marketplace = () => {
     return (
-        <Container>
+        <Container className='my-3'>
             <div className="pt-3 text-danger d-flex justify-content-center">
-                <div className="heading">
+                <div className="heading my-2">
                     <h1 className='section-heading text-uppercase'>Pricing</h1>
                     <span className='underline'></span>
                 </div>
@@ -52,7 +52,7 @@ const Marketplace = () => {
                     </div>
                 </div>
             </div>
-            <div className=" py-4">
+            <div className=" py-4 my-4">
                 <div className="row g-0 text-white">
                     <div className="col-md-4">
                         <div className="pricing-image-content">
@@ -70,13 +70,13 @@ const Marketplace = () => {
                     </div>
                     <div className="col-md-8">
                         <div className="pricing-image w-100">
-                            <img className="img-fluid" src="./images/02.jpeg" alt="Pricing" />
+                            <img className="img-fluid" src="https://i.ibb.co/Xxsk9Sy/02.jpg" alt="Pricing" />
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div className=" py-4">
+            <div className=" py-4 my-4">
                 <div className="row g-0 text-white">
                     <div className="col-md-4">
                         <div className="pricing-image-content">

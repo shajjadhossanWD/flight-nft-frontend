@@ -12,7 +12,7 @@ const NavbarHeader = () => {
             <Container>
                 <Navbar.Brand href="#home">
                     <Nav>
-                        <Nav.Link href="#" as={NavLink} to="/" className="fw-bold text-danger" style={{ color: "#fff " }}>
+                        <Nav.Link href="#" as={NavLink} to="/" className="fw-bold text-danger fs-3" style={{ color: "#fff " }}>
                             FLIGHT NFT
                         </Nav.Link>
                     </Nav>

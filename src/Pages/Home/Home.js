@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Container, Row, Col, Modal, Button, } from 'react-bootstrap';
+import { useState } from 'react';
+import { Button, Col, Container, Modal, Row } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 
 const indianAirports = [
@@ -46,18 +46,16 @@ const Home = () => {
     const [openModal, setOpenModal] = useState(false);
     const [DepartureAirport, setDepartureAirport] = useState(DepartureAirportList[0]);
     const [ArrivalAirportList, setArrivalAirportList] = useState([...indianAirports]);
-    const [ArrivalAirport, setArrivalAirport] = useState("");
+    const [ArrivalAirport, setArrivalAirport] = useState(ArrivalAirportList[0]);
     const navigate = useNavigate();
 
     const handleDepartureAirport = (e) => {
         setDepartureAirport(e.target.value);
         if (e.target.value === "Singapore") {
             setArrivalAirportList(indianAirports)
-            setArrivalAirport(indianAirports[0])
         }
         if (e.target.value !== "Singapore") {
             setArrivalAirportList(["Singapore"])
-            setArrivalAirport("Singapore")
         }
     }
 
@@ -74,7 +72,7 @@ const Home = () => {
     }
     return (
         <div className='banner'>
-            <Container className="py-5">
+            <Container className="py-5 mb-5">
                 <Row className="align-items-center">
                     <Col md={4} className="text-center">
                         <h1 className="text-danger pb-2">FLY IN PRIVATE <br /> JET NFT</h1>
@@ -104,23 +102,53 @@ const Home = () => {
                     </Col>
                 </Row>
 
-                <Row className="align-items-center mt-5">
+                {/* get nft section */}
+                <div className="deep-bg d-flex justify-content-center">
+                    <div className="row g-0 text-white d-flex align-items-center justify-content-center">
+                        <div className="col-md-4 ">
+                            <div className="priceHeading">
+                                <h1 className="home_flight_heading">
+                                    LIFE IS <br />
+                                    SHORT, FLY <br />
+                                    PRIVATE <br />
+                                    NOW!
+                                </h1>
+                            </div>
+                        </div>
+                        <div className="col-md-8   ">
+                            <div className="pricing-content">
+                                <div className="pricing-list">
+                                    <p className="top-border">Get your NFTs now. The NFTs can be used
+                                        for trips to 30 airports in India for the first
+                                        release. </p>
+                                    <p className="top-border">More airports and countries will be
+                                        launched soon. </p>
+                                    <p className="top-border dif-color">This NFT is your flight ticket.</p>
+                                    <p className="top-border">It will have a serial number which can be
+entered to book your ticket.</p>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <Row className="align-items-center my-5">
                     <Col md={7} className="text-center mb-4">
                         <div className="pricing-image-home w-100">
                             <img className="img-fluid" src="https://i.ibb.co/DKdNrn9/09.jpg" alt="Pricing" />
                         </div>
                     </Col>
                     <Col md={5}>
-                        <div className="">
-                            <h1 className='text-white'>What is the average cost for 1 person in other charters?</h1>
+                        <div className="flight_content">
+                            <h1 className='text-white'>What is the average cost for 1 person in other Private Jets?</h1>
                             <br />
                             <p className='text-white'><b>SGD 11,000.00</b></p>
-                            <p className='text-white'>You need to share with another 9</p>
+                            <p className='text-white'>You need to share with another 9 passengers.</p>
                         </div>
                     </Col>
                 </Row>
-
-
 
             </Container>
 
