@@ -1,13 +1,132 @@
 .banner-button {
-    border-radius: 25px !important;
+    background-image: linear-gradient(to right, #FF512F 0%, #db1528 51%, #FF512F 100%);
+    margin: 10px;
+    padding: 10px 30px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+    /* display: block; */
+    font-weight: bold;
+}
+
+.banner-button2 {
+    background-image: linear-gradient(to right, #FF512F 0%, #db1528 51%, #FF512F 100%);
+    margin: 10px;
+    padding: 5px 30px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+    /* display: block; */
+    font-weight: bold;
+    border: none;
+}
+
+.banner-button:hover {
+    background-position: right center;
+    /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
+.banner-button2:hover {
+    background-position: right center;
+    /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+.title_home {
+    color: #db1528;
 }
 
 .banner {
     /* background-image: url("../public/images/banner-bg.png"); */
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: center;
+
 }
 
 .payment-option {
     cursor: pointer;
+}
+
+.heading {
+    position: relative;
+}
+
+span.underline {
+    left: 26%;
+    position: absolute;
+    width: 50%;
+    z-index: 9;
+    height: 3px;
+    background: #DC3545 !important;
+    bottom: 0;
+}
+
+h1.section-heading.text-uppercase {
+    position: relative;
+}
+
+
+.border-1 {
+    border-width: 1px !important;
+}
+
+.border {
+    border: 1px solid #dee2e6 !important;
+}
+
+/* Footer */
+.icon-part {
+    text-decoration: none;
+}
+
+.icon-sm {
+    height: 30px;
+    width: 30px;
+    background-color: rgb(66, 66, 66);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-sm .icons {
+    color: #DC3545;
+    text-decoration: none;
+}
+
+.pricing-image-home img {
+    opacity: .9;
+    height: 390px !important;
+    width: 100%;
+}
+
+@media screen and (max-width:425px) {
+    .d-flex.justify-content-center.gap-3.flex-row {
+        flex-direction: column !important;
+    } 
+}
+@media screen and (max-width:375px) {
+    .social_link_wrapper.d-flex.justify-content-center.gap-3 {
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    .social_link1.d-flex.gap-3 {
+        margin-bottom: 5px;
+    }
 }
