@@ -3,7 +3,7 @@ import { Container } from 'react-bootstrap';
 
 const HowItWorks = () => {
     return (
-        <Container>
+        <Container className="pt-high">
             <div className="pt-3 text-danger d-flex justify-content-center">
                 <div className="heading">
                     <h1 className='section-heading text-uppercase'>How It Works</h1>

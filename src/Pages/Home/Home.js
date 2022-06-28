@@ -142,7 +142,7 @@ entered to book your ticket.</p>
                     </Col>
                     <Col md={5}>
                         <div className="flight_content">
-                            <h1 className='text-white'>What is the average cost for 1 person in other Private Jets?</h1>
+                            <h1 className='text-white'>What is the average cost for 1 person in other <br /> Private Jets?</h1>
                             <br />
                             <p className='text-white'><b>SGD 11,000.00</b></p>
                             <p className='text-white'>You need to share with another 9 passengers.</p>
@@ -154,9 +154,9 @@ entered to book your ticket.</p>
 
             <Modal show={openModal} onHide={handleCloseModal}>
                 <Modal.Header closeButton>
-                    <Modal.Title>{DepartureAirport}-{ArrivalAirport}</Modal.Title>
+                    <Modal.Title>{DepartureAirport} to {ArrivalAirport}</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>Have you selected the airports correctly.</Modal.Body>
+                <Modal.Body>Have you selected the airports correctly?</Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleCloseModal}>
                         No

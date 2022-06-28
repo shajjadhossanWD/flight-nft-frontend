@@ -92,12 +92,12 @@ const Search = () => {
             <Row>
                 <Col>
                     <form className='d-flex' onSubmit={handleSearch}>
-                        <select className='form-control mb-3' name="DepartureAirport" id="DepartureAirport" value={DepartureAirport} onChange={handleDepartureAirport} required>
+                        <select className='form-control' name="DepartureAirport" id="DepartureAirport" value={DepartureAirport} onChange={handleDepartureAirport} required>
                             {
                                 DepartureAirportList.map(airport => <option value={airport}>{airport}</option>)
                             }
                         </select>
-                        <select className='form-control mb-3' name="ArrivalAirport" id="ArrivalAirport" value={ArrivalAirport} onChange={e => setArrivalAirport(e.target.value)} required>
+                        <select className='form-control' name="ArrivalAirport" id="ArrivalAirport" value={ArrivalAirport} onChange={e => setArrivalAirport(e.target.value)} required>
                             {
                                 ArrivalAirportList.map((airport) => <option value={airport}>{airport}</option>)
                             }

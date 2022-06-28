@@ -4,7 +4,7 @@ import "./Marketplace.css";
 
 const Marketplace = () => {
     return (
-        <Container className='my-3'>
+        <Container className='pt-high'>
             <div className="pt-3 text-danger d-flex justify-content-center">
                 <div className="heading my-2">
                     <h1 className='section-heading text-uppercase'>Pricing</h1>

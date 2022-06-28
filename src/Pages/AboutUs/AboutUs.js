@@ -15,8 +15,7 @@ const AboutUs = () => {
             .finally(() => setLoading(false));
     }, [])
     return (
-        <Container>
-
+        <Container className="pt-high">
             <div className="pt-3 text-danger d-flex justify-content-center mb-3">
                 <div className="heading">
                     <h1 className='section-heading text-uppercase'>About Us</h1>
