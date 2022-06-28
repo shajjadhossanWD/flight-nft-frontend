@@ -55,6 +55,10 @@ const Search = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
+        if (DepartureAirport !== "Singapore") {
+            setArrivalAirportList(["Singapore"])
+            setArrivalAirport("Singapore")
+        }
         axios.get(`https://backend.flightnft.net/api/v1/flight/${DepartureAirport}/${ArrivalAirport}`)
             .then(res => {
                 if (res.status === 200) {
@@ -75,10 +79,6 @@ const Search = () => {
         if (e.target.value === "Singapore") {
             setArrivalAirportList(indianAirports)
             setArrivalAirport(indianAirports[0])
-        }
-        if (e.target.value !== "Singapore") {
-            setArrivalAirportList(["Singapore"])
-            setArrivalAirport("Singapore")
         }
     }
 
