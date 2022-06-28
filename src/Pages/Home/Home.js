@@ -46,7 +46,7 @@ const Home = () => {
     const [openModal, setOpenModal] = useState(false);
     const [DepartureAirport, setDepartureAirport] = useState(DepartureAirportList[0]);
     const [ArrivalAirportList, setArrivalAirportList] = useState([...indianAirports]);
-    const [ArrivalAirport, setArrivalAirport] = useState("");
+    const [ArrivalAirport, setArrivalAirport] = useState(ArrivalAirportList[0]);
     const navigate = useNavigate();
 
     const handleDepartureAirport = (e) => {

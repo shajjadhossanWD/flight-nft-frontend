@@ -7,6 +7,7 @@ import HowItWorks from "./Pages/HowItWorks/HowItWorks";
 import Marketplace from "./Pages/Marketplace/Marketplace";
 import Contact from "./Pages/Contact/Contact";
 import PublicLayout from "./Components/Shared/PublicLayout";
+import Search from "./Pages/Search/Search";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path='/how-it-works' element={<HowItWorks />} />
           <Route path='/pricing' element={<Marketplace />} />
           <Route path='/contact' element={<Contact />} />
+          <Route path='/search' element={<Search />} />
         </Route>
       </Routes>
     </BrowserRouter>
