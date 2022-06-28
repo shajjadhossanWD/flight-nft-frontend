@@ -55,6 +55,10 @@ const Search = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
+        if (DepartureAirport !== "Singapore") {
+            setArrivalAirportList(["Singapore"])
+            setArrivalAirport("Singapore")
+        }
         axios.get(`https://backend.flightnft.net/api/v1/flight/${DepartureAirport}/${ArrivalAirport}`)
             .then(res => {
                 if (res.status === 200) {
@@ -76,10 +80,6 @@ const Search = () => {
             setArrivalAirportList(indianAirports)
             setArrivalAirport(indianAirports[0])
         }
-        if (e.target.value !== "Singapore") {
-            setArrivalAirportList(["Singapore"])
-            setArrivalAirport("Singapore")
-        }
     }
 
     const handleSearch = (e) => {
@@ -92,12 +92,12 @@ const Search = () => {
             <Row>
                 <Col>
                     <form className='d-flex' onSubmit={handleSearch}>
-                        <select className='form-control mb-3' name="DepartureAirport" id="DepartureAirport" value={DepartureAirport} onChange={handleDepartureAirport} required>
+                        <select className='form-control' name="DepartureAirport" id="DepartureAirport" value={DepartureAirport} onChange={handleDepartureAirport} required>
                             {
                                 DepartureAirportList.map(airport => <option value={airport}>{airport}</option>)
                             }
                         </select>
-                        <select className='form-control mb-3' name="ArrivalAirport" id="ArrivalAirport" value={ArrivalAirport} onChange={e => setArrivalAirport(e.target.value)} required>
+                        <select className='form-control' name="ArrivalAirport" id="ArrivalAirport" value={ArrivalAirport} onChange={e => setArrivalAirport(e.target.value)} required>
                             {
                                 ArrivalAirportList.map((airport) => <option value={airport}>{airport}</option>)
                             }

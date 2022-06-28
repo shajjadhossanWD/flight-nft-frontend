@@ -49,6 +49,7 @@ const Home = () => {
     const [ArrivalAirport, setArrivalAirport] = useState(ArrivalAirportList[0]);
     const navigate = useNavigate();
 
+    console.log(ArrivalAirport)
     const handleDepartureAirport = (e) => {
         setDepartureAirport(e.target.value);
         if (e.target.value === "Singapore") {
