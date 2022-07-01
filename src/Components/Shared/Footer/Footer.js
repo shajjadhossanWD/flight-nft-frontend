@@ -10,7 +10,10 @@ const Footer = () => {
             })
     }, [])
     return (
+        <>
+        <p className="mb-4 made-love text-center">Made love with DS Legends Pte Ltd.</p>
         <div className='text-center my-3 footer'>
+            
             <span className='underline2'></span>
             <p className="text-light position-relative">Copyright &copy; 2022 flightnft.net </p>
             <div className="d-flex justify-content-center gap-3 flex-row">
@@ -103,6 +106,7 @@ const Footer = () => {
                 
                
         </div>
+        </>
     );
 };
 

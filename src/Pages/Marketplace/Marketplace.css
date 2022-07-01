@@ -14,6 +14,7 @@
     padding: 50px;
 }
 
+
 .pricing-list > p {
     margin-bottom: 30px;
     font-size: 19px;
@@ -38,6 +39,7 @@
     padding: 30px;
      border-top: 2px solid #fff !important;
      border-left: none !important;
+     text-align: center !important;
     }
     .pricing-image.w-100 img {
         height: 290px !important;

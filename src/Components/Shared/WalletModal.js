@@ -1,53 +1,70 @@
-import React, { useContext } from 'react';
-import { Button, Modal } from 'react-bootstrap';
+import { forwardRef, useEffect, useState, useContext } from 'react';
+import * as React from 'react';
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import Slide from '@mui/material/Slide';
+import { Card, Col, Row } from 'react-bootstrap';
 import { FlightNFTContext } from '../../Context/FlightNFTContext';
 
-const wallet = [
-    { img: "/paymentWallet/1.png", name: "Metamask" },
-    // { img: "/paymentWallet/2.png", name: "Bitski" },
-    // { img: "/paymentWallet/3.png", name: "Formatic" },
-    // { img: "/paymentWallet/5.png", name: "Coinbase" },
-    // { img: "/paymentWallet/6.png", name: "Arkane" },
-    // { img: "/paymentWallet/7.png", name: "Authereum" },
-    // { img: "/paymentWallet/8.png", name: "Torus" },
-    // { img: "/paymentWallet/4.png", name: "WalletConnect" },
-]
+const Transition = forwardRef(function Transition(props, ref) {
+  return <Slide direction="top" ref={ref} {...props} />;
+});
 
-const WalletModal = () => {
-    const { loginModal, closeLoginModal, connectWallet } = useContext(FlightNFTContext);
-    return (
-        <Modal show={loginModal} onHide={closeLoginModal} centered style={{ zIndex: 100001 }}>
-            <Modal.Body>
-                <div className="row py-2 text-center">
-                    <div>
-                        <p>Please note:</p>
-                        <p className='mb-0'>1. Login to Metamask before clicking the metamask icon below.</p>
-                        <p>2. Click again if you are not connected.</p>
-                    </div>
-                    {
-                        wallet.map((item, index) =>
-                            <div className="payment-option py-2" key={index} onClick={() => connectWallet(item.name)}>
-                                <img src={item.img} alt="" />
-                                <p>{item.name}</p>
-                            </div>
-                        )
-                    }
-                    <div>
-                        <h6>You can use Binance Chain to connect.</h6>
-                        <h6>Add Binance Chain in your Metamask as follows.</h6>
-                        <h6>
-                            <a href="https://academy.binance.com/en/articles/connecting-metamask-to-binance-smart-chain" target="_blank" rel="noreferrer">https://academy.binance.com/en/articles/connecting-metamask-to-binance-smart-chain</a>
-                        </h6>
-                    </div>
-                    <div className='py-2'>
-                        <Button variant="secondary" onClick={closeLoginModal} className="m-auto">
-                            Close
-                        </Button>
-                    </div>
-                </div>
-            </Modal.Body>
-        </Modal>
-    );
-};
+export default function WalletModal({ open, handleClose }) {
+   const { connectWallet } = useContext(FlightNFTContext);
 
-export default WalletModal;
+
+  return (
+    // <Fade top>
+    <div className='dialogDiv'>
+      <Dialog
+        open={open}
+        TransitionComponent={Transition}
+        keepMounted
+        onClose={handleClose}
+        aria-describedby="alert-dialog-slide-description"
+        className='dialog'
+      >
+        <div className="dialogWallet pt-4">
+
+          {/* <div className="closeBtn">
+          <Button onClick={handleClose} className="text-white fs-6">X</Button>
+        </div> */}
+          <DialogContent className='alertWalletDiv'>
+            {/* <p className='content mt-3'>Connect with one of the wallet.</p> */}
+
+            <DialogContentText id="alert-dialog-slide-description">
+              <div className="">
+                <p className=' contents  mt-1 text-center' style={{ fontSize: 14 }}>Please note:</p>
+                <p className='contents text-center mb-0' style={{ fontSize: 14 }}>1. Login to Metamask before clicking the metamask icon below.</p>
+                <p className='contents text-center mb-0' style={{ fontSize: 14 }}>2. Click again if you are not connected.</p>
+              </div>
+              <Row xs={1} md={1} className="g-2">
+                <Col>
+                  <Card className='walletDiv' onClick={() => connectWallet('Metamask')} > 
+                    <Card.Img variant="top" src="https://i.ibb.co/vVf533V/1.png" className="imgWallet" />
+                    <Card.Body>
+                      <Card.Title className='walletName'>Metamask</Card.Title>
+                    </Card.Body>
+                  </Card>
+                </Col>
+              </Row>
+              <div className="contentDiv">
+                <p className='contents'>You can use Binance Chain to connect.</p>
+                <p className='contents'>Add Binance Chain in your Metamask as follows.</p>
+                <p className='contents px-2'><a className='contents1' href="https://academy.binance.com/en/articles/connecting-metamask-to-binance-smart-chain" target="_any" >https://academy.binance.com/en/articles
+                  /connecting-metamask-to-binance-smart-chain</a></p>
+              </div>
+              <p className='text-center mt-4'>
+                <Button onClick={handleClose} className="text-white fs-6 bg-danger">cancel</Button>
+              </p>
+            </DialogContentText>
+          </DialogContent>
+        </div>
+      </Dialog>
+    </div>
+    // </Fade>
+  );
+}

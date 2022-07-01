@@ -1,7 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, forwardRef } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from "axios";
+import Dialog from '@mui/material/Dialog';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import Slide from '@mui/material/Slide';
+
+
+const Transition = forwardRef(function Transition(props, ref) {
+    return <Slide direction="top" ref={ref} {...props} />;
+});
 
 const indianAirports = [
     "Indira Gandhi International Airport",
@@ -44,6 +53,17 @@ const indianAirports = [
 const DepartureAirportList = ["Singapore", ...indianAirports];
 
 const Search = () => {
+
+    const [open, setOpen] = useState(false);
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+
     const search = window.location.search;
     const params = new URLSearchParams(search);
     const [message, setMessage] = useState("");
@@ -88,35 +108,96 @@ const Search = () => {
     }
 
     return (
-        <Container className="py-4">
-            <Row>
-                <Col>
-                    <form className='d-flex' onSubmit={handleSearch}>
-                        <select className='form-control' name="DepartureAirport" id="DepartureAirport" value={DepartureAirport} onChange={handleDepartureAirport} required>
-                            {
-                                DepartureAirportList.map(airport => <option value={airport}>{airport}</option>)
-                            }
-                        </select>
-                        <select className='form-control' name="ArrivalAirport" id="ArrivalAirport" value={ArrivalAirport} onChange={e => setArrivalAirport(e.target.value)} required>
-                            {
-                                ArrivalAirportList.map((airport) => <option value={airport}>{airport}</option>)
-                            }
-                        </select>
-                        <button type="submit" className='btn btn-danger'><i className="fa-solid fa-magnifying-glass"></i></button>
-                    </form>
-                </Col>
-            </Row>
-            <Row>
-                <Col>
-                    <div className="border border-1 mt-5 p-5">
-                        <h6 className='text-white fw-normal'>Departure Airport: {DepartureAirport} &nbsp; &nbsp; &nbsp; &nbsp; Arrival Airport: {ArrivalAirport}</h6>
-                        <h3 className={`${available ? "text-danger" : "text-white"} text-center text-md-start`}>{message}
+        <>
+            <Container className="py-5 ">
+                <Row>
+                    <Col className="searchDiv">
+                        <form className='d-flex' onSubmit={handleSearch}>
+                            <select className='form-control' name="DepartureAirport" id="DepartureAirport" value={DepartureAirport} onChange={handleDepartureAirport} required>
+                                {
+                                    DepartureAirportList.map(airport => <option value={airport}>{airport}</option>)
+                                }
+                            </select>
+                            <select className='form-control' name="ArrivalAirport" id="ArrivalAirport" value={ArrivalAirport} onChange={e => setArrivalAirport(e.target.value)} required>
+                                {
+                                    ArrivalAirportList.map((airport) => <option value={airport}>{airport}</option>)
+                                }
+                            </select>
+                            <button type="submit" className='btn btn-danger'><i className="fa-solid fa-magnifying-glass"></i></button>
+                        </form>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <div className="border border-1 mt-5">
+                            {/* <h6 className='text-white fw-normal'>Departure Airport: {DepartureAirport} &nbsp; &nbsp; &nbsp; &nbsp; Arrival Airport: {ArrivalAirport}</h6> */}
+                            <div className="tickit_name_wraper">
+                                <h3 className={`${available ? "text-danger" : "ticket_color"} text-center`}>{message} </h3>
+                            </div>
                             {/* <Button variant="success" className={`float-md-end mt-1 mt-md-0`} disabled={available ? false : true}>Mint Your Title Now for {industryList.find((ind) => ind.industry === industry).bnb} BNB</Button> */}
-                        </h3>
+                            {/* </h3> */}
+                            <div className="ticket_image_wrapper text-dark">
+                                <div className="from position_ticket">
+                                    <p className='fromto ticket_color2'>From</p>
+                                    <p className="mb-0">{DepartureAirport}</p>
+                                </div>
+                                <div className="to position_ticket">
+                                    <p className='fromto ticket_color2'>To</p>
+                                    <p className="mb-0">{ArrivalAirport}</p>
+                                </div>
+                                <div className="ticket_right d-flex">
+                                    <p className="from-right mb-0">
+                                        {DepartureAirport}
+                                    </p>
+                                    <p className="ticket_to mb-0">
+                                        To
+                                    </p>
+                                    <p className="to-right mb-0">
+                                        {ArrivalAirport}
+                                    </p>
+                                </div>
+                                <div className="ticket_serial">
+                                    <p className='mb-0 serial_number'>SERIAL NUMBER</p>
+                                </div>
+                                <div className="ticket_nft">
+                                    <p className='mb-0 nft_number'>NFT ID</p>
+                                </div>
+                            </div>
+                            <div className="text-center ticket_btn">
+                                <a onClick={handleClickOpen} className='text-center banner-button text-decoration-none' underline="none">BUY NOW</a>
+                            </div>
+
+                        </div>
+                    </Col>
+                </Row>
+            </Container>
+
+
+
+            <div className='dialogDiv '>
+                <Dialog
+                    open={open}
+                    TransitionComponent={Transition}
+                    keepMounted
+                    onClose={handleClose}
+                    aria-describedby="alert-dialog-slide-description"
+                    className='dialog theme-bg'
+                >
+                    <div className="dialogWallet pt-4">
+
+                        <DialogContent className='alertWalletDiv text-center'>
+
+                            <DialogContentText id="alert-dialog-slide-description">
+
+                                <h1 className="text-danger p-5 my-3">Launching 16 July 2022</h1>
+
+                                <Link to="/ideas" className='mb-3 banner-button text-decoration-none' underline="none">OK</Link>
+                            </DialogContentText>
+                        </DialogContent>
                     </div>
-                </Col>
-            </Row>
-        </Container>
+                </Dialog>
+            </div>
+        </>
     );
 };
 

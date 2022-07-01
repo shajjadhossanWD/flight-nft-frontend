@@ -53,12 +53,11 @@ const HowItWorks = () => {
                                     <ol>
                                         <li>Get your NFTs now. The NFTs can be used
                                             for trips to 30 airports in India for the first
-                                            release. </li>
+                                            phase. </li>
                                         <li>More airports and countries will be
                                             launched soon.</li>
                                         <li>This NFT is your flight ticket. </li>
-                                        <li>It will have a serial number which can be
-                                            entered to book your ticket.</li>
+                                        <li>You can start flying from 1 Jan 2023</li>
                                     </ol>
                                 </p>
                             </div>
@@ -71,7 +70,7 @@ const HowItWorks = () => {
                                         <li>Daily 2 flights from Singapore </li>
                                         <li>Daily 2 Flights from India</li>
                                         <li>Singapore: Seletar Airport</li>
-                                        <li>India: Popular Airports </li>
+                                        <li>India: Popular and as per demand. </li>
                                         <li>Only for 12 passengers per day from Singapore</li>
                                         <li>Only for 12 passengers per day from India</li>
                                     </ol>
@@ -104,6 +103,7 @@ const HowItWorks = () => {
                                         <li>Investors who want to buy and sell</li>
                                         <li>Anyone with special needs</li>
                                         <li>Anyone who values time</li>
+                                        <li>For you</li>
                                     </ol>
                                 </p>
                             </div>

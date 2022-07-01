@@ -25,9 +25,9 @@ const AboutUs = () => {
             <Row>
                 <Col>
                     {
-                        loading && <h3 className='text-white'>Loading...</h3>
+                        loading && <h3 className='text-white about_content'>Loading...</h3>
                     }
-                    <div dangerouslySetInnerHTML={{ __html: data }} className="text-white"></div>
+                    <div dangerouslySetInnerHTML={{ __html: data }} className="text-white about_content"></div>
                 </Col>
             </Row>
         </Container>
