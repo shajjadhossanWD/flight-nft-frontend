@@ -12,7 +12,7 @@ const Marketplace = () => {
                 </div>
             </div>
             <div className="py-4">
-                <div className="row g-0  bg-price text-white">
+                <div className="row g-0  bg-price price-bg-1 text-white">
                     <div className="col-md-4">
                         <div className="priceHeading">
                             <h1 className="price-heading d-flex justify-content-center">
@@ -21,9 +21,9 @@ const Marketplace = () => {
                         </div>
                     </div>
                     <div className="col-md-7">
-                        <div className="pricing-content">
+                        <div className="pricing-content pricing-border">
                             <div className="pricing-list">
-                                <p>Get the NFT for <b>SGD at 3000 (169987.87 5882Indian Rupees)<br /> from 16 July 2022.</b> </p>
+                                <p>Get the NFT for <b>SGD at 3000 (169987.87 Indian Rupees)<br /> from 16 July 2022.</b> </p>
                                 <p>It will go up 4 times before the launch. </p>
                                 <p> <i>It is still worth for a lifetime private jet experience.</i> </p>
                             </div>
@@ -32,7 +32,7 @@ const Marketplace = () => {
                 </div>
             </div>
             <div className="py-4">
-                <div className="row g-0  bg-price text-white">
+                <div className="row g-0  bg-price price-bg-2 text-white">
                     <div className="col-md-4">
                         <div className="priceHeading">
                             <h1 className="price-heading text-uppercase d-flex justify-content-center">
@@ -42,7 +42,7 @@ const Marketplace = () => {
                         </div>
                     </div>
                     <div className="col-md-7">
-                        <div className="pricing-content">
+                        <div className="pricing-content pricing-border">
                             <div className="pricing-list">
                                 <p>Taxes will be added as per the country law.</p>
                                 <p> <i>We can guarantee nothing will be more than SGD 2000 (113325.24 Indian Rupee).

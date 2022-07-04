@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Container, Navbar, Nav } from 'react-bootstrap';
+import { Container, Nav, Navbar } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import swal from 'sweetalert';
 import { FlightNFTContext } from '../../../Context/FlightNFTContext';
@@ -48,7 +48,7 @@ const NavbarHeader = () => {
                         { (!user1.walletAddress || user1.walletAddress === "undefined") ?
                         <Nav.Link href="#login" className='ms-2 navitem pe-0' onClick={handleClickOpen}>
                            <span className='pclogin me-3'>Login With Wallet</span>  
-                           <div className='bg-danger px-3 py-2 text-white d-inline-block rounded'><i className="fa-solid fa-wallet"></i></div>
+                           <div className='bg-danger px-3 py-2 text-white d-inline-block rounded nav-model'><i className="fa-solid fa-wallet"></i></div>
                            <span className='mobilelogin'>Login With Wallet</span>
                         </Nav.Link>
                          :

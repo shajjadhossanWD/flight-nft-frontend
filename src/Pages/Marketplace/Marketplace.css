@@ -1,17 +1,23 @@
 
 .bg-price {
     align-items: center;
-    background-image: linear-gradient(to right, #e52d27 0%, #b31217  51%, #e52d27  100%);
-    height: 400px;
+     height: 400px;
     display: flex;
     justify-content: center;
     opacity:.8;
   
 } 
+.price-bg-1{
+    background-image:   linear-gradient(-90deg,#ff9100 18%,#ff6f00 86%);
+}
+
+.price-bg-2{
+    background: linear-gradient(to right, #673ab7, #512da8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
 
 .pricing-content {
     border-left: 2px solid #fff;
-    padding: 50px;
+    padding:  50px;
 }
 
 
@@ -36,10 +42,13 @@
 }
 @media screen and (max-width:425px) {
     .pricing-content {
-    padding: 30px;
-     border-top: 2px solid #fff !important;
+     padding: 30px;
+     border-top: 0px !important;
      border-left: none !important;
      text-align: center !important;
+    }
+    .pricing-border{
+      border-top: 2px solid white !important;
     }
     .pricing-image.w-100 img {
         height: 290px !important;
@@ -47,4 +56,14 @@
     .pricing-image-content {
         text-align: center !important;
     }
+    .pricing-list{
+        margin-top: -20px;
+    }
+    .priceHeading{
+        padding-top: 15px;
+    }
+   .nav-model{
+       margin-bottom: 15px !important;
+   }
+    
 }

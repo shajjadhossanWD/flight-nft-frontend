@@ -232,6 +232,8 @@ nav.navbar.navbar-expand-lg.navbar-dark {
     text-transform: capitalize;
 }
 
+
+
 @media  screen and (min-width:1190px) {
     .from {
         left: 10%;
@@ -739,7 +741,16 @@ p.ticket_to.mb-0 {
     }
 
 }
-
+.textLeft{
+    text-align: left !important;
+}
+.swal-button {
+    background-color: #FF512F;
+    border: none !important;
+}
+.swal-modal{
+background-color: #dee2e6;
+}
 @media screen and (max-width:375px) {
     .social_link_wrapper.d-flex.justify-content-center.gap-3 {
         align-items: center;

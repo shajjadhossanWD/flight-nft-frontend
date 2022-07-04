@@ -1,0 +1,197 @@
+[
+    {
+        "aircraftName": "Legacy 650",
+        "image": "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fs3.amazonaws.com%2Fappforest_uf%2Ff1592515309299x641642967750838700%2FLegacy-650-ext-JS.jpg?w=384&h=224&auto=compress&dpr=1&fit=max",
+        "cost": 10000,
+        "pessanger": 9,
+        "departureTime": "2:45 PM",
+        "departureDate": "7/17/2022",
+        "aircraftPerformance": {
+            "model": "Legacy 650",
+            "cruiseSpeed": "502 mph",
+            "range": "3,766 mi",
+            "takeoffDistance": "5,714 ft",
+            "landingDistance": "2,685 ft",
+            "fuelBurnRate": "381 gph"
+        },
+        "aircraftSpecifications": {
+            "seats": 13,
+            "year": 2012,
+            "refurbishedYear": 2018,
+            "homebaseAirport": "LTN",
+            "baggageCapacity": "286 ft^3",
+            "category": "Heavy Jet"
+        },
+        "anotherImage": [
+            "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fs3.amazonaws.com%2Fappforest_uf%2Ff1556301358438x568757901110693400%2F650%2520ext.jpg?w=768&h=404&auto=compress&dpr=1&fit=max",
+            "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fs3.amazonaws.com%2Fappforest_uf%2Ff1556301363016x234218320808681000%2F650%2520int.jpg?w=384&h=204&auto=compress&dpr=1&fit=max"
+        ]
+    },
+    {
+        "aircraftName": "Gulfstream G350",
+        "image": "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fs3.amazonaws.com%2Fappforest_uf%2Ff1588958024991x321360382031092600%2Fgulfstream_g350_ex_tcm87-3901.jpg%253Fitok%253DTYPMmMBE?w=384&h=224&auto=compress&dpr=1&fit=max",
+        "cost": 11000,
+        "pessanger": 9,
+        "departureTime": "3:00 PM",
+        "departureDate": "7/17/2022",
+        "aircraftPerformance": {
+            "model": "Gulfstream G350",
+            "cruiseSpeed": "502 mph",
+            "range": "3,766 mi",
+            "takeoffDistance": "5,714 ft",
+            "landingDistance": "2,685 ft",
+            "fuelBurnRate": "381 gph"
+        },
+        "aircraftSpecifications": {
+            "seats": 14,
+            "year": 2012,
+            "refurbishedYear": 2018,
+            "homebaseAirport": "LTN",
+            "baggageCapacity": "286 ft^3",
+            "category": "Heavy Jet"
+        },
+        "anotherImage": [
+            "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fs3.amazonaws.com%2Fappforest_uf%2Ff1535158677343x319639065768569700%2Fbasgulf1.png?w=384&h=202&auto=compress&dpr=1&fit=max",
+            "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fs3.amazonaws.com%2Fappforest_uf%2Ff1535158681971x684867096133530160%2Fbasgulf2.png?w=384&h=202&auto=compress&dpr=1&fit=max"
+        ]
+    },
+    {
+        "aircraftName": "Falcon 900LX",
+        "image": "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fs3.amazonaws.com%2Fappforest_uf%2Ff1592515297372x395867451247176900%2Fdassault-falcon-900lx-aircraft-hero.jpg?w=384&h=224&auto=compress&dpr=1&fit=max",
+        "cost": 9000,
+        "pessanger": 9,
+        "departureTime": "4:00 PM",
+        "departureDate": "7/17/2022",
+        "aircraftPerformance": {
+            "model": "Falcon 900LX",
+            "cruiseSpeed": "528 mph",
+            "range": "5,466 mi",
+            "takeoffDistance": "5,360 ft",
+            "landingDistance": "2,415 ft",
+            "fuelBurnRate": "304 gph"
+        },
+        "aircraftSpecifications": {
+            "seats": 14,
+            "year": 2017,
+            "refurbishedYear": 2017,
+            "homebaseAirport": "RKH",
+            "baggageCapacity": "127 ft^3",
+            "category": "Heavy Jet"
+        },
+        "anotherImage": [
+            "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fs3.amazonaws.com%2Fappforest_uf%2Ff1523830580213x585470416117459500%2FExterior.jpg?w=768&h=405&auto=compress&dpr=1&fit=max",
+            "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fs3.amazonaws.com%2Fappforest_uf%2Ff1523830582410x299881561193615170%2FInterior1.jpg?w=768&h=405&auto=compress&dpr=1&fit=max"
+        ]
+    },
+    {
+        "aircraftName": "Legacy 650",
+        "image": "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fs3.amazonaws.com%2Fappforest_uf%2Ff1592515309299x641642967750838700%2FLegacy-650-ext-JS.jpg?w=384&h=224&auto=compress&dpr=1&fit=max",
+        "cost": 10000,
+        "pessanger": 9,
+        "departureTime": "2:45 PM",
+        "departureDate": "7/20/2022",
+        "aircraftPerformance": {
+            "model": "Legacy 650",
+            "cruiseSpeed": "502 mph",
+            "range": "3,766 mi",
+            "takeoffDistance": "5,714 ft",
+            "landingDistance": "2,685 ft",
+            "fuelBurnRate": "381 gph"
+        },
+        "aircraftSpecifications": {
+            "seats": 13,
+            "year": 2012,
+            "refurbishedYear": 2018,
+            "homebaseAirport": "LTN",
+            "baggageCapacity": "286 ft^3",
+            "category": "Heavy Jet"
+        },
+        "anotherImage": [
+            "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fs3.amazonaws.com%2Fappforest_uf%2Ff1556301358438x568757901110693400%2F650%2520ext.jpg?w=768&h=404&auto=compress&dpr=1&fit=max",
+            "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fs3.amazonaws.com%2Fappforest_uf%2Ff1556301363016x234218320808681000%2F650%2520int.jpg?w=384&h=204&auto=compress&dpr=1&fit=max"
+        ]
+    },
+    {
+        "aircraftName": "Gulfstream G350",
+        "image": "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fs3.amazonaws.com%2Fappforest_uf%2Ff1588958024991x321360382031092600%2Fgulfstream_g350_ex_tcm87-3901.jpg%253Fitok%253DTYPMmMBE?w=384&h=224&auto=compress&dpr=1&fit=max",
+        "cost": 11000,
+        "departureTime": "3:00 PM",
+        "departureDate": "7/19/2022",
+        "aircraftPerformance": {
+            "model": "Gulfstream G350",
+            "cruiseSpeed": "502 mph",
+            "range": "3,766 mi",
+            "takeoffDistance": "5,714 ft",
+            "landingDistance": "2,685 ft",
+            "fuelBurnRate": "381 gph"
+        },
+        "aircraftSpecifications": {
+            "seats": 14,
+            "year": 2012,
+            "refurbishedYear": 2018,
+            "homebaseAirport": "LTN",
+            "baggageCapacity": "286 ft^3",
+            "category": "Heavy Jet"
+        },
+        "anotherImage": [
+            "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fs3.amazonaws.com%2Fappforest_uf%2Ff1535158677343x319639065768569700%2Fbasgulf1.png?w=384&h=202&auto=compress&dpr=1&fit=max",
+            "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fs3.amazonaws.com%2Fappforest_uf%2Ff1535158681971x684867096133530160%2Fbasgulf2.png?w=384&h=202&auto=compress&dpr=1&fit=max"
+        ]
+    },
+    {
+        "aircraftName": "Falcon 900LX",
+        "image": "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fs3.amazonaws.com%2Fappforest_uf%2Ff1592515297372x395867451247176900%2Fdassault-falcon-900lx-aircraft-hero.jpg?w=384&h=224&auto=compress&dpr=1&fit=max",
+        "cost": 9000,
+        "pessanger": 9,
+        "departureTime": "4:00 PM",
+        "departureDate": "7/19/2022",
+        "aircraftPerformance": {
+            "model": "Falcon 900LX",
+            "cruiseSpeed": "528 mph",
+            "range": "5,466 mi",
+            "takeoffDistance": "5,360 ft",
+            "landingDistance": "2,415 ft",
+            "fuelBurnRate": "304 gph"
+        },
+        "aircraftSpecifications": {
+            "seats": 14,
+            "year": 2017,
+            "refurbishedYear": 2017,
+            "homebaseAirport": "RKH",
+            "baggageCapacity": "127 ft^3",
+            "category": "Heavy Jet"
+        },
+        "anotherImage": [
+            "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fs3.amazonaws.com%2Fappforest_uf%2Ff1523830580213x585470416117459500%2FExterior.jpg?w=768&h=405&auto=compress&dpr=1&fit=max",
+            "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fs3.amazonaws.com%2Fappforest_uf%2Ff1523830582410x299881561193615170%2FInterior1.jpg?w=768&h=405&auto=compress&dpr=1&fit=max"
+        ]
+    },
+    {
+        "aircraftName": "Falcon 900LX",
+        "image": "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fs3.amazonaws.com%2Fappforest_uf%2Ff1592515297372x395867451247176900%2Fdassault-falcon-900lx-aircraft-hero.jpg?w=384&h=224&auto=compress&dpr=1&fit=max",
+        "cost": 9000,
+        "pessanger": 9,
+        "departureTime": "4:00 PM",
+        "departureDate": "7/21/2022",
+        "aircraftPerformance": {
+            "model": "Falcon 900LX",
+            "cruiseSpeed": "528 mph",
+            "range": "5,466 mi",
+            "takeoffDistance": "5,360 ft",
+            "landingDistance": "2,415 ft",
+            "fuelBurnRate": "304 gph"
+        },
+        "aircraftSpecifications": {
+            "seats": 14,
+            "year": 2017,
+            "refurbishedYear": 2017,
+            "homebaseAirport": "RKH",
+            "baggageCapacity": "127 ft^3",
+            "category": "Heavy Jet"
+        },
+        "anotherImage": [
+            "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fs3.amazonaws.com%2Fappforest_uf%2Ff1523830580213x585470416117459500%2FExterior.jpg?w=768&h=405&auto=compress&dpr=1&fit=max",
+            "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fs3.amazonaws.com%2Fappforest_uf%2Ff1523830582410x299881561193615170%2FInterior1.jpg?w=768&h=405&auto=compress&dpr=1&fit=max"
+        ]
+    }
+]

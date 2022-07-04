@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Footer = () => {
     const [link, setLink] = useState({});
@@ -11,7 +11,7 @@ const Footer = () => {
     }, [])
     return (
         <>
-        <p className="mb-4 made-love text-center">Made love with DS Legends Pte Ltd.</p>
+        <p className="mb-4 made-love text-center">Made with ❤ by DS Legends Pte Ltd.</p>
         <div className='text-center my-3 footer'>
             
             <span className='underline2'></span>

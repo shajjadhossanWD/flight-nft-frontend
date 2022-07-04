@@ -11,6 +11,7 @@ import Search from "./Pages/Search/Search";
 import Profile from "./Pages/Profile/Profile";
 import ScrollToTop from "./Components/ScrollToTop/ScrollToTop";
 import Ideas from "./Pages/Ideas/Ideas";
+// import HomeFlight from "./Pages/Home/HomeFlight/HomeFlight";
 
 function App() {
   return (
@@ -27,6 +28,8 @@ function App() {
           <Route path='/search' element={<Search />} />
           <Route path='/profile' element={<Profile />} />
           <Route path='/ideas' element={<Ideas />} />
+          {/* <Route path='/test' element={<HomeFlight />} /> */}
+
         </Route>
       </Routes>
     </BrowserRouter>
