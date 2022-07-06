@@ -1,25 +1,25 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import { FlightNFTContext } from '../../Context/FlightNFTContext';
+// import { FlightNFTContext } from '../../Context/FlightNFTContext';
 import { Container, Row, Col } from 'react-bootstrap';
 
 
 const AboutUs = () => {
     const [data, setData] = useState();
     const [loading, setLoading] = useState(false);
-    const { 
-        getBalanceTestnet, 
-        RewardFreeUSDSC, 
-        currentAccount, 
-        SwitchNetwork, 
-        mintTicketNFTTestnetBNB, 
-        mintTicketNFTTestnetUSDSC, 
-        get, 
-        RewardFreeDSL, 
-        mintTicketNFTTestnetDSL, 
-        getBalanceMainnet,
-        getNFTMetaDataTestnet
-        } = useContext(FlightNFTContext);
+    // const { 
+    //     getBalanceTestnet, 
+    //     RewardFreeUSDSC, 
+    //     currentAccount, 
+    //     SwitchNetwork, 
+    //     mintTicketNFTTestnetBNB, 
+    //     mintTicketNFTTestnetUSDSC, 
+    //     get, 
+    //     RewardFreeDSL, 
+    //     mintTicketNFTTestnetDSL, 
+    //     getBalanceMainnet,
+    //     getNFTMetaDataTestnet
+    //     } = useContext(FlightNFTContext);
 
 
     useEffect(() => {
@@ -31,7 +31,7 @@ const AboutUs = () => {
             .finally(() => setLoading(false));
     }, [])
     
-    function Test(){
+    // function Test(){
         // getBalanceMainnet();
         // const email = "izaansohail10.is@gmail.com"
         // RewardFreeUSDSC(currentAccount, email);
@@ -42,8 +42,8 @@ const AboutUs = () => {
         // RewardFreeDSL(currentAccount, email)
         // mintTicketNFTTestnetDSL(url)
         // getBalanceTestnet();
-        getNFTMetaDataTestnet()
-    }
+        // getNFTMetaDataTestnet()
+    // }
     
     return (
         <Container className="pt-high">

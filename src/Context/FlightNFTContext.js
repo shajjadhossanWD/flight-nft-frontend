@@ -411,7 +411,9 @@ export default function FlightNFTProvider({ children }) {
           const MintNFTContract = getMintContractTestnet();
           console.log(MintNFTContract);
           const ID = await MintNFTContract.totalSupply();
-          const tokenID = "10000" + ID.toString()
+          const token = parseInt(ID) +1
+          console.log(token)
+          const tokenID = "10000" + token.toString()
           console.log(tokenID);
           const SerialNumber = "DSL" + tokenID;
           console.log(SerialNumber);
