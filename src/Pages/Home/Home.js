@@ -133,7 +133,11 @@ const Home = () => {
                             </div>
                         </Col>
 
-                        <Col md={4} className="text-center">
+                        <Col md={4} className="text-center"
+                         data-aos="fade-zoom-in"
+                         data-aos-duration="1000"
+                         data-aos-easing="ease-in-back"
+                          > 
                             <div className='banner-content-wrapper'>
                                 <h1 className="text-danger pt-3">FLIGHT NFT</h1>
                                 <p className="text-info text-white py-2">Fly in Private. {""}  Get your NFTs now. <br /> This NFT is your flight ticket for private flying. </p>
@@ -160,9 +164,12 @@ const Home = () => {
                     </Row>
 
                     {/* get nft section */}
-                    <div className="deep-bg d-flex justify-content-center" >
+                    <div className="deep-bg d-flex justify-content-center"   >
                         <div className="row g-0 text-white d-flex align-items-center justify-content-center">
-                            <div className="col-md-4 ">
+                            <div className="col-md-4 "
+                             data-aos="fade-right"
+                             data-aos-duration="3000"
+                            >
                                 <div className="priceHeading">
                                     <h1 className="home_flight_heading">
                                         LIFE IS <br />
@@ -189,7 +196,7 @@ const Home = () => {
                         </div>
                     </div> 
                     <Row className="align-items-center mt-4 mb-0">
-                        <Col md={7} className="mb-4">
+                        <Col md={7} className="mb-4" >
                              <div className='row'>
                                  <div className='col-sm-12 col-md-12 col-lg-8 mb-3' >
                                    <h5 className='text-danger fw-bold mb-1 pb-2'>Private Flights </h5>
@@ -241,23 +248,26 @@ const Home = () => {
                                         :
                                         <h4 className='text-center py-2 border border-1 border-bottom-0 border-start-0 border-end-0'>No Flight Founds</h4>
                                 }
-                                {/* <img className="img-fluid" src="https://i.ibb.co/DKdNrn9/09.jpg" alt="Pricing" /> */}
-                            </div>
+                             </div>
                             <ViewDataModal open={open} setOpen={setOpen} singleData={singleData}/>
                             <AutoOpenModal autoOpen={autoOpen} setAutoOpen={setAutoOpen}/>
                         </Col>
-                        <Col md={5}>
-                            <div className="flight_content">
+                        <Col md={5} 
+                        data-aos="fade-up"
+                        data-aos-duration="3000">
+                            <div className="flight_content"  >
+                          
                                 <h3 className='text-white averageText'>What is the average cost for one person in other Private Jets?</h3>
                                 <br />
                                 <p className='text-white'><b>SGD 11,000.00 (626,134.04 Indian Rupees)</b></p>
                                 <p className='text-white'>You need to share with another 9 or more passengers. Furthermore, you must pay for the full flight.</p>
+                           
                             </div>
                         </Col>
                     </Row>
                     <Row>
                         <Box className="d-flex" style={{justifyContent: 'center'}}>
-                          <h5 className='mt-3 mb-3 text-white text15'><span className='text-danger'>Flightnft.net</span> is provided by DS Legends Pte Ltd.</h5>
+                          <h5 className='mt-3 mb-3 text-white text15' style={{fontFamily:"system-ui"}}> <Link className='text-danger' to="/" style={{textDecoration: 'revert'}}> Flightnft.net</Link>  is provided by DS Legends Pte Ltd.</h5>
                         </Box>
                         <img src="https://i.ibb.co/G0bxDBj/Whats-App-Image-2022-07-06-at-9-23-46-PM.jpg" alt="" className="p-2" style={{width:"100%", height:"70%" }} />
                     </Row>

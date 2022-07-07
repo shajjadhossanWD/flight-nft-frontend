@@ -34,7 +34,7 @@ export default function PhoneVerifyModal({open, setOpenPhone}) {
       >
        <Box sx={style}>
           <Typography id="modal-modal-title text-light" variant="h6" component="h2">
-            Verify Phone OTP code
+            Verify Mobile
           </Typography>
           <Typography id="modal-modal-description text-light" sx={{ mt: 2 }}>
             Chack your phone and enter this OTP code.

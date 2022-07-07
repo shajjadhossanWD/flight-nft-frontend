@@ -1,4 +1,3 @@
-import React from 'react';
 import { Container } from 'react-bootstrap';
 import "./Marketplace.css";
 
@@ -12,7 +11,10 @@ const Marketplace = () => {
                 </div>
             </div>
             <div className="py-4">
-                <div className="row g-0  bg-price price-bg-1 text-white">
+                <div className="row g-0  bg-price price-bg-1 text-white"
+                data-aos="fade-up"
+                data-aos-duration="3000"
+                >
                     <div className="col-md-4">
                         <div className="priceHeading">
                             <h1 className="price-heading d-flex justify-content-center">
@@ -20,7 +22,7 @@ const Marketplace = () => {
                             </h1>
                         </div>
                     </div>
-                    <div className="col-md-7">
+                    <div className="col-md-7" >
                         <div className="pricing-content pricing-border">
                             <div className="pricing-list">
                                 <p>Get the NFT for <b>SGD3000 (169987.87 Indian Rupees)<br /> from 16 July 2022.</b> </p>
@@ -32,7 +34,10 @@ const Marketplace = () => {
                 </div>
             </div>
             <div className="py-4">
-                <div className="row g-0  bg-price price-bg-2 text-white">
+                <div className="row g-0  bg-price price-bg-2 text-white"
+                data-aos="fade-up"
+                data-aos-duration="3000" 
+                >
                     <div className="col-md-4">
                         <div className="priceHeading">
                             <h1 className="price-heading text-uppercase d-flex justify-content-center">

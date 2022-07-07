@@ -1,11 +1,27 @@
+ 
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import CertificatModal from './Certificate.modal';
+ 
 
 const AboutUs = () => {
     const [data, setData] = useState();
     const [loading, setLoading] = useState(false);
+    // const { 
+    //     getBalanceTestnet, 
+    //     RewardFreeUSDSC, 
+    //     currentAccount, 
+    //     SwitchNetwork, 
+    //     mintTicketNFTTestnetBNB, 
+    //     mintTicketNFTTestnetUSDSC, 
+    //     get, 
+    //     RewardFreeDSL, 
+    //     mintTicketNFTTestnetDSL, 
+    //     getBalanceMainnet,
+    //     getNFTMetaDataTestnet
+    //     } = useContext(FlightNFTContext);
+
 
     const [open, setOpen] = useState(false);
 
@@ -18,6 +34,21 @@ const AboutUs = () => {
             })
             .finally(() => setLoading(false));
     }, [])
+    
+    // function Test(){
+        // getBalanceMainnet();
+        // const email = "izaansohail10.is@gmail.com"
+        // RewardFreeUSDSC(currentAccount, email);
+        // const network = "bsc";
+        // const url = "https://jsonkeeper.com/b/JD10";
+        // mintTicketNFTTestnetUSDSC(url)
+        // get();
+        // RewardFreeDSL(currentAccount, email)
+        // mintTicketNFTTestnetDSL(url)
+        // getBalanceTestnet();
+        // getNFTMetaDataTestnet()
+    // }
+    
     return (
         <Container className="pt-high">
             <div className="pt-3 text-danger d-flex justify-content-center mb-3">
@@ -33,11 +64,13 @@ const AboutUs = () => {
                     }
                     <div dangerouslySetInnerHTML={{ __html: data }} className="text-white about_content"></div>
                 </Col>
+ 
                <div>
                   <button className='banner-button2 pt-3 pb-3 fontText' id="font14" onClick={setOpen} style={{ borderRadius: "0px 3px 3px 0px", background: "#FF512F", border: "1px solid #FF512F" }}>FinTech Certificate</button>
                </div>
             </Row> 
             <CertificatModal open={open } setOpen={setOpen} />
+ 
         </Container>
     );
 }

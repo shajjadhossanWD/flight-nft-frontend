@@ -34,7 +34,7 @@ export default function EmailVerifyModal({open, setOpenEmail}) {
       >
         <Box sx={style} id="">
           <Typography id="modal-modal-title text-light" variant="h6" component="h2">
-            Verify Email OTP code
+            Verify Email
           </Typography>
           <Typography id="modal-modal-description text-light" sx={{ mt: 2 }}>
             Chack your email and enter this OTP code.

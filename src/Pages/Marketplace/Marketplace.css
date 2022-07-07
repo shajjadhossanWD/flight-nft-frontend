@@ -110,15 +110,21 @@
     align-items: flex-end;
 }
 /* ------------------- */
+ 
+
+
 .text14{
-    font-size: 14px;
+    font-size: 14px !important;
 }
+
+ 
 
  
 @media only screen and (max-width: 600px) {
     
     #text17{
-        font-size: 17px;
+        font-size: 17px !important; 
+
     }
     #certificatModal{
         width: 90% !important; 

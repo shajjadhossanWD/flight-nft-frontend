@@ -149,6 +149,7 @@ p.text-light.mb-0 {
 .pricing-image-home img {
     opacity: .9;
     width: 100%;
+    border-radius: 7px;
 }
 
 /* get nft section */

@@ -75,21 +75,21 @@ const handleOpenEmail = () => {
         <div className='closeD'>
            <Button className='iconClose' onClick={handleClose}><CloseIcon className='iconClose' style={{color:"red"}}/></Button>
            </div>
-          <Typography id="modal-modal-title text-light mb-2" variant="h6" component="h2">
-           Join Our Waiting List
+          <Typography id="modal-modal-title text-light mb-2 text17" variant=" " style={{fontSize:'15px', lineHeight: '1.3'}}>
+           Join Our Waiting List. When we launch you might be the luky 100 to get the NFT free.
           </Typography>
           <Typography id="modal-modal-description text-light" sx={{ mt: 2 }}>
             
           </Typography>
           <from className="d-grid mt-2 mb-2"   >
              <div className='mb-1'>
-                 <label for="comment">Name*</label> 
+                 <label className='text14' for="comment">Name*</label> 
 
                  <input type="text" className='form-control' name="full name" placeholder="Name" />
              </div>
 
              <div className='mb-1'>
-                 <label for="comment">Email*</label>
+                 <label className='text14' for="comment">Email*</label>
                  <div className='d-flex'>
                      <input type="text" className='form-control' name="email" placeholder="Email" style={{ borderRadius: "3px 0px 0px 3px" }} />
                      <button type="submit" className='btn btn-danger' onClick={handleOpenEmail} style={{ borderRadius: "0px 3px 3px 0px", background: "#FF512F", border: "1px solid #FF512F" }}>verify</button>
@@ -97,7 +97,7 @@ const handleOpenEmail = () => {
              </div>
 
              <div className='mb-1'>
-                 <label for="comment">Number*</label>
+                 <label className='text14' for="comment">Mobile number*</label>
                  <div className='d-flex'>
                      <select className='form-control w-auto' name='countryCode' value={countryCode} onChange={e => setCountryCode(e.target.value)} style={{ borderRadius: "3px 0px 0px 3px" }}>
                          {
@@ -109,7 +109,7 @@ const handleOpenEmail = () => {
                  </div>
              </div>
              <div className='d-flex' style={{justifyContent: 'center'}}>
-                 <button className='banner-button2 text-decoration-none mb-2 mt-3 pt-2 pb-2' id="font14">Submit</button>
+                 <button className='banner-button2 font14 text-decoration-none mb-2 mt-3 pt-2 pb-2' id="font14">Submit</button>
              </div>
            </from>
          </Box>
