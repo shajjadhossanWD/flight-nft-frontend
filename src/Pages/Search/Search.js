@@ -3,10 +3,10 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import Slide from '@mui/material/Slide';
 import axios from "axios";
-import React, { forwardRef, useEffect, useState } from 'react';
+import React, { forwardRef, useEffect, useState, useRef } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-
+import * as htmlToImage from 'html-to-image';
 
 const Transition = forwardRef(function Transition(props, ref) {
     return <Slide direction="top" ref={ref} {...props} />;
@@ -75,6 +75,8 @@ const Search = () => {
 
     const navigate = useNavigate();
 
+    const ticketTemplate = useRef();
+
     useEffect(() => {
         if (DepartureAirport !== "Singapore") {
             setArrivalAirportList(["Singapore"])
@@ -108,6 +110,17 @@ const Search = () => {
         navigate(`/search?DepartureAirport=${DepartureAirport}&&ArrivalAirport=${ArrivalAirport}`);
     }
 
+    const mintFlight = async () => {
+        const dataUrl = await htmlToImage.toPng(ticketTemplate.current);
+        const data = new FormData();
+        data.append('file', dataUrl);
+        data.append('filename', 'ticket.png');
+        await axios.post('https://backend.flightnft.net/api/v1/mint/test-image-upload', data)
+            .then(res => {
+                console.log(res.data)
+            })
+    }
+
     return (
         <>
             <Container className="py-5 ">
@@ -137,7 +150,7 @@ const Search = () => {
                             </div>
                             {/* <Button variant="success" className={`float-md-end mt-1 mt-md-0`} disabled={available ? false : true}>Mint Your Title Now for {industryList.find((ind) => ind.industry === industry).bnb} BNB</Button> */}
                             {/* </h3> */}
-                            <div className="ticket_image_wrapper text-dark">
+                            <div className="ticket_image_wrapper text-dark" ref={ticketTemplate}>
                                 <div className="from position_ticket">
                                     <p className='fromto ticket_color2'>From</p>
                                     <p className="mb-0">{DepartureAirport}</p>
@@ -164,9 +177,9 @@ const Search = () => {
                                     <p className='mb-0 nft_number'>NFT ID</p>
                                 </div>
                             </div>
-                            <div className="text-center ticket_btn" style={{color:"white    "}}>
-                               <p>You need to pay SGD 3000 (Rs xxxxxx): USD xxxx</p>
-                                <a onClick={handleClickOpen} className='text-center banner-button text-decoration-none' underline="none">MINT FLIGHT NFT NOW</a>
+                            <div className="text-center ticket_btn" style={{ color: "white    " }}>
+                                <p>You need to pay SGD 3000 (Rs xxxxxx): USD xxxx</p>
+                                <button onClick={mintFlight} className='text-center banner-button text-decoration-none' underline="none">MINT FLIGHT NFT NOW</button>
                                 <h6 className='mt-4 font14'>You can pay BNB.USDSC and DSL</h6>
                                 <h6 className='ps-2 pe-2 font14'>If you pay by DSL, you can enjoy 30%, Gas Fees is paid by BNB</h6>
 
