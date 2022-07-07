@@ -8,10 +8,11 @@
   
 } 
 .price-bg-1{
-    background-image:   linear-gradient(-90deg,#ff9100 18%,#ff6f00 86%);
+    background-image: linear-gradient(to right,  #ff8902 0%,#ff5816 51%, #ff6f00 100%)  ;
 }
 
 .price-bg-2{
+    background-image: linear-gradient(to right, #673ab7 0%, #7349d4 51%, #5e31ac 100%)  ;
     background: linear-gradient(to right, #673ab7, #512da8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
@@ -39,7 +40,109 @@
 }
 .pricing-content-p > p {
     margin-bottom:20px;
+     border-radius: 50px 0px 50px 0px;
 }
+
+
+/* -------------------------- */
+.alainICenter{
+    align-items: center;
+    padding: 10px;
+}
+.margin0{
+    margin: 0 !important;
+}
+.iconsArr{
+    display: flex;
+    font-size: 30px !important;
+    color: cadetblue; 
+    justify-content: center !important;
+
+
+}
+.buttonArr{ 
+    height: 100%; 
+}
+.dateInput{
+    color: #593232;
+    padding: 16px;
+    font-weight: 600;
+    height: 50px;
+}
+
+.flyIcon{
+    background: #ff4e26eb;
+    border-radius: 50%;
+    font-size: 20px !important;
+    color:white !important;
+    margin-right:10px;
+}
+/* --------------------- */
+
+ 
+
+.closeD{
+  margin-top: -10px;
+  margin-bottom: 30px;
+  position: relative;
+  width: 100%;
+  height: 10px;
+   
+ }
+ 
+
+.iconClose{
+    position: absolute;
+    top: 2px;
+    right: 5px;
+    width: 40px;
+    height: 40px;
+    background: none !important;
+    border:none !important;
+    font-size: 25px !important;
+    
+}
+ 
+/* ----------------------- */
+.flex{
+    display: flex;
+    color: white;
+    align-items: flex-end;
+}
+/* ------------------- */
+.text14{
+    font-size: 14px;
+}
+
+ 
+@media only screen and (max-width: 600px) {
+    
+    #text17{
+        font-size: 17px;
+    }
+    #certificatModal{
+        width: 90% !important; 
+    }
+
+    #viewDataModal{
+        width: 90% !important; 
+    }
+    #imageCertificate{
+        width: 90% !important;
+    }
+    .dateInput{ 
+        padding: 16px;
+        height: 30px;
+    }
+    .text15{
+        font-size: 15px;
+    }
+   
+  }
+
+
+
+  /* ------------------------------- */
 @media screen and (max-width:425px) {
     .pricing-content {
      padding: 30px;
@@ -65,5 +168,28 @@
    .nav-model{
        margin-bottom: 15px !important;
    }
-    
-}
+/* ------------------------- */
+   .averageText{
+    font-size: 20px !important;
+   }
+   #font14{
+       font-size:14px;
+   }
+   .font14{
+       font-size:14px;
+   }
+   .smallDvButton{
+    font-size: 10px !important;
+    padding: 5px 25px !important;
+   }
+   .fontText{
+       padding: 10px; 
+       padding-top: 7px !important;
+       padding-bottom: 7px !important;
+   }
+   /* ------------------------------ */
+       
+   }
+ 
+ 
+  

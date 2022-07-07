@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
-
+ 
 const HowItWorks = () => {
     return (
         <Container className="pt-high">
@@ -13,7 +13,7 @@ const HowItWorks = () => {
             <div className="py-4">
                 <div className="row">
                     <div className="text-center col">
-                        <video src="/banner-bg-2.mp4" controls autoPlay style={{ width: "100%", height: "100%" }} />
+                        <video src="/banner-bg-2.mp4" controls style={{ width: "100%", height: "100%" }} />
                     </div>
                 </div>
                 <div className="row">
@@ -30,7 +30,7 @@ const HowItWorks = () => {
                                     airport from arrival to boarding
                                     the plane was a whopping 133
                                     minutes.</p>
-                                <p> People who are plus size and
+                                <p> People who needs are plus size and
                                     with special abilities always
                                     face issues in the airport or in
                                     the flight.
@@ -39,12 +39,10 @@ const HowItWorks = () => {
                             <div className="problem-single-content text-white mb-4">
                                 <p className="mb-2 fs-4 text-danger"><b>The Solution</b>
                                 </p>
-                                <p>You can check in 30 mins
-                                    before the flight
-                                    <br /> There will be 5 other fellow
-                                    passengers only. Special
-                                    attention will be given by
-                                    our crew.</p>
+                                <ol>
+                                    <li>You can check in 30 mins before the flight.</li>
+                                    <li>There will be 5 other fellow passengers only. Special attention will be given by our crew.</li>
+                                </ol>
                             </div>
                             <div className="problem-single-content text-white mb-4">
                                 <p className="mb-2 fs-4 text-danger"><b>What you can do?</b>
@@ -52,7 +50,7 @@ const HowItWorks = () => {
                                 <p>
                                     <ol>
                                         <li>Get your NFTs now. The NFTs can be used
-                                            for trips to 30 airports in India for the first
+                                            for trips to popular airports in India for the first
                                             phase. </li>
                                         <li>More airports and countries will be
                                             launched soon.</li>
@@ -111,6 +109,7 @@ const HowItWorks = () => {
                     </div>
                 </div>
             </div>
+            
         </Container>
     );
 }

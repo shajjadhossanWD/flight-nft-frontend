@@ -1,10 +1,14 @@
-import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Container, Row, Col } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react';
+import { Col, Container, Row } from 'react-bootstrap';
+import CertificatModal from './Certificate.modal';
 
 const AboutUs = () => {
     const [data, setData] = useState();
     const [loading, setLoading] = useState(false);
+
+    const [open, setOpen] = useState(false);
+
 
     useEffect(() => {
         setLoading(true)
@@ -29,7 +33,11 @@ const AboutUs = () => {
                     }
                     <div dangerouslySetInnerHTML={{ __html: data }} className="text-white about_content"></div>
                 </Col>
-            </Row>
+               <div>
+                  <button className='banner-button2 pt-3 pb-3 fontText' id="font14" onClick={setOpen} style={{ borderRadius: "0px 3px 3px 0px", background: "#FF512F", border: "1px solid #FF512F" }}>FinTech Certificate</button>
+               </div>
+            </Row> 
+            <CertificatModal open={open } setOpen={setOpen} />
         </Container>
     );
 }

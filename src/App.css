@@ -55,7 +55,6 @@ a {
 }
 
 .banner {
-    /* background-image: url("../public/images/banner-bg.png"); */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -158,6 +157,7 @@ p.text-light.mb-0 {
     opacity: .7;
     margin: 60px 0;
     height: 516px;
+    border-radius: 50px 0px 50px 0px;
 }
 
 h1.home_flight_heading {
@@ -222,9 +222,7 @@ nav.navbar.navbar-expand-lg.navbar-dark {
     position: relative;
 }
 
-.text-center.ticket_btn {
-    margin: 25px 0;
-}
+ 
 
 .position_ticket {
     position: absolute;
@@ -232,7 +230,38 @@ nav.navbar.navbar-expand-lg.navbar-dark {
     text-transform: capitalize;
 }
 
-
+/* modal css  */
+.swal-content {
+    padding: 0 20px;
+    margin-top: 9px;
+    font-size: 15px;
+    overflow-wrap: break-word;
+    color: white;
+  }
+  .link_hash {
+    color: white;
+  }
+  .modal_class{
+    background-color: #0c2347;
+  }
+  .swal-modal{
+    background-color: #0c2347;
+  }
+  .modal_class_success .swal-icon::before {
+    background-color: transparent;
+  }
+  
+  .modal_class_success .swal-icon::after {
+    background-color: transparent;
+  }
+  .swal-icon--success__hide-corners {
+    background-color: transparent;
+  }
+  .success {
+    color: #FF343F;
+    margin-top: 1rem;
+    padding-bottom: 1.5rem;
+  }
 
 @media  screen and (min-width:1190px) {
     .from {
@@ -402,32 +431,69 @@ p.ticket_to.mb-0 {
     }
 
     .text-center.ticket_btn {
-        margin: 20px 0 !important;
+        font-size: 14px;
     }
 
 
 
     /* -----------positioning------------- */
 
+    p.fromto.ticket_color2 {
+        font-size: 0.45rem !important;
+    }
     .from.position_ticket {
-        display: none;
+        top: 84px !important;
+        left: 27px;
     }
-
+    .position_ticket {
+        max-width: 77px !important;
+    }
+    
     .to.position_ticket {
-        display: none;
+        top: 84px !important;
+        font-size: 0.45rem !important;
     }
-
-    .ticket_right.d-flex {
-        display: none !important;
+    .from.position_ticket {
+        top: 84px !important;
+        font-size: 0.45rem !important;
     }
-
-    .ticket_serial {
-        display: none;
-    }
-
     .ticket_nft {
-        display: none;
+        font-size: 0.45rem !important;
+        right: 39%;
+        bottom: 38px;
     }
+    
+    .ticket_serial{
+         font-size: 0.45rem !important;
+         right: 25%;
+         bottom: 71px;
+    }
+
+
+p.ticket_to.mb-0 {
+    font-size: 0.45rem!important;
+}
+
+.ticket_right.d-flex {
+    font-size: 0.45rem !important;
+    right: -32px;
+    top: 49px;
+}
+p.from-right.mb-0 {
+    right: 49px;
+    top: 0px !important;
+    min-width: 120px !important;
+}
+p.to-right.mb-0 {
+    right: 51px;
+    top: 39px;
+    min-width: 120px !important;
+}
+p.ticket_to.mb-0 {
+    right: 106px;
+    top:16px !important;
+}
+
 }
 
 @media screen and (max-width:375px) {
@@ -749,7 +815,7 @@ p.ticket_to.mb-0 {
     border: none !important;
 }
 .swal-modal{
-background-color: #dee2e6;
+background-color: rgb(23, 22, 22);
 }
 @media screen and (max-width:375px) {
     .social_link_wrapper.d-flex.justify-content-center.gap-3 {

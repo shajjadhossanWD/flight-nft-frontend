@@ -1,11 +1,11 @@
-import React, { useEffect, useState, forwardRef } from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
-import axios from "axios";
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import Slide from '@mui/material/Slide';
+import axios from "axios";
+import React, { forwardRef, useEffect, useState } from 'react';
+import { Col, Container, Row } from 'react-bootstrap';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 const Transition = forwardRef(function Transition(props, ref) {
@@ -47,7 +47,8 @@ const indianAirports = [
     "Udaipur Airport",
     "Jolly Grant Airport",
     "Maharaja Bir Bikram Airport",
-    "Imphal Airport"
+    "Imphal Airport",
+    "Thiruchirapalli Airport"
 ]
 
 const DepartureAirportList = ["Singapore", ...indianAirports];
@@ -163,8 +164,13 @@ const Search = () => {
                                     <p className='mb-0 nft_number'>NFT ID</p>
                                 </div>
                             </div>
-                            <div className="text-center ticket_btn">
-                                <a onClick={handleClickOpen} className='text-center banner-button text-decoration-none' underline="none">BUY NOW</a>
+                            <div className="text-center ticket_btn" style={{color:"white    "}}>
+                               <p>You need to pay SGD 3000 (Rs xxxxxx): USD xxxx</p>
+                                <a onClick={handleClickOpen} className='text-center banner-button text-decoration-none' underline="none">MINT FLIGHT NFT NOW</a>
+                                <h6 className='mt-4 font14'>You can pay BNB.USDSC and DSL</h6>
+                                <h6 className='ps-2 pe-2 font14'>If you pay by DSL, you can enjoy 30%, Gas Fees is paid by BNB</h6>
+
+
                             </div>
 
                         </div>
