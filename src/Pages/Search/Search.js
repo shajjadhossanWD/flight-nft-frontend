@@ -3,10 +3,12 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import Slide from '@mui/material/Slide';
 import axios from "axios";
-import React, { forwardRef, useEffect, useState, useRef } from 'react';
+import React, { forwardRef, useEffect, useState, useRef, useContext } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import * as htmlToImage from 'html-to-image';
+import { FlightNFTContext } from '../../Context/FlightNFTContext';
+import swal from 'sweetalert';
 
 const Transition = forwardRef(function Transition(props, ref) {
     return <Slide direction="top" ref={ref} {...props} />;
@@ -64,6 +66,7 @@ const Search = () => {
         setOpen(false);
     };
 
+    const { user, openWalletModal, getNFTMetaDataTestnet, NFTMetaData, mintTicketNFTTestnetBNB, mintTicketNFTTestnetUSDSC, mintTicketNFTTestnetDSL, setRequestLoading } = useContext(FlightNFTContext);
 
     const search = window.location.search;
     const params = new URLSearchParams(search);
@@ -72,6 +75,7 @@ const Search = () => {
     const [DepartureAirport, setDepartureAirport] = useState(params.get('DepartureAirport'));
     const [ArrivalAirportList, setArrivalAirportList] = useState([...indianAirports]);
     const [ArrivalAirport, setArrivalAirport] = useState(params.get('ArrivalAirport'));
+    const [token, setToken] = useState("bnb");
 
     const navigate = useNavigate();
 
@@ -110,14 +114,87 @@ const Search = () => {
         navigate(`/search?DepartureAirport=${DepartureAirport}&&ArrivalAirport=${ArrivalAirport}`);
     }
 
+    useEffect(() => {
+        getNFTMetaDataTestnet();
+    }, [])
+
     const mintFlight = async () => {
+        if (!user?.walletAddress) {
+            return openWalletModal();
+        }
+        setRequestLoading(true);
         const dataUrl = await htmlToImage.toPng(ticketTemplate.current);
         const data = new FormData();
         data.append('file', dataUrl);
-        data.append('filename', 'ticket.png');
-        await axios.post('https://backend.flightnft.net/api/v1/mint/test-image-upload', data)
-            .then(res => {
-                console.log(res.data)
+        data.append('departureAirport', DepartureAirport);
+        data.append('arrivalAirport', ArrivalAirport);
+        data.append('serialNumber', NFTMetaData?.SerialNumber);
+        data.append('TokenID', NFTMetaData?.ID);
+
+        await axios.post('https://backend.flightnft.net/api/v1/mint/uri-json-nft', data, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem("token")}`
+            }
+        })
+            .then(async (res) => {
+                let mint_hash;
+                if (res.status === 200) {
+                    data.append('ticket', res.data.ticket);
+                    if (token === "bnb") {
+                        mint_hash = await mintTicketNFTTestnetBNB(res.data.uri, data);
+                    }
+                    else if (token === "usdsc") {
+                        mint_hash = await mintTicketNFTTestnetUSDSC(res.data.uri, data);
+                    }
+                    else if (token === "dsl") {
+                        mint_hash = await mintTicketNFTTestnetDSL(res.data.uri, data);
+                    }
+                    data.append("mint_hash", mint_hash);
+                    await axios.post("https://backend.flightnft.net/api/v1/mint/save-nft", data, {
+                        headers: {
+                            Authorization: `Bearer ${localStorage.getItem("token")}`
+                        }
+                    })
+                        .then(res => {
+                            if (res.status === 200) {
+                                setRequestLoading(false);
+                                const wrapper = document.createElement("div");
+                                wrapper.innerHTML = `<a href=${mint_hash} target="_any" className="link_hash">${mint_hash}</a> <br/> <p class="success"><b>You have successfully minted flight ticket NFT.<b></p>`
+                                swal({
+                                    title: "Minted",
+                                    content: wrapper,
+                                    icon: "success",
+                                    button: "OK",
+                                    className: "modal_class_success",
+                                });
+                            }
+                        })
+                        .catch(err => {
+                            console.log(err);
+                            setRequestLoading(false);
+                            const wrapper = document.createElement("div");
+                            wrapper.innerHTML = `<a href=${mint_hash} target="_any" className="link_hash">${mint_hash}</a> <br/> <p class="success"><b>You have successfully minted flight ticket NFT but error in while saving data.<b></p>`
+                            swal({
+                                title: "Warning",
+                                content: wrapper,
+                                icon: "warning",
+                                button: "OK",
+                                className: "modal_class_success",
+                            });
+                        })
+                }
+            })
+            .catch(err => {
+                console.log(err);
+                setRequestLoading(false);
+                return swal({
+                    title: "Attention",
+                    text: "Something went wrong. Please try again later.",
+                    icon: "warning",
+                    button: "OK",
+                    dangerMode: true,
+                    className: "modal_class",
+                });
             })
     }
 
@@ -144,12 +221,9 @@ const Search = () => {
                 <Row>
                     <Col>
                         <div className="border border-1 mt-5">
-                            {/* <h6 className='text-white fw-normal'>Departure Airport: {DepartureAirport} &nbsp; &nbsp; &nbsp; &nbsp; Arrival Airport: {ArrivalAirport}</h6> */}
                             <div className="tickit_name_wraper">
                                 <h3 className={`${available ? "text-danger" : "ticket_color"} text-center`}>{message} </h3>
                             </div>
-                            {/* <Button variant="success" className={`float-md-end mt-1 mt-md-0`} disabled={available ? false : true}>Mint Your Title Now for {industryList.find((ind) => ind.industry === industry).bnb} BNB</Button> */}
-                            {/* </h3> */}
                             <div className="ticket_image_wrapper text-dark" ref={ticketTemplate}>
                                 <div className="from position_ticket">
                                     <p className='fromto ticket_color2'>From</p>
@@ -171,21 +245,24 @@ const Search = () => {
                                     </p>
                                 </div>
                                 <div className="ticket_serial">
-                                    <p className='mb-0 serial_number'>SERIAL NUMBER</p>
+                                    <p className='mb-0 serial_number'>{NFTMetaData?.SerialNumber}</p>
                                 </div>
                                 <div className="ticket_nft">
-                                    <p className='mb-0 nft_number'>NFT ID</p>
+                                    <p className='mb-0 nft_number'>{NFTMetaData?.ID}</p>
                                 </div>
                             </div>
                             <div className="text-center ticket_btn" style={{ color: "white    " }}>
                                 <p>You need to pay SGD 3000 (Rs xxxxxx): USD xxxx</p>
+                                <label>Pay by</label>
+                                <select className='form-control mx-auto mt-1 mb-3' name="token" id="token" value={token} onChange={e => setToken(e.target.value)} style={{ maxWidth: 450, width: "100%" }}>
+                                    <option value="bnb">BNB</option>
+                                    <option value="usdsc">USDSC</option>
+                                    <option value="dsl">DSL</option>
+                                </select>
                                 <button onClick={mintFlight} className='text-center banner-button text-decoration-none' underline="none">MINT FLIGHT NFT NOW</button>
                                 <h6 className='mt-4 font14'>You can pay BNB.USDSC and DSL</h6>
                                 <h6 className='ps-2 pe-2 font14'>If you pay by DSL, you can enjoy 30%, Gas Fees is paid by BNB</h6>
-
-
                             </div>
-
                         </div>
                     </Col>
                 </Row>

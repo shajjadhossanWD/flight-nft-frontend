@@ -263,6 +263,9 @@ nav.navbar.navbar-expand-lg.navbar-dark {
     margin-top: 1rem;
     padding-bottom: 1.5rem;
   }
+  .swal-text{
+    text-align: center;
+  }
 
 @media  screen and (min-width:1190px) {
     .from {
@@ -332,10 +335,10 @@ p.ticket_to.mb-0 {
 }
 
 .ticket_serial {
-    left: 52%;
+    left: 54%;
     position: absolute;
     transform: rotate(-90deg);
-    bottom: 133px;
+    bottom: 117px;
     font-weight: 600;
 }
 
@@ -867,4 +870,26 @@ background-color: rgb(23, 22, 22);
         margin-left: 1.8rem;
     }
 
+}
+
+.loader {
+    border: 16px solid #f3f3f3;
+    /* Light grey */
+    border-top: 16px solid #db3450;
+    /* Blue */
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    animation: spin 2s linear infinite;
+    margin: auto;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
