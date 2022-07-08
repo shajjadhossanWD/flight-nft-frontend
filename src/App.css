@@ -310,7 +310,7 @@ p.ticket_to.mb-0 {
     right: 140px;
     position: absolute;
     top: 34px !important;
-    margin: 5px 0;
+    margin: -2px 0;
     color: #C74B91 !important;
     font-size: 22px !important;
 }

@@ -43,7 +43,7 @@ const Ideas = () => {
                 className: "modal_class_success",
             });
         } else {
-            axios.post("https://backend.flightnft.net/api/v1/ideas/send-email-verification-code", { email })
+            axios.post("https://backend.flightnft.net/api/v1/contact/send-email-verification-code", { email })
                 .then(res => {
                     if (res.status === 200) {
                         swal({
@@ -83,7 +83,7 @@ const Ideas = () => {
                 className: "modal_class_success",
             });
         } else {
-            axios.post("https://backend.flightnft.net/api/v1/ideas/send-mobile-verification-code", {
+            axios.post("https://backend.flightnft.net/api/v1/contact/send-mobile-verification-code", {
                 mobile: countryCode + mobile
             }, {
                 headers: { "authorization": `Bearer ${localStorage.getItem("contactToken")}` }
@@ -121,7 +121,7 @@ const Ideas = () => {
         const name = e.target.name.value;
         const ideas = e.target.ideas.value;
 
-        axios.post("https://backend.flightnft.net/api/v1/ideas/save-full-data", {
+        axios.post("https://backend.flightnft.net/api/v1/contact/save-full-data-ideas", {
             name, ideas
         }, {
             headers: { "authorization": `Bearer ${localStorage.getItem("contactToken")}` }
@@ -224,10 +224,7 @@ const Ideas = () => {
                                     </div>
 
                                     <button type="submit" className='btn btn-danger pt-3 pb-3  text15 mt-2' >STAND A CHANCE TO WIN 1000 USDSC</button>
-                                    </form>
-
-
-
+                                    </form> 
                                 </div>
                             </div>
                         </div>

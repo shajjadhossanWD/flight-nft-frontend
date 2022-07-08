@@ -76,7 +76,7 @@ const handleOpenEmail = () => {
            <Button className='iconClose' onClick={handleClose}><CloseIcon className='iconClose' style={{color:"red"}}/></Button>
            </div>
           <Typography id="modal-modal-title text-light mb-2 text17" variant=" " style={{fontSize:'15px', lineHeight: '1.3'}}>
-           Join Our Waiting List. When we launch you might be the luky 100 to get the NFT free.
+           Join Our Waiting List. When we launch you might be the lucky 100 to get the NFT free.
           </Typography>
           <Typography id="modal-modal-description text-light" sx={{ mt: 2 }}>
             
