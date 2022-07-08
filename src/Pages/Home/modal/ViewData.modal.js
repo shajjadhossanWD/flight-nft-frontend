@@ -15,48 +15,48 @@ const style = {
   bgcolor: 'black',
   border: '2px solid white',
   boxShadow: 24,
-  color:"white",
-  borderRadius:'5px',
+  color: "white",
+  borderRadius: '5px',
   p: 4,
 };
 
-export default function ViewDataModal({open, setOpen, singleData}) {
- 
+export default function ViewDataModal({ open, setOpen, singleData }) {
+
   const handleClose = () => setOpen(false);
 
-  const hendelSubmit = (e)=>{
+  const hendelSubmit = (e) => {
     console.log(e.terget.value)
   }
 
   return (
-    <div> 
+    <div>
       <Modal
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description" 
+        aria-describedby="modal-modal-description"
       >
-        
-         <Box className='BoxModal' id="viewDataModal" sx={style} >
-           <div className='closeD'>
-           <Button className='iconClose' onClick={handleClose}><CloseIcon className='iconClose' style={{color:"red"}}/></Button>
-              
-           </div>
-             <h3 className='mb-2'>{singleData?.aircraftName}</h3>
-             <h6>Estimated Price: SGD {singleData?.cost} For one passenger</h6>
-             <h6>Departure Airport: {singleData?.departureAirport} </h6>
-             <h6>Arrival  Airport: {singleData?.arrivalAirport}  </h6>
+
+        <Box className='BoxModal' id="viewDataModal" sx={style} >
+          <div className='closeD'>
+            <Button className='iconClose' onClick={handleClose}><CloseIcon className='iconClose' style={{ color: "red" }} /></Button>
+
+          </div>
+          <h3 className='mb-2'>{singleData?.aircraftName}</h3>
+          <h6>Estimated Price: SGD {singleData?.cost} For one passenger</h6>
+          <h6>Departure Airport: {singleData?.departureAirport} </h6>
+          <h6>Arrival  Airport: {singleData?.arrivalAirport}  </h6>
 
 
-             <div className='row pt-5' style={{alignItems:"center"}}>
-               <div className='col-3'>
-                   <span><i class="fa-solid fa-user" style={{color:"cadetblue"}} ></i> {singleData?.aircraftSpecifications?.seats}</span>
-               </div>
-               <div className='col-9'>
-                <Link to='/'><button className='banner-button2 text-decoration-none mb-4 text14 smallDvButton'  onClick={handleClose} id="font14">BUY OURS AT SGD 3000</button></Link>
-                </div>
-              </div> 
-         </Box>
+          <div className='row pt-5' style={{ alignItems: "center" }}>
+            <div className='col-3'>
+              <span><i className="fa-solid fa-user" style={{ color: "cadetblue" }} ></i> {singleData?.aircraftSpecifications?.seats}</span>
+            </div>
+            <div className='col-9'>
+              <Link to='/'><button className='banner-button2 text-decoration-none mb-4 text14 smallDvButton' onClick={handleClose} id="font14">BUY OURS AT SGD 3000</button></Link>
+            </div>
+          </div>
+        </Box>
       </Modal>
     </div>
   );

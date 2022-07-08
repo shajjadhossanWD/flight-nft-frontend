@@ -1,4 +1,4 @@
-import { forwardRef, useEffect, useState, useContext } from 'react';
+import { forwardRef, useContext } from 'react';
 import * as React from 'react';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
@@ -12,18 +12,18 @@ const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="top" ref={ref} {...props} />;
 });
 
-export default function WalletModal({ open, handleClose }) {
-   const { connectWallet } = useContext(FlightNFTContext);
+export default function WalletModal() {
+  const { connectWallet, walletModal, closeWalletModal, } = useContext(FlightNFTContext);
 
 
   return (
     // <Fade top>
     <div className='dialogDiv'>
       <Dialog
-        open={open}
+        open={walletModal}
         TransitionComponent={Transition}
         keepMounted
-        onClose={handleClose}
+        onClose={closeWalletModal}
         aria-describedby="alert-dialog-slide-description"
         className='dialog'
       >
@@ -43,7 +43,7 @@ export default function WalletModal({ open, handleClose }) {
               </div>
               <Row xs={1} md={1} className="g-2">
                 <Col>
-                  <Card className='walletDiv' onClick={() => connectWallet('Metamask')} > 
+                  <Card className='walletDiv' onClick={() => connectWallet('Metamask')} >
                     <Card.Img variant="top" src="https://i.ibb.co/vVf533V/1.png" className="imgWallet" />
                     <Card.Body>
                       <Card.Title className='walletName'>Metamask</Card.Title>
@@ -58,7 +58,7 @@ export default function WalletModal({ open, handleClose }) {
                   /connecting-metamask-to-binance-smart-chain</a></p>
               </div>
               <p className='text-center mt-4'>
-                <Button onClick={handleClose} className="text-white fs-6 bg-danger">cancel</Button>
+                <Button onClick={closeWalletModal} className="text-white fs-6 bg-danger">Cancel</Button>
               </p>
             </DialogContentText>
           </DialogContent>

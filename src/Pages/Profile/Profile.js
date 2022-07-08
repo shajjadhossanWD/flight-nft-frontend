@@ -13,7 +13,7 @@ import { FlightNFTContext } from "../../Context/FlightNFTContext";
 const Profile = () => {
   const [selectedImage, setSelectedImage] = useState();
   const [image, setImage] = useState();
-  const { user1, setUser, logOut } = useContext(FlightNFTContext);
+  const { user, setUser, logOut } = useContext(FlightNFTContext);
   let [loading] = useState(true);
   const [open, setOpen] = useState(false);
   const [error, setError] = useState("");
@@ -28,18 +28,18 @@ const Profile = () => {
   };
 
   useEffect(() => {
-    if (user1) {
-      if (user1.name) {
-        setName(user1.name);
+    if (user) {
+      if (user.name) {
+        setName(user.name);
       }
-      if (user1.email) {
-        setEmail(user1.email);
+      if (user.email) {
+        setEmail(user.email);
       }
-      if (user1.username) {
-        setUsername(user1.username);
+      if (user.username) {
+        setUsername(user.username);
       }
     }
-  }, [user1]);
+  }, [user]);
 
   const override = css`
     display: block;
@@ -47,7 +47,7 @@ const Profile = () => {
   `;
   useEffect(() => {
     if (!selectedImage) {
-      setImage(user1?.avatar || "https://i.ibb.co/DkGL0H4/maleprofile.jpg");
+      setImage(user?.avatar || "https://i.ibb.co/DkGL0H4/maleprofile.jpg");
       return;
     }
 
@@ -56,7 +56,7 @@ const Profile = () => {
 
     // free memory when ever this component is unmounted
     return () => URL.revokeObjectURL(objectUrl);
-  }, [selectedImage, user1?.avatar]);
+  }, [selectedImage, user?.avatar]);
 
   const changePhoto = (e) => {
     if (!e.target.files || e.target.files.length === 0) {
@@ -119,7 +119,7 @@ const Profile = () => {
     const walletAddress = e.target.walletAddress.value;
     const network = e.target.network.value;
 
-    if (email && !user1.isEmailVerified) {
+    if (email && !user.isEmailVerified) {
       return swal({
         title: "Attention",
         text: "Please verify your email first",
@@ -139,7 +139,7 @@ const Profile = () => {
 
     await axios
       .put(
-        `https://backend.dslcommerce.com/api/users/${user1.walletAddress}`,
+        `https://backend.dslcommerce.com/api/users/${user.walletAddress}`,
         formData
       )
       .then((res) => {
@@ -174,10 +174,10 @@ const Profile = () => {
   };
   console.log(
     error ||
-      (name === user1?.name &&
-        username === user1?.username &&
-        email === user1?.email &&
-        image === user1?.avatar)
+    (name === user?.name &&
+      username === user?.username &&
+      email === user?.email &&
+      image === user?.avatar)
   );
   const handleEmailChange = (e) => {
     const data = e.target.value;
@@ -228,20 +228,20 @@ const Profile = () => {
     navigate("/");
 
     swal({
-        // title: "S",
-        text: "You have successfully logged out.",
-        icon: "success",
-        button: "OK!",
-        className: "modal_class_success",
+      // title: "S",
+      text: "You have successfully logged out.",
+      icon: "success",
+      button: "OK!",
+      className: "modal_class_success",
     });
-}
+  }
 
   return (
     <div className="container py-3 profileContainer">
       <div className="container"></div>
       <h3 className="text-start text-white-50 profileTitles">Profile</h3>
 
-      {user1 ? (
+      {user ? (
         <form
           className="mb-5 shadow-lg rounded-lg pt-3 pb-5 px-4 p-md-5 align-items-center profileForm"
           onSubmit={updateProfile}
@@ -309,12 +309,12 @@ const Profile = () => {
                     type="button"
                     onClick={checkUsername}
                     className={
-                      username.length === 0 || username === user1.username
+                      username.length === 0 || username === user.username
                         ? "btn-secondary"
                         : ""
                     }
                     disabled={
-                      username.length === 0 || username === user1?.username
+                      username.length === 0 || username === user?.username
                         ? true
                         : false
                     }
@@ -343,13 +343,13 @@ const Profile = () => {
                     onClick={handleEmail}
                     className={
                       email.length === 0 ||
-                      (email === user1.email && user1.isEmailVerified)
+                        (email === user.email && user.isEmailVerified)
                         ? "btn-secondary"
                         : ""
                     }
                     disabled={
                       email.length === 0 ||
-                      (email === user1.email && user1.isEmailVerified)
+                        (email === user.email && user.isEmailVerified)
                         ? true
                         : false
                     }
@@ -359,7 +359,7 @@ const Profile = () => {
                 </div>
               </div>
 
-              {user1.walletAddress && (
+              {user.walletAddress && (
                 <div className="mb-2">
                   <label
                     htmlFor="walletAddress"
@@ -372,11 +372,11 @@ const Profile = () => {
                       type="text"
                       id="walletAddress"
                       name="walletAddress"
-                      value={user1.walletAddress}
+                      value={user.walletAddress}
                       className="form-control profileInput"
                       disabled
                     />
-                    <CopyToClipboard text={user1.walletAddress}>
+                    <CopyToClipboard text={user.walletAddress}>
                       <button className="copyBtn">
                         <ContentCopyIcon />
                       </button>
@@ -385,7 +385,7 @@ const Profile = () => {
                 </div>
               )}
 
-              {user1.walletAddress && (
+              {user.walletAddress && (
                 <div className="mb-2">
                   <label
                     htmlFor="network"
@@ -408,26 +408,25 @@ const Profile = () => {
                   Cancel
                 </Link>
                 <button
-                  className={`profileBtn fw-bold ${
-                    error ||
-                    (name === user1?.name &&
-                      username === user1?.username &&
-                      email === user1?.email &&
-                      image === user1?.avatar)
+                  className={`profileBtn fw-bold ${error ||
+                      (name === user?.name &&
+                        username === user?.username &&
+                        email === user?.email &&
+                        image === user?.avatar)
                       ? "btn-secondary"
                       : ""
-                  }`}
+                    }`}
                   type="submit"
                   disabled={
                     error ||
-                    (name === user1?.name &&
-                      username === user1?.username &&
-                      email === user1?.email &&
-                      image === user1?.avatar)
+                      (name === user?.name &&
+                        username === user?.username &&
+                        email === user?.email &&
+                        image === user?.avatar)
                       ? true
                       : false
                   }
-                  
+
                 >
                   Save
                 </button>

@@ -65,7 +65,7 @@ const Home = () => {
     const [open, setOpen] = useState(false);
     const [autoOpen, setAutoOpen] = useState(false);
 
-  
+
 
     console.log(selectDate);
 
@@ -95,7 +95,7 @@ const Home = () => {
     }
 
     const filterDate = (e) => {
-        const date = new Date(e.target.value).toLocaleDateString('ko-KR'); 
+        const date = new Date(e.target.value).toLocaleDateString('ko-KR');
         const newArr = flightData?.filter(flight => flight.departureDate === date);
         setSelectDate(date);
         setFilterData(newArr);
@@ -113,7 +113,7 @@ const Home = () => {
         navigate(`/search?DepartureAirport=${DepartureAirport}&&ArrivalAirport=${ArrivalAirport}`);
     }
 
-    const handelerOnClick = (data) =>{
+    const handelerOnClick = (data) => {
         setSingleData(data)
         setOpen(true)
     }
@@ -122,22 +122,22 @@ const Home = () => {
             <div className='banner'>
                 <Container className="pb-5 pt-3">
                     <Row className="align-items-center">
-                          
+
                         <Col md={8}>
-                             <div className='d-grid text-light' style={{justifyItems: 'center'}}>
-                                 <h5>First in the World</h5>
-                              </div>
-                             <div className="d-grid" style={{justifyItems: 'center'}}>
-                                 <button className='banner-button2 text-decoration-none mb-4' id="font14" style={{cursor:"auto"}}>First Phase: <span style={{color:"aquamarine"}}>0</span> of 10000 sold</button>
-                                 <video src="/banner-bg-2.mp4" controls style={{ width: "100%", height: "100%" }} />
+                            <div className='d-grid text-light' style={{ justifyItems: 'center' }}>
+                                <h5>First in the World</h5>
+                            </div>
+                            <div className="d-grid" style={{ justifyItems: 'center' }}>
+                                <button className='banner-button2 text-decoration-none mb-4' id="font14" style={{ cursor: "auto" }}>First Phase: <span style={{ color: "aquamarine" }}>0</span> of 10000 sold</button>
+                                <video src="/banner-bg-2.mp4" controls style={{ width: "100%", height: "100%" }} />
                             </div>
                         </Col>
 
                         <Col md={4} className="text-center"
-                         data-aos="fade-zoom-in"
-                         data-aos-duration="1000"
-                         data-aos-easing="ease-in-back"
-                          > 
+                            data-aos="fade-zoom-in"
+                            data-aos-duration="1000"
+                            data-aos-easing="ease-in-back"
+                        >
                             <div className='banner-content-wrapper'>
                                 <h1 className="text-danger pt-3">FLIGHT NFT</h1>
                                 <p className="text-info text-white py-2">Fly in Private. {""}  Get your NFTs now. <br /> This NFT is your flight ticket for private flying. </p>
@@ -167,8 +167,8 @@ const Home = () => {
                     <div className="deep-bg d-flex justify-content-center"   >
                         <div className="row g-0 text-white d-flex align-items-center justify-content-center">
                             <div className="col-md-4 "
-                             data-aos="fade-right"
-                             data-aos-duration="3000"
+                                data-aos="fade-right"
+                                data-aos-duration="3000"
                             >
                                 <div className="priceHeading">
                                     <h1 className="home_flight_heading">
@@ -188,88 +188,88 @@ const Home = () => {
                                             phase. </p>
                                         <p className="top-border">More airports and countries will be
                                             launched soon. </p>
-                                        <p className="top-border dif-color" style={{color:'aquamarine'}}>This NFT is your flight ticket.</p>
+                                        <p className="top-border dif-color" style={{ color: 'aquamarine' }}>This NFT is your flight ticket.</p>
 
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div> 
+                    </div>
                     <Row className="align-items-center mt-4 mb-0">
                         <Col md={7} className="mb-4" >
-                             <div className='row'>
-                                 <div className='col-sm-12 col-md-12 col-lg-8 mb-3' >
-                                   <h5 className='text-danger fw-bold mb-1 pb-2'>Private Flights </h5>
-                                        <div className='text-white d-flex mb-1' style={{alignItems: 'center'}}>
-                                              <FlightIcon  className='flyIcon'/>  
-                                              Singapore to India
-                                        </div>
-                                        <div className='d-flex text-white' style={{alignItems: 'center'}}> 
-                                              <FlightIcon  className='flyIcon' />
-                                              India to Singapore
-                                        </div>  
-                                 </div>
-                                 <div className='col-sm-12  col-md-12 col-lg-4 flex mb-3' > 
-                                 {/* <input type="date" className="mb-2 dateInput" id="date" name="trip-start" value="2018. 07. 22"  onChange={filterDate} /> */}
-                                 </div>
-                             </div>
-                             <div className="pricing-image-home w-100 bg-white">
+                            <div className='row'>
+                                <div className='col-sm-12 col-md-12 col-lg-8 mb-3' >
+                                    <h5 className='text-danger fw-bold mb-1 pb-2'>Private Flights </h5>
+                                    <div className='text-white d-flex mb-1' style={{ alignItems: 'center' }}>
+                                        <FlightIcon className='flyIcon' />
+                                        Singapore to India
+                                    </div>
+                                    <div className='d-flex text-white' style={{ alignItems: 'center' }}>
+                                        <FlightIcon className='flyIcon' />
+                                        India to Singapore
+                                    </div>
+                                </div>
+                                <div className='col-sm-12  col-md-12 col-lg-4 flex mb-3' >
+                                    {/* <input type="date" className="mb-2 dateInput" id="date" name="trip-start" value="2018. 07. 22"  onChange={filterDate} /> */}
+                                </div>
+                            </div>
+                            <div className="pricing-image-home w-100 bg-white">
                                 <Row>
                                     <Col >
                                         {/* <h5 className="text-start px-3 py-2">SIN{'>'}IND & SIN{'<'}IND &nbsp;&nbsp;&nbsp; {selectDate} </h5> */}
                                     </Col>
                                 </Row>
-                                
+
                                 {
                                     filterData.length ?
                                         filterData.map((flight, index) =>
                                             <Row key={index} className="border border-1 border-bottom-0 border-start-0 border-end-0 mx-0">
-                                                <Col sm={4} className=""> 
-                                                 <Link to='#'> 
-                                                  <img src={flight?.image} alt="" className="p-2" style={{width:"100%", height:"100%" }} />
-                                                  </Link> 
-                                                 </Col>
+                                                <Col sm={4} className="">
+                                                    <Link to='#'>
+                                                        <img src={flight?.image} alt="" className="p-2" style={{ width: "100%", height: "100%" }} />
+                                                    </Link>
+                                                </Col>
                                                 <Col sm={8} className="text-start alainICenter d-grid">
-                                                    <div className='row' style={{alignItems: 'center', color:"#303030"}}>
-                                                         <div className='col-9'> 
-                                                              <h5 className='margin0'>{flight?.aircraftName}</h5>
-                                                              <p className='margin0 pb-2'>Estimate SGD {flight?.cost}</p> 
-                                                              <span><i class="fa-solid fa-user" style={{color:"cadetblue"}}></i> {flight?.aircraftSpecifications?.seats}</span>
-                                                         </div>
-                                                         <div className='col-3 buttonArr' >
-                                                           <Button variant="text" className='buttonArr' onClick={()=> handelerOnClick(flight)}><ArrowForwardIosIcon className='iconsArr'/></Button>
-                                                         </div>
+                                                    <div className='row' style={{ alignItems: 'center', color: "#303030" }}>
+                                                        <div className='col-9'>
+                                                            <h5 className='margin0'>{flight?.aircraftName}</h5>
+                                                            <p className='margin0 pb-2'>Estimate SGD {flight?.cost}</p>
+                                                            <span><i className="fa-solid fa-user" style={{ color: "cadetblue" }}></i> {flight?.aircraftSpecifications?.seats}</span>
+                                                        </div>
+                                                        <div className='col-3 buttonArr' >
+                                                            <Button variant="text" className='buttonArr' onClick={() => handelerOnClick(flight)}><ArrowForwardIosIcon className='iconsArr' /></Button>
+                                                        </div>
                                                     </div>
-                                                    
-                                                           
-                                                </Col> 
+
+
+                                                </Col>
                                             </Row>
                                         )
                                         :
                                         <h4 className='text-center py-2 border border-1 border-bottom-0 border-start-0 border-end-0'>No Flight Founds</h4>
                                 }
-                             </div>
-                            <ViewDataModal open={open} setOpen={setOpen} singleData={singleData}/>
-                            <AutoOpenModal autoOpen={autoOpen} setAutoOpen={setAutoOpen}/>
+                            </div>
+                            <ViewDataModal open={open} setOpen={setOpen} singleData={singleData} />
+                            <AutoOpenModal autoOpen={autoOpen} setAutoOpen={setAutoOpen} />
                         </Col>
-                        <Col md={5} 
-                        data-aos="fade-up"
-                        data-aos-duration="3000">
+                        <Col md={5}
+                            data-aos="fade-up"
+                            data-aos-duration="3000">
                             <div className="flight_content"  >
-                          
+
                                 <h3 className='text-white averageText'>What is the average cost for one person in other Private Jets?</h3>
                                 <br />
                                 <p className='text-white'><b>SGD 11,000.00 (626,134.04 Indian Rupees)</b></p>
                                 <p className='text-white'>You need to share with another 9 or more passengers. Furthermore, you must pay for the full flight.</p>
-                           
+
                             </div>
                         </Col>
                     </Row>
                     <Row>
-                        <Box className="d-flex" style={{justifyContent: 'center'}}>
-                          <h5 className='mt-3 mb-3 text-white text15' style={{fontFamily:"system-ui"}}> <Link className='text-danger' to="/" style={{textDecoration: 'revert'}}> Flightnft.net</Link>  is provided by DS Legends Pte Ltd.</h5>
+                        <Box className="d-flex" style={{ justifyContent: 'center' }}>
+                            <h5 className='mt-3 mb-3 text-white text15' style={{ fontFamily: "system-ui" }}> <Link className='text-danger' to="/" style={{ textDecoration: 'revert' }}> Flightnft.net</Link>  is provided by DS Legends Pte Ltd.</h5>
                         </Box>
-                        <img src="https://i.ibb.co/G0bxDBj/Whats-App-Image-2022-07-06-at-9-23-46-PM.jpg" alt="" className="p-2" style={{width:"100%", height:"70%" }} />
+                        <img src="https://i.ibb.co/G0bxDBj/Whats-App-Image-2022-07-06-at-9-23-46-PM.jpg" alt="" className="p-2" style={{ width: "100%", height: "70%" }} />
                     </Row>
                 </Container>
 
