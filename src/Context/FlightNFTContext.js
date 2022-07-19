@@ -82,7 +82,7 @@ export default function FlightNFTProvider({ children }) {
     console.log(inst);
   }
 
-  const mintTicketNFTTestnetBNB = async (uriNft, data) => {
+  const mintTicketNFTTestnetBNB = async (uriNft, mintprice) => {
     try {
       if (ethereum) {
         const chainid = await window.ethereum.request({
@@ -95,7 +95,7 @@ export default function FlightNFTProvider({ children }) {
           const provider = new ethers.providers.Web3Provider(ethereum);
           // const conversion = await axios.get("https://free.currconv.com/api/v7/convert?q=USD_SGD&compact=ultra&apiKey=e5b6419c6d8fc5692df5");
           // const USD = 3000/conversion.data.USD_SGD;
-          const USD = 300 / 1.40;
+          const USD = mintprice / 1.40;
           console.log(USD);
           const price1 = await axios.get("https://api.pancakeswap.info/api/v2/tokens/0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c");
           console.log(price1.data.data.price);
@@ -161,7 +161,7 @@ export default function FlightNFTProvider({ children }) {
     }
   };
 
-  const mintTicketNFTTestnetUSDSC = async (uriNft, data) => {
+  const mintTicketNFTTestnetUSDSC = async (uriNft, mintprice) => {
     try {
       if (ethereum) {
         const chainid = await window.ethereum.request({
@@ -175,7 +175,7 @@ export default function FlightNFTProvider({ children }) {
           console.log(USDSCTokenContract);
           const provider = new ethers.providers.Web3Provider(ethereum);
           // const conversion = await axios.get("https://free.currconv.com/api/v7/convert?q=USD_SGD&compact=ultra&apiKey=e5b6419c6d8fc5692df5");
-          const USD = (3000 / 1.40).toString();
+          const USD = (mintprice / 1.40).toString();
           // const USD = 300/conversion.data.USD_SGD;
           console.log(USD);
           const parsedAmount = ethers.utils.parseEther(USD);
@@ -244,7 +244,7 @@ export default function FlightNFTProvider({ children }) {
     }
   };
 
-  const mintTicketNFTTestnetDSL = async (uriNft, data) => {
+  const mintTicketNFTTestnetDSL = async (uriNft, mintprice) => {
     try {
       if (ethereum) {
         const chainid = await window.ethereum.request({
@@ -258,7 +258,7 @@ export default function FlightNFTProvider({ children }) {
           console.log(USDSCTokenContract);
           const provider = new ethers.providers.Web3Provider(ethereum);
           // const conversion = await axios.get("https://free.currconv.com/api/v7/convert?q=USD_SGD&compact=ultra&apiKey=e5b6419c6d8fc5692df5");
-          const USD = (2100 / 1.40).toString();
+          const USD = ((mintprice*0.7) / 1.40).toString();
           // const USD = 300/conversion.data.USD_SGD;
           console.log(USD);
           const parsedAmount = ethers.utils.parseEther(USD);
