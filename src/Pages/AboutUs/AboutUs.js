@@ -72,7 +72,7 @@ const AboutUs = () => {
                </div>
             </Row> 
             <CertificatModal open={open } setOpen={setOpen} />
-            <button onClick={Test}>test</button>
+            {/* <button onClick={Test}>test</button> */}
         </Container>
     );
 }
