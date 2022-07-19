@@ -7,54 +7,53 @@ import { useEffect, useState } from 'react';
 import { Col, Container, Modal, Row } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import AutoOpenModal from './modal/AutoOpen.modal';
-
 import ViewDataModal from './modal/ViewData.modal';
 
-
 const indianAirports = [
-    "Bagdogra International Airport",
-    "Biju Patnaik International Airport",
-    "Birsa Munda Airport",
-    "Calicut International Airport",
-    "Chandigarh International Airport",
-    "Chhatrapati Shivaji Maharaj International Airport",
-    "Chennai International Airport",
-    "Chaudhary Charan Singh International Airport",
-    "Cochin International Airport",
-    "Coimbatore International Airport",
-    "Dabolim Goa International Airport",
-    "Devi Ahilyabai Holkar International Airport",
-    "Dr. Babasaheb Ambedkar International Airport",
-    "Imphal Airport",
     "Indira Gandhi International Airport",
-    "Jammu Airport",
-    "Jaipur International Airport",
-    "Jay Prakash Narayan Airport",
-    "Jolly Grant Airport",
+    "Chhatrapati Shivaji Maharaj International Airport",
     "Kempegowda International Airport",
-    "Lal Bahadur Shastri International Airport",
-    "Leh Kushok Bakula Rimpochee Airport",
-    "Lokpriya Gopinath Bordoloi International Airport",
-    "Maharaja Bir Bikram Airport",
-    "Netaji Subhas Chandra Bose International Airport",
-    "Pune Airport",
     "Rajiv Gandhi International Airport",
+    "Netaji Subhas Chandra Bose International Airport",
+    "Chennai International Airport",
     "Sardar Vallabhbhai Patel International Airport",
+    "Dabolim Goa International Airport",
+    "Cochin International Airport",
+    "Pune Airport",
+    "Chaudhary Charan Singh International Airport",
     "Sheikh ul-Alam International Airport",
-    "Sri Guru Ram Dass Jee International Airport",
-    "Surat Airport",
-    "Swami Vivekananda Airport",
-    "Thiruchirapalli Airport",
+    "Lokpriya Gopinath Bordoloi International Airport",
+    "Jay Prakash Narayan Airport",
+    "Jaipur International Airport",
+    "Chandigarh International Airport",
+    "Biju Patnaik International Airport",
+    "Bagdogra International Airport",
+    "Birsa Munda Airport",
+    "Lal Bahadur Shastri International Airport",
     "Trivandrum International Airport",
-    "Udaipur Airport",
+    "Calicut International Airport",
+    "Devi Ahilyabai Holkar International Airport",
     "Visakhapatnam International Airport",
+    "Dr. Babasaheb Ambedkar International Airport",
+    "Swami Vivekananda Airport",
+    "Sri Guru Ram Dass Jee International Airport",
+    "Coimbatore International Airport",
+    "Jammu Airport",
+    "Leh Kushok Bakula Rimpochee Airport",
+    "Surat Airport",
+    "Udaipur Airport",
+    "Jolly Grant Airport",
+    "Maharaja Bir Bikram Airport",
+    "Imphal Airport",
+    "Thiruchirapalli Airport"
 ]
-
 
 const DepartureAirportList = ["Singapore", ...indianAirports];
 
 const Home = () => {
     const [openModal, setOpenModal] = useState(false);
+    const [autoOpen, setAutoOpen] = useState(false);
+
     const [DepartureAirport, setDepartureAirport] = useState(DepartureAirportList[0]);
     const [ArrivalAirportList, setArrivalAirportList] = useState([...indianAirports]);
     const [ArrivalAirport, setArrivalAirport] = useState(ArrivalAirportList[0]);
@@ -62,23 +61,16 @@ const Home = () => {
     const [filterData, setFilterData] = useState([]);
     const [selectDate, setSelectDate] = useState(new Date().toLocaleDateString())
     const [singleData, setSingleData] = useState([]);
-    const [open, setOpen] = useState(false);
-    const [autoOpen, setAutoOpen] = useState(false);
-
-
-
-    console.log(selectDate);
-
+    const [openModalFlight, setOpenModalFlight] = useState(false);
 
     useEffect(() => {
+
         axios.get("/FakeFlightData.json")
             .then(res => {
                 setFlightData(res.data);
                 setFilterData(res.data.slice(0, 5))
             });
-    }, [])
-
-    useEffect(() => {
+        //  home auto open model set state
         setAutoOpen(true)
     }, [])
 
@@ -95,8 +87,8 @@ const Home = () => {
     }
 
     const filterDate = (e) => {
-        const date = new Date(e.target.value).toLocaleDateString('ko-KR');
-        const newArr = flightData?.filter(flight => flight.departureDate === date);
+        const date = new Date(e.target.value).toLocaleDateString();
+        const newArr = flightData.filter(flight => flight.departureDate === date);
         setSelectDate(date);
         setFilterData(newArr);
     }
@@ -115,24 +107,23 @@ const Home = () => {
 
     const handelerOnClick = (data) => {
         setSingleData(data)
-        setOpen(true)
+        setOpenModalFlight(true)
     }
     return (
         <>
             <div className='banner'>
                 <Container className="pb-5 pt-3">
                     <Row className="align-items-center">
-
                         <Col md={8}>
                             <div className='d-grid text-light' style={{ justifyItems: 'center' }}>
+                                <img className=' pt-3 pb-2' src="https://i.ibb.co/pj6JDSs/flightnftlogoo.jpg" alt="logo" width="120px" />
                                 <h5>First in the World</h5>
                             </div>
                             <div className="d-grid" style={{ justifyItems: 'center' }}>
                                 <button className='banner-button2 text-decoration-none mb-4' id="font14" style={{ cursor: "auto" }}>First Phase: <span style={{ color: "aquamarine" }}>0</span> of 10000 sold</button>
-                                <video src="/banner-bg-2.mp4" controls style={{ width: "100%", height: "100%" }} />
+                                <video src="/videoHome.mp4" controls style={{ width: "100%", height: "100%" }} />
                             </div>
                         </Col>
-
                         <Col md={4} className="text-center"
                             data-aos="fade-zoom-in"
                             data-aos-duration="1000"
@@ -164,11 +155,12 @@ const Home = () => {
                     </Row>
 
                     {/* get nft section */}
-                    <div className="deep-bg d-flex justify-content-center"   >
+                    <div className="deep-bg d-flex justify-content-center">
                         <div className="row g-0 text-white d-flex align-items-center justify-content-center">
                             <div className="col-md-4 "
                                 data-aos="fade-right"
                                 data-aos-duration="3000"
+
                             >
                                 <div className="priceHeading">
                                     <h1 className="home_flight_heading">
@@ -188,18 +180,19 @@ const Home = () => {
                                             phase. </p>
                                         <p className="top-border">More airports and countries will be
                                             launched soon. </p>
-                                        <p className="top-border dif-color" style={{ color: 'aquamarine' }}>This NFT is your flight ticket.</p>
+                                        <p className="top-border dif-color" style={{ color: 'turquoise' }}>This NFT is your flight ticket.</p>
 
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                     <Row className="align-items-center mt-4 mb-0">
-                        <Col md={7} className="mb-4" >
+                        <Col md={7} className="mb-4">
                             <div className='row'>
                                 <div className='col-sm-12 col-md-12 col-lg-8 mb-3' >
-                                    <h5 className='text-danger fw-bold mb-1 pb-2'>Private Flights </h5>
+                                    <h5 className='text-danger fw-bold mb-1 pb-2'>Other Private Flights </h5>
                                     <div className='text-white d-flex mb-1' style={{ alignItems: 'center' }}>
                                         <FlightIcon className='flyIcon' />
                                         Singapore to India
@@ -214,11 +207,6 @@ const Home = () => {
                                 </div>
                             </div>
                             <div className="pricing-image-home w-100 bg-white">
-                                <Row>
-                                    <Col >
-                                        {/* <h5 className="text-start px-3 py-2">SIN{'>'}IND & SIN{'<'}IND &nbsp;&nbsp;&nbsp; {selectDate} </h5> */}
-                                    </Col>
-                                </Row>
 
                                 {
                                     filterData.length ?
@@ -240,28 +228,25 @@ const Home = () => {
                                                             <Button variant="text" className='buttonArr' onClick={() => handelerOnClick(flight)}><ArrowForwardIosIcon className='iconsArr' /></Button>
                                                         </div>
                                                     </div>
-
-
                                                 </Col>
                                             </Row>
                                         )
                                         :
                                         <h4 className='text-center py-2 border border-1 border-bottom-0 border-start-0 border-end-0'>No Flight Founds</h4>
                                 }
+                                {/* <img className="img-fluid" src="https://i.ibb.co/DKdNrn9/09.jpg" alt="Pricing" /> */}
                             </div>
-                            <ViewDataModal open={open} setOpen={setOpen} singleData={singleData} />
                             <AutoOpenModal autoOpen={autoOpen} setAutoOpen={setAutoOpen} />
+                            <ViewDataModal open={openModalFlight} setOpenModal={setOpenModalFlight} singleData={singleData} />
                         </Col>
                         <Col md={5}
                             data-aos="fade-up"
                             data-aos-duration="3000">
-                            <div className="flight_content"  >
-
+                            <div className="flight_content">
                                 <h3 className='text-white averageText'>What is the average cost for one person in other Private Jets?</h3>
                                 <br />
                                 <p className='text-white'><b>SGD 11,000.00 (626,134.04 Indian Rupees)</b></p>
-                                <p className='text-white'>You need to share with another 9 or more passengers. Furthermore, you must pay for the full flight.</p>
-
+                                <p className='text-white'>You need to share with another 9 passengers.</p>
                             </div>
                         </Col>
                     </Row>

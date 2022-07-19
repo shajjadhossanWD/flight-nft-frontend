@@ -11,6 +11,10 @@
     font-weight: bold;
 }
 
+.container {
+    overflow: hidden;
+}
+
 .hidetxt {
     visibility: hidden;
 }
@@ -18,6 +22,29 @@
 .mobilelogin {
     display: none;
 }
+.discountText{
+    font-family: "Avenir Next", sans-serif;
+    font-weight: 900;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-style: italic;
+    letter-spacing: 0.01em;
+    /* background: #4c268f; */
+    color: #d6579f;
+}
+
+.discountText2{
+    font-family: "Avenir Next", sans-serif;
+    font-weight: 900;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-style: italic;
+    letter-spacing: 0.01em;
+    /* background: #4c268f; */
+    color: #d6579f;
+    display: none;
+}
+
 
 .banner-button2 {
     background-image: linear-gradient(to right, #FF512F 0%, #db1528 51%, #FF512F 100%);
@@ -70,10 +97,11 @@ a {
 }
 
 @media screen and (max-width:425px) {
-.banner-content-wrapper {
-    padding:0px !important;
+    .banner-content-wrapper {
+        padding: 0px !important;
+    }
 }
-}
+
 span.underline {
     left: 26%;
     position: absolute;
@@ -83,7 +111,9 @@ span.underline {
     background: #DC3545 !important;
     bottom: 0;
 }
-
+body{
+    -webkit-text-size-adujust:100%;
+}
 span.underline2 {
     left: 40%;
     position: absolute;
@@ -108,8 +138,13 @@ h1.section-heading.text-uppercase {
 }
 
 img.logo {
-    width: 145px;
+    width: 52px;
+    height: 52px;
 }
+.logoLink{
+    width:222px !important;
+}
+ 
 
 /* Footer */
 .text-center.my-3.footer {
@@ -223,7 +258,7 @@ nav.navbar.navbar-expand-lg.navbar-dark {
     position: relative;
 }
 
- 
+
 
 .position_ticket {
     position: absolute;
@@ -238,36 +273,43 @@ nav.navbar.navbar-expand-lg.navbar-dark {
     font-size: 15px;
     overflow-wrap: break-word;
     color: white;
-  }
-  .link_hash {
+}
+
+.link_hash {
     color: white;
-  }
-  .modal_class{
+}
+
+.modal_class {
     background-color: #0c2347;
-  }
-  .swal-modal{
+}
+
+.swal-modal {
     background-color: #0c2347;
-  }
-  .modal_class_success .swal-icon::before {
+}
+
+.modal_class_success .swal-icon::before {
     background-color: transparent;
-  }
-  
-  .modal_class_success .swal-icon::after {
+}
+
+.modal_class_success .swal-icon::after {
     background-color: transparent;
-  }
-  .swal-icon--success__hide-corners {
+}
+
+.swal-icon--success__hide-corners {
     background-color: transparent;
-  }
-  .success {
+}
+
+.success {
     color: #FF343F;
     margin-top: 1rem;
     padding-bottom: 1.5rem;
-  }
-  .swal-text{
-    text-align: center;
-  }
+}
 
-@media  screen and (min-width:1190px) {
+.swal-text {
+    text-align: center;
+}
+
+@media screen and (min-width:1190px) {
     .from {
         left: 10%;
         top: 50%;
@@ -335,7 +377,7 @@ p.ticket_to.mb-0 {
 }
 
 .ticket_serial {
-    left: 54%;
+    left: 53%;
     position: absolute;
     transform: rotate(-90deg);
     bottom: 117px;
@@ -343,11 +385,30 @@ p.ticket_to.mb-0 {
 }
 
 .ticket_nft {
-    right: 35%;
+    right: 37%;
     position: absolute;
     transform: rotate(-90deg);
-    bottom: 97px;
+    bottom: 100px;
     font-weight: 600;
+}
+
+@media only screen and (min-width:1600px) {
+    .ticket_serial {
+        left: 53%;
+        position: absolute;
+        transform: rotate(-90deg);
+        bottom: 117px;
+        font-weight: 600;
+    }
+
+    .ticket_nft {
+        right: 36.5%;
+        position: absolute;
+        transform: rotate(-90deg);
+        bottom: 101px;
+        font-weight: 600;
+    }
+
 }
 
 @media only screen and (min-width:1400px) {
@@ -359,11 +420,12 @@ p.ticket_to.mb-0 {
     .ticket_right.d-flex {
         right: 13%;
 
+    }
+
+    .banner-content-wrapper {
+        padding: 74px 30px;
+    }
 }
-.banner-content-wrapper {
-    padding: 74px 30px;
-}
- }
 
 @media only screen and (max-width:1024px) {
     .ticket_image_wrapper {
@@ -377,24 +439,55 @@ p.ticket_to.mb-0 {
     }
 
     .from {
-        top:50% !important;
+        top: 50% !important;
         left: 6%;
     }
 
     .to {
-        top:50% !important;
+        top: 50% !important;
         left: 39%;
     }
+
     .ticket_right.d-flex {
         right: 2%;
-        top: 125px;}
-    
+        top: 125px;
+    }
+
+    .ticket_nft {
+        right: 33% !important;
+        bottom: 84px !important;
+    }
+
+    .ticket_serial {
+        bottom: 98px !important;
+    }
+
 }
 
 @media only screen and (max-width:768px) {
+    .ticket_serial {
+        left: 52% !important;
+        position: absolute;
+        transform: rotate(-90deg);
+        bottom: 77px !important;
+    }
+
+    .ticket_nft {
+        right: 32% !important;
+
+        position: absolute;
+        transform: rotate(-90deg);
+        bottom: 62px !important;
+    }
+
     .ticket_image_wrapper {
         background-size: 692px;
         height: 299px;
+    }
+
+    .ticket_color2 {
+        color: #C74B91 !important;
+        font-size: 16px !important;
     }
 
     .position_ticket {
@@ -403,26 +496,599 @@ p.ticket_to.mb-0 {
     }
 
     .from {
-        top:50% !important;
+        top: 46% !important;
         left: 4%;
+        font-size: 14px !important;
+    }
+
+    .from.position_ticket {
+        max-width: 105px !important;
+        top: 43% !important;
+    }
+
+    .to.position_ticket {
+        max-width: 105px !important;
+        top: 43% !important;
     }
 
     .to {
-        top:50% !important;
+        top: 46% !important;
         left: 39%;
+        font-size: 14px !important;
     }
+
     .ticket_right.d-flex {
         right: -25px;
-        top: 74px;
+        top: 80px;
+        font-size: 10px !important;
+    }
+
+    p.to-right.mb-0 {
+        position: absolute;
+        right: 56px;
+        text-align: center;
+        top: 60px;
+        min-width: 185px !important;
+    }
+
+    p.from-right.mb-0 {
+        position: absolute;
+        right: 56px;
+        text-align: center;
+        top: -4px !important;
+        min-width: 185px !important;
+    }
+
+    p.ticket_to.mb-0 {
+        font-size: 19px !important;
+    }
+    .discountText{
+        font-size: 13px;
+        margin-right: 2rem;
+        display: none;
+    }
+    .discountText2{
+        display: block;
+        font-size: 13px;
+        margin-right: 1rem;
     }
 }
 
 
-@media screen and (max-width:425px) {
+@media only screen and (min-width:394px) and (max-width:425px) {
 
     .ticket_image_wrapper {
         background-size: 370px;
         height: 176px;
+    }
+
+    h3.ticket_color.text-center {
+        font-size: 16px !important;
+    }
+
+    a.text-center.banner-button.text-decoration-none {
+        font-size: 13px;
+        padding: 12px 26px;
+    }
+
+    .text-center.ticket_btn {
+        font-size: 14px;
+    }
+
+    
+
+    /* -----------positioning------------- */
+
+    p.fromto.ticket_color2 {
+        font-size: 0.45rem !important;
+    }
+    p.to-right.mb-0 {
+        right: 51px;
+        top: 30px !important;
+        min-width: 115px !important;
+    }
+    .from.position_ticket {
+        top: 84px !important;
+        left: 27px;
+    }
+
+    .position_ticket {
+        max-width: 77px !important;
+    }
+
+    .to.position_ticket {
+        top: 100px !important;
+        font-size: 0.45rem !important;
+        -webkit-text-size-adujust:100%;
+
+        max-width: 75px !important;
+
+    }
+
+    
+    .from.position_ticket {
+        top: 100px !important;
+        font-size: 0.45rem !important;
+        -webkit-text-size-adujust:100%;
+
+        max-width: 86px !important;
+
+    }
+
+    .ticket_nft {
+        font-size: 0.45rem !important;
+        right: 39% !important;
+        bottom: 41px !important;
+    }
+
+    .ticket_serial {
+        font-size: 0.45rem !important;
+        right: 26% !important;
+        bottom: 69px !important;
+    }
+
+
+    p.ticket_to.mb-0 {
+        font-size: 0.45rem !important;
+        -webkit-text-size-adujust:100%;
+
+    }
+
+    .ticket_right.d-flex {
+        font-size: 0.45rem !important;
+        -webkit-text-size-adujust:100%;
+
+        right: -32px;
+        top: 49px;
+    }
+
+    p.from-right.mb-0 {
+        right: 49px;
+        top: 0px !important;
+        min-width: 120px !important;
+    }
+
+   
+
+    p.ticket_to.mb-0 {
+        right: 106px;
+        top: 21px !important;
+    }
+
+}
+@media only screen and (min-width:390px) and (max-width:393px) {
+    h3.ticket_color.text-center {
+        font-size: 16px !important;
+    }
+    p.fromto.ticket_color2 {
+        font-size: 0.45rem !important;
+    }
+    p.to-right.mb-0 {
+        right: 51px;
+        top: 30px !important;
+        min-width: 115px !important;
+    }
+    p.ticket_to.mb-0 {
+        font-size: 0.45rem !important;
+        right: 105px !important;
+    top: 18px !important;
+    }
+
+    .ticket_image_wrapper {
+        background-size: 310px;
+        height: 156px;
+    }
+
+    .ticket_right.d-flex {
+        right: -30px !important;
+        font-size: .30rem !important;
+        top: 47px !important;
+    }
+    a.text-center.banner-button.text-decoration-none {
+        font-size: 13px;
+        padding: 10px 20px;
+    }
+
+    p.to-right.mb-0 {
+        right: 67px !important;
+        font-size: .30rem !important;
+        -webkit-text-size-adujust:100%;
+        top: 27px !important;
+        min-width: 85px !important;
+    }
+
+    p.from-right.mb-0 {
+        right: 67px !important;
+        font-size: .30rem !important;
+        -webkit-text-size-adujust:100%;
+        top: 0 !important;
+        min-width: 85px !important;
+    }
+
+    .to.position_ticket {
+        top: 93px !important;
+        max-width: 70px !important;
+        font-size: .30rem !important;
+        -webkit-text-size-adujust:100%;
+    }
+
+    .from.position_ticket {
+        top: 93px !important;
+        font-size: .30rem !important;
+        -webkit-text-size-adujust:100%;
+        left: 38px !important;
+        max-width: 50px !important;
+    }
+
+    .ticket_nft {
+        font-size: .45rem !important;
+        right: 39% !important;
+        bottom: 39px !important;
+    }
+
+    .ticket_serial {
+        font-size: .45rem !important;
+        right: 26% !important;
+        bottom: 67px !important;
+    }
+
+    p.mb-0.text-danger.bg-light.p-1 {
+        width: 90% !important;
+    }
+
+
+}
+
+@media only screen and (min-width:375px) and (max-width:389px) {
+    h3.ticket_color.text-center {
+        font-size: 16px !important;
+    }
+    p.fromto.ticket_color2 {
+        font-size: 0.45rem !important;
+    }
+    p.to-right.mb-0 {
+        right: 51px;
+        top: 30px !important;
+        min-width: 115px !important;
+    }
+    p.ticket_to.mb-0 {
+        font-size: 0.45rem !important;
+        right: 105px !important;
+    top: 18px !important;
+    }
+    .ticket_image_wrapper {
+        background-size: 310px;
+        height: 156px;
+    }
+
+    .ticket_right.d-flex {
+        right: -36px !important;
+        top: 47px !important;
+    }
+
+    a.text-center.banner-button.text-decoration-none {
+        font-size: 13px;
+        padding: 10px 20px;
+    }
+
+    p.to-right.mb-0 {
+        right: 67px !important;
+        font-size: .30rem !important;
+        -webkit-text-size-adujust:100%;
+
+        top: 27px !important;
+        min-width: 85px !important;
+    }
+
+    p.from-right.mb-0 {
+        right: 67px !important;
+        font-size: .30rem !important;
+        -webkit-text-size-adujust:100%;
+
+        top: 0 !important;
+        min-width: 85px !important;
+    }
+
+    .to.position_ticket {
+        top: 93px !important;
+        max-width: 70px !important;
+        font-size: .30rem !important;
+        -webkit-text-size-adujust:100%;
+
+    }
+
+    .from.position_ticket {
+        top: 93px !important;
+        font-size: .30rem !important;
+        -webkit-text-size-adujust:100%;
+
+        left: 35px !important;
+        max-width: 50px !important;
+    }
+
+    .ticket_nft {
+        font-size: 0.45rem !important;
+        right: 39% !important;
+        bottom: 41px !important;
+    }
+
+    .ticket_serial {
+        font-size: 0.45rem !important;
+        right: 26% !important;
+        bottom: 64px !important;
+    }
+
+    p.mb-0.text-danger.bg-light.p-1 {
+        width: 90% !important;
+    }
+
+
+}
+
+
+@media only screen and (min-width:321px) and (max-width:374px) {
+    h3.ticket_color.text-center {
+        font-size: 16px !important;
+    }
+    p.fromto.ticket_color2 {
+        font-size: 0.45rem !important;
+    }
+    p.to-right.mb-0 {
+        right: 51px;
+        top: 30px !important;
+        min-width: 115px !important;
+    }
+    p.ticket_to.mb-0 {
+        font-size: 0.45rem !important;
+    }
+    .ticket_image_wrapper {
+        background-size: 321px !important;
+        height: 141px;
+    }
+
+    .ticket_nft {
+        font-size: 0.45rem !important;
+        right: 39% !important;
+        font-size: 5px !important;
+        bottom: 28px !important;
+    }
+
+    .ticket_serial {
+        font-size: 0.45rem !important;
+        right: 25% !important;
+        font-size: 5px !important;
+        bottom: 56px !important;
+    }
+
+
+    .from.position_ticket {
+        top: 80px !important;
+        font-size: .30rem !important;
+        -webkit-text-size-adujust:100%;
+
+        left: 22px !important;
+        max-width: 48px !important;
+    }
+
+    .to.position_ticket {
+        top: 80px !important;
+        max-width: 50px !important;
+        font-size: .30rem !important;
+        -webkit-text-size-adujust:100%;
+
+    }
+
+    .ticket_right.d-flex {
+        font-size: 0.30rem !important;
+        right: -50px !important;
+        top: 42px !important;
+    }
+
+    p.from-right.mb-0 {
+        font-size: .30rem !important;
+        -webkit-text-size-adujust:100%;
+
+        right: 69px !important;
+        min-width: 80px !important;
+    }
+
+    p.to-right.mb-0 {
+        font-size: .30rem !important;
+        -webkit-text-size-adujust:100%;
+
+        right: 69px !important;
+        min-width: 80px !important;
+        top: 24px !important;
+
+    }
+
+    p.ticket_to.mb-0 {
+        right: 106px;
+        top: 17px !important;
+    }
+}
+
+
+
+@media  screen and (max-width:320px) {
+    h3.ticket_color.text-center {
+        font-size: 16px !important;
+    }
+    p.fromto.ticket_color2 {
+        font-size: 0.45rem !important;
+    }
+    p.to-right.mb-0 {
+        right: 51px;
+        top: 30px !important;
+        min-width: 115px !important;
+    }
+    p.ticket_to.mb-0 {
+        font-size: 0.45rem !important;
+    }
+    .ticket_nft {
+        font-size: 0.45rem !important;
+        right: 39% !important;
+        font-size: 5px !important;
+        bottom: 36px !important;
+    }
+
+    .ticket_serial {
+        font-size: 0.45rem !important;
+        right: 26% !important;
+        font-size: 5px !important;
+        bottom: 56px !important;
+    }
+
+    .ticket_image_wrapper {
+        background-size: 274px;
+        height: 141px;
+    }
+
+    .from.position_ticket {
+        top: 80px !important;
+        font-size: .30rem !important;
+        -webkit-text-size-adujust:100%;
+
+        left: 22px !important;
+        max-width: 48px !important;
+    }
+
+    .to.position_ticket {
+        top: 80px !important;
+        max-width: 50px !important;
+        font-size: .30rem !important;
+        -webkit-text-size-adujust:100%;
+
+    }
+
+    .ticket_right.d-flex {
+        font-size: 0.30rem !important;
+        -webkit-text-size-adujust:100%;
+
+        right: -50px !important;
+        top: 42px !important;
+    }
+
+    p.from-right.mb-0 {
+        font-size: .30rem !important;
+        -webkit-text-size-adujust:100%;
+
+        right: 69px !important;
+        min-width: 80px !important;
+        top:0px !important;
+    }
+
+    p.to-right.mb-0 {
+        font-size: .30rem !important;
+        right: 69px !important;
+        min-width: 80px !important;
+        top: 24px !important;
+
+    }
+
+    p.ticket_to.mb-0 {
+        right: 106px;
+        top: 17px !important;
+    }
+}
+
+
+
+
+@media only screen and (min-width:1200px) and (max-width:1399px) {
+    .ticket_nft {
+        right: 35% !important;
+    }
+
+    .ticket_serial {
+        left: 54% !important;
+    }
+}
+
+@media only screen and (min-width:820px) and (max-width:912px) {
+    .ticket_serial {
+        left: 52% !important;
+        position: absolute;
+        transform: rotate(-90deg);
+        bottom: 77px !important;
+    }
+
+    .ticket_nft {
+        right: 32% !important;
+
+        position: absolute;
+        transform: rotate(-90deg);
+        bottom: 62px !important;
+    }
+
+    .ticket_image_wrapper {
+        background-size: 692px;
+        height: 299px;
+    }
+
+    .ticket_color2 {
+        color: #C74B91 !important;
+        font-size: 16px !important;
+    }
+
+    .position_ticket {
+        max-width: 144px !important;
+        font-size: 12px;
+    }
+
+    .from {
+        top: 46% !important;
+        left: 4%;
+        font-size: 14px !important;
+    }
+
+    .from.position_ticket {
+        max-width: 105px !important;
+        top: 43% !important;
+    }
+
+    .to.position_ticket {
+        max-width: 105px !important;
+        top: 43% !important;
+    }
+
+    .to {
+        top: 46% !important;
+        left: 39%;
+        font-size: 14px !important;
+    }
+
+    .ticket_right.d-flex {
+        right: -25px;
+        top: 80px;
+        font-size: 10px !important;
+    }
+
+    p.to-right.mb-0 {
+        position: absolute;
+        right: 56px;
+        text-align: center;
+        top: 60px;
+        min-width: 185px !important;
+    }
+
+    p.from-right.mb-0 {
+        position: absolute;
+        right: 56px;
+        text-align: center;
+        top: -4px !important;
+        min-width: 185px !important;
+    }
+
+    p.ticket_to.mb-0 {
+        font-size: 19px !important;
+    }
+}
+@media only screen and (width:540px) {
+
+    .ticket_image_wrapper {
+        background-size: 505px !important;
+        height: 216px !important;
     }
 
     h3.ticket_color.text-center {
@@ -445,83 +1111,71 @@ p.ticket_to.mb-0 {
     p.fromto.ticket_color2 {
         font-size: 0.45rem !important;
     }
+
     .from.position_ticket {
-        top: 84px !important;
+        top: 52% !important;
         left: 27px;
     }
-    .position_ticket {
-        max-width: 77px !important;
-    }
-    
+
     .to.position_ticket {
-        top: 84px !important;
+        top: 52% !important;
         font-size: 0.45rem !important;
+        max-width: 86px !important;
+
     }
+
     .from.position_ticket {
-        top: 84px !important;
         font-size: 0.45rem !important;
+        max-width: 86px !important;
+
     }
+
     .ticket_nft {
         font-size: 0.45rem !important;
-        right: 39%;
-        bottom: 38px;
-    }
-    
-    .ticket_serial{
-         font-size: 0.45rem !important;
-         right: 25%;
-         bottom: 71px;
+        right: 39% !important;
+        bottom: 41px !important;
     }
 
-
-p.ticket_to.mb-0 {
-    font-size: 0.45rem!important;
-}
-
-.ticket_right.d-flex {
-    font-size: 0.45rem !important;
-    right: -32px;
-    top: 49px;
-}
-p.from-right.mb-0 {
-    right: 49px;
-    top: 0px !important;
-    min-width: 120px !important;
-}
-p.to-right.mb-0 {
-    right: 51px;
-    top: 39px;
-    min-width: 120px !important;
-}
-p.ticket_to.mb-0 {
-    right: 106px;
-    top:16px !important;
-}
-
-}
-
-@media screen and (max-width:375px) {
-    .ticket_image_wrapper {
-        background-size: 310px;
-        height: 156px;
+    .ticket_serial {
+        font-size: 0.45rem !important;
+        right: 24% !important;
+        bottom: 89px !important;
     }
 
-    a.text-center.banner-button.text-decoration-none {
-        font-size: 13px;
-        padding: 10px 20px;
+
+    p.ticket_to.mb-0 {
+        font-size: 0.45rem !important;
+    }
+
+    .ticket_right.d-flex {
+        font-size: 0.45rem !important;
+        right: -13px !important;
+        top: 61px !important;
+    }
+
+    p.from-right.mb-0 {
+        right: 49px;
+        top: 0px !important;
+        min-width: 120px !important;
+    }
+
+    p.to-right.mb-0 {
+        right: 51px;
+        top: 30px !important;
+        min-width: 115px !important;
+    }
+
+    p.ticket_to.mb-0 {
+        right: 106px;
+        top: 21px !important;
     }
 
 }
-
-@media screen and (max-width:320px) {
-    .ticket_image_wrapper {
-        background-size: 274px;
-        height: 141px;
-    }
-}
-
-
 /* -----------ideaa------- */
+p.mb-0.text-danger.bg-light.p-1 {
+    width: 50%;
+    margin: 0 auto;
+}
 
 .bg-idea {
     align-items: center;
@@ -770,12 +1424,15 @@ p.ticket_to.mb-0 {
         height: 1px;
         background: #DC3545 !important;
     }
-.theme-bg{
-    background: #DC3545 !important;
-}
-.theme-color{
-    color: #DC3545 !important;
-}
+
+    .theme-bg {
+        background: #DC3545 !important;
+    }
+
+    .theme-color {
+        color: #DC3545 !important;
+    }
+
     p.text-light.mb-0 {
         display: flex;
         justify-content: center;
@@ -811,16 +1468,20 @@ p.ticket_to.mb-0 {
     }
 
 }
-.textLeft{
+
+.textLeft {
     text-align: left !important;
 }
+
 .swal-button {
     background-color: #FF512F;
     border: none !important;
 }
-.swal-modal{
-background-color: rgb(23, 22, 22);
+
+.swal-modal {
+    background-color: rgb(23, 22, 22);
 }
+
 @media screen and (max-width:375px) {
     .social_link_wrapper.d-flex.justify-content-center.gap-3 {
         align-items: center;

@@ -213,7 +213,7 @@ const Ideas = () => {
                                                     countryList.map((country, index) => <option value={country.callingCodes} key={index}>{country.alpha2Code} (+{country.callingCodes})</option>)
                                                 }
                                             </select>
-                                            <input type="text" className='form-control' name="number" placeholder="Mobile Number" value={mobile} onChange={e => setMobile(e.target.value)} style={{ borderRadius: '0' }} />
+                                            <input type="number" className='form-control' name="number" placeholder="Mobile number" value={mobile} onChange={e => setMobile(e.target.value)} style={{ borderRadius: '0' }} />
                                             <button type="submit" className='btn btn-danger' onClick={sendMobileVerificationCode} style={{ borderRadius: "0px 3px 3px 0px", background: "#FF512F", border: "1px solid #FF512F" }}>Verify</button>
                                         </div>
                                     </div>

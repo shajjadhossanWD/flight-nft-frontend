@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import NavbarHeader from '../../Components/Shared/Navbar/NavbarHeader';
-import { Row, Col, Button, Container } from 'react-bootstrap';
 import axios from "axios";
+import { useEffect, useState } from 'react';
+import { Button, Col, Container, Row } from 'react-bootstrap';
 import swal from 'sweetalert';
 
 const Contact = () => {
@@ -182,7 +181,7 @@ const Contact = () => {
                             <Button variant='danger' size='sm' className='text-nowrap' type="button" onClick={sendMobileVerificationCode} disabled={(mobile.length !== 0 && sendEmailOTP === true) ? false : true}>Send OTP</Button>
                         </div>
 
-                        <input type="text" className='form-control mb-3' name="subject" placeholder="Subject" required />
+                        {/* <input type="text" className='form-control mb-3' name="subject" placeholder="Subject" required /> */}
 
                         <textarea name="message" placeholder='Message' className='form-control mb-3' rows={4} required></textarea>
 

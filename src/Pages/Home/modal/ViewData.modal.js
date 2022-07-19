@@ -20,9 +20,9 @@ const style = {
   p: 4,
 };
 
-export default function ViewDataModal({ open, setOpen, singleData }) {
+export default function ViewDataModal({ open, setOpenModal, singleData }) {
 
-  const handleClose = () => setOpen(false);
+  const handleClose = () => setOpenModal(false);
 
   const hendelSubmit = (e) => {
     console.log(e.terget.value)
@@ -45,7 +45,7 @@ export default function ViewDataModal({ open, setOpen, singleData }) {
           <h3 className='mb-2'>{singleData?.aircraftName}</h3>
           <h6>Estimated Price: SGD {singleData?.cost} For one passenger</h6>
           <h6>Departure Airport: {singleData?.departureAirport} </h6>
-          <h6>Arrival  Airport: {singleData?.arrivalAirport}  </h6>
+          <h6>Arrival  Airport: {singleData?.arrivalAirport}</h6>
 
 
           <div className='row pt-5' style={{ alignItems: "center" }}>
@@ -53,7 +53,7 @@ export default function ViewDataModal({ open, setOpen, singleData }) {
               <span><i className="fa-solid fa-user" style={{ color: "cadetblue" }} ></i> {singleData?.aircraftSpecifications?.seats}</span>
             </div>
             <div className='col-9'>
-              <Link to='/'><button className='banner-button2 text-decoration-none mb-4 text14 smallDvButton' onClick={handleClose} id="font14">BUY OURS AT SGD 3000</button></Link>
+              <Link to='/'><button className='banner-button2 text-decoration-none mb-4 text13 smallDvButton pt-1' onClick={handleClose} id="font14">BUY OURS AT SGD 10000</button></Link>
             </div>
           </div>
         </Box>

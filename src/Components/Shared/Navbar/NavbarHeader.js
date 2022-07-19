@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import swal from 'sweetalert';
@@ -23,8 +23,10 @@ const NavbarHeader = () => {
                 <Container>
                     <Navbar.Brand href="#home">
                         <Nav>
-                            <Nav.Link href="#" as={NavLink} to="/" className="fw-bold text-danger fs-3" style={{ color: "#fff " }}>
-                                <img className='logo ' src="https://i.ibb.co/pj6JDSs/flightnftlogoo.jpg" alt="logo" />
+                            <Nav.Link href="#" as={NavLink} to="/" className="fw-bold text-danger fs-3 logoLink" style={{ color: "#fff"}}>
+                         
+                                <img className='logo ' src="https://i.ibb.co/sFRh0Rk/logo-e.jpg" alt="logo" />
+                 
                             </Nav.Link>
                         </Nav>
                     </Navbar.Brand>

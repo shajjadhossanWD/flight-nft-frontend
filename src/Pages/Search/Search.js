@@ -67,7 +67,6 @@ const Search = () => {
     };
 
     const { user, openWalletModal, getNFTMetaDataTestnet, NFTMetaData, mintTicketNFTTestnetBNB, mintTicketNFTTestnetUSDSC, mintTicketNFTTestnetDSL, setRequestLoading } = useContext(FlightNFTContext);
-
     const search = window.location.search;
     const params = new URLSearchParams(search);
     const [message, setMessage] = useState("");
@@ -116,7 +115,7 @@ const Search = () => {
 
     useEffect(() => {
         getNFTMetaDataTestnet();
-    }, [])
+    }, [user?.walletAddress])
 
     const mintFlight = async () => {
         if (!user?.walletAddress) {
@@ -252,16 +251,27 @@ const Search = () => {
                                 </div>
                             </div>
                             <div className="text-center ticket_btn" style={{ color: "white    " }}>
-                                <p>You need to pay SGD 3000 (Rs xxxxxx): USD xxxx</p>
+
+                                {token === "dsl" ? <p>You need to pay SGD 2100 (Rs 119,154.78) : USD 1,495.73</p> : <p>You need to pay SGD 3000 (Rs 170042.79) : USD 2144.36</p>}
                                 <label>Pay by</label>
-                                <select className='form-control mx-auto mt-1 mb-3' name="token" id="token" value={token} onChange={e => setToken(e.target.value)} style={{ maxWidth: 450, width: "100%" }}>
+
+                                <select className='form-control mx-auto mt-1 mb-3 w-75' name="token" id="token" value={token} onChange={e => setToken(e.target.value)} style={{ maxWidth: 450, width: "100%" }}>
                                     <option value="bnb">BNB</option>
                                     <option value="usdsc">USDSC</option>
                                     <option value="dsl">DSL</option>
                                 </select>
                                 <button onClick={mintFlight} className='text-center banner-button text-decoration-none' underline="none">MINT FLIGHT NFT NOW</button>
+                                <div className='flex justify-content-center'>
+                                    {token === "dsl" &&
+                                        <p className="mb-0 p-2 discountText rounded"><span className='text-uppercase'>You get discount of :</span> SGD 900 (Rs 51,095.89 ) : USD 641.06 </p>
+                                    }
+                                    {token === "dsl" &&
+                                        <p className="mb-0 p-2 discountText2 rounded ">You get discount of :<br /> SGD 900 (Rs 51,095.89 ) : USD 641.06 </p>
+                                    }
+                                </div>
                                 <h6 className='mt-4 font14'>You can pay BNB.USDSC and DSL</h6>
-                                <h6 className='ps-2 pe-2 font14'>If you pay by DSL, you can enjoy 30%, Gas Fees is paid by BNB</h6>
+                                <h6 className='ps-2 pe-2 font14'>If you pay by DSL, you can enjoy 30%.</h6>
+                                <h6 className='ps-2 pe-2 font14'>Gas Fees is paid by BNB only</h6>
                             </div>
                         </div>
                     </Col>
