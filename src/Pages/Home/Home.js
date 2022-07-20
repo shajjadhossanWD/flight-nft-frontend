@@ -246,7 +246,7 @@ const Home = () => {
                                 <h3 className='text-white averageText'>What is the average cost for one person in other Private Jets?</h3>
                                 <br />
                                 <p className='text-white'><b>SGD 11,000.00 (626,134.04 Indian Rupees)</b></p>
-                                <p className='text-white'>You need to share with 9 passengers or more passengers.</p>
+                                <p className='text-white'>You need to share with 9 or more passengers.</p>
                             </div>
                         </Col>
                     </Row>
