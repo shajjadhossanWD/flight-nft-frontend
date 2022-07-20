@@ -33,7 +33,9 @@ export default function AutoOpenModal({ autoOpen, setAutoOpen }) {
     const [countryCode, setCountryCode] = useState("");
     const [isError, setError] = useState(false);
     const [email, setEmail] = useState('');
+    const [emailVerify, setEmailVerify] = useState(false);
     const [mobile, setMobile] = useState('');
+    const [mobileVerify, setMobileVerify] = useState(false);
     const [isName, setInputName] = useState('');
     const [sendEmailOTP, setSendEmailOTP] = useState(false);
     const [sendMobileOTP, setSendMobileOTP] = useState(false);
@@ -72,7 +74,8 @@ export default function AutoOpenModal({ autoOpen, setAutoOpen }) {
                 className: "modal_class_success",
             });
         } else {
-            axios.post("https://backend.flightnft.net/api/v1/contact/send-email-verification-code", { email })
+            setEmailVerify(true);
+            axios.post("https://backend.flightnft.net/api/v1/waiting-list/send-email-verification-code", { email })
                 .then(res => {
                     if (res.status === 200) {
                         setEmailVerificationCode(res.data.emailVerificationCode)
@@ -91,6 +94,7 @@ export default function AutoOpenModal({ autoOpen, setAutoOpen }) {
 
                 })
                 .catch(error => {
+                    setEmailVerify(false);
                     swal({
                         title: "Attention",
                         text: error.response.data.message,
@@ -114,7 +118,8 @@ export default function AutoOpenModal({ autoOpen, setAutoOpen }) {
                 className: "modal_class_success",
             });
         } else {
-            axios.post("https://backend.flightnft.net/api/v1/contact/send-mobile-verification-code", {
+            setMobileVerify(true)
+            axios.post("https://backend.flightnft.net/api/v1/waiting-list/send-mobile-verification-code", {
                 mobile: countryCode + mobile
             }, {
                 headers: { "authorization": `Bearer ${localStorage.getItem("waittingListToken")}` }
@@ -166,7 +171,7 @@ export default function AutoOpenModal({ autoOpen, setAutoOpen }) {
             return;
         }
         const name = e.target.name.value;
-        axios.post("https://backend.flightnft.net/api/v1/contact/save-full-data-waitingList", {
+        axios.post("https://backend.flightnft.net/api/v1/waiting-list/save-full-data-waitingList", {
             name
         }, {
             headers: { "authorization": `Bearer ${localStorage.getItem("waittingListToken")}` }
@@ -230,9 +235,9 @@ export default function AutoOpenModal({ autoOpen, setAutoOpen }) {
                             <label className='text14' for="comment">Email*</label>
                             <div className='d-flex'>
                                 <Tippy content="Please Enter Your Email">
-                                    <input type="text" className='form-control' name="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} style={{ borderRadius: "3px 0px 0px 3px" }} required />
+                                    <input type="text" className='form-control' name="email" placeholder="Email" value={email} onChange={e => { setEmail(e.target.value); setEmailVerify(false) }} style={{ borderRadius: "3px 0px 0px 3px" }} required />
                                 </Tippy>
-                                <button type="button" className='btn btn-danger' onClick={sendEmailVerificationCode} style={{ borderRadius: "0px 3px 3px 0px", background: "#FF512F", border: "1px solid #FF512F" }}>verify</button>
+                                <button type="button" className={`btn ${email ? emailVerify ? "btn-secondary" : "btn-danger" : "btn-secondary"}`} style={{ borderRadius: "0px 3px 3px 0px" }} onClick={sendEmailVerificationCode} disabled={email ? emailVerify ? true : false : true}>Verify</button>
                             </div>
                         </div>
 
@@ -245,9 +250,9 @@ export default function AutoOpenModal({ autoOpen, setAutoOpen }) {
                                     }
                                 </select>
                                 <Tippy content="Please Enter Your Number">
-                                    <input type="number" className='form-control' name="phone" placeholder="Mobile number" value={mobile} onChange={e => setMobile(e.target.value)} style={{ borderRadius: '0' }} required />
+                                    <input type="number" className='form-control' name="phone" placeholder="Mobile number" value={mobile} onChange={e => { setMobile(e.target.value); setMobileVerify(false) }} style={{ borderRadius: '0' }} required />
                                 </Tippy>
-                                <button type="button" className='btn btn-danger' onClick={sendMobileVerificationCode} style={{ borderRadius: "0px 3px 3px 0px", background: "#FF512F", border: "1px solid #FF512F" }}>verify</button>
+                                <button type="button" className={`btn ${mobile ? mobileVerify ? "btn-secondary" : "btn-danger" : "btn-secondary"}`} onClick={sendMobileVerificationCode} style={{ borderRadius: "0px 3px 3px 0px" }} disabled={mobile ? mobileVerify ? true : false : true}>Verify</button>
                             </div>
                         </div>
 

@@ -3,6 +3,8 @@ import Modal from '@mui/material/Modal';
 import Typography from '@mui/material/Typography';
 import { useState } from 'react';
 import swal from 'sweetalert';
+import Button from 'react-bootstrap/Button';
+import CloseIcon from '@mui/icons-material/Close';
 
 const style = {
   position: 'absolute',
@@ -53,16 +55,19 @@ export default function EmailVerifyModal({ open, setOpenEmail, emailOtpCode, set
         aria-describedby="modal-modal-description"
       >
         <Box sx={style} id="">
+          <div className='closeD'>
+            <Button className='iconClose' onClick={handleClose}><CloseIcon className='iconClose' style={{ color: "red" }} /></Button>
+          </div>
           <Typography id="modal-modal-title text-light" variant="h6" component="h2">
             Verify Email
           </Typography>
           <Typography id="modal-modal-description text-light" sx={{ mt: 2 }}>
             Check your email for OTP
           </Typography>
-          <from className="d-flex input-group mt-2 mb-2" >
+          <form className="d-flex input-group mt-2 mb-2" >
             <input type="text" className="form-control" placeholder="OTP code" aria-label="OTP code !!" aria-describedby="button-addon2" onChange={e => setOtpCode(e.target.value)} />
             <button className="btn btn-outline-secondary" onClick={hendelSubmit} type="submit" id="button-addon2">Verify</button>
-          </from>
+          </form>
 
           {isOtpError ? <p style={{ color: 'red' }}>You have entered wrong OTP</p> : ''}
           <div className='d-flex' style={{ justifyContent: 'center' }}>
