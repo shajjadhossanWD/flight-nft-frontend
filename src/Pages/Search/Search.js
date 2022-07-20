@@ -140,13 +140,13 @@ const Search = () => {
                 if (res.status === 200) {
                     data.append('ticket', res.data.ticket);
                     if (token === "bnb") {
-                        mint_hash = await mintTicketNFTTestnetBNB(res.data.uri, 3000);
+                        mint_hash = await mintTicketNFTTestnetBNB(res.data.uri, 30);
                     }
                     else if (token === "usdsc") {
-                        mint_hash = await mintTicketNFTTestnetUSDSC(res.data.uri, 3000);
+                        mint_hash = await mintTicketNFTTestnetUSDSC(res.data.uri, 30);
                     }
                     else if (token === "dsl") {
-                        mint_hash = await mintTicketNFTTestnetDSL(res.data.uri, (3000 * 0.7));
+                        mint_hash = await mintTicketNFTTestnetDSL(res.data.uri, (30 * 0.7));
                     }
                     data.append("mint_hash", mint_hash);
                     await axios.post("https://backend.flightnft.net/api/v1/mint/save-nft", data, {
