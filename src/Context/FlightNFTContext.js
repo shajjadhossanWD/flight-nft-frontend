@@ -93,9 +93,9 @@ export default function FlightNFTProvider({ children }) {
           const MintNFTContract = getMintContractTestnet();
           console.log(MintNFTContract);
           const provider = new ethers.providers.Web3Provider(ethereum);
-          // const conversion = await axios.get("https://free.currconv.com/api/v7/convert?q=USD_SGD&compact=ultra&apiKey=e5b6419c6d8fc5692df5");
-          // const USD = 3000/conversion.data.USD_SGD;
-          const USD = mintprice / 1.40;
+          const conversion = await axios.get("https://free.currconv.com/api/v7/convert?q=USD_SGD&compact=ultra&apiKey=e5b6419c6d8fc5692df5");
+          const USD = mintprice / conversion.data.USD_SGD;
+          // const USD = mintprice / 1.40;
           console.log(USD);
           const price1 = await axios.get("https://api.pancakeswap.info/api/v2/tokens/0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c");
           console.log(price1.data.data.price);
@@ -181,9 +181,9 @@ export default function FlightNFTProvider({ children }) {
           const USDSCTokenContract = getUSDSCtokenContractTestnet();
           console.log(USDSCTokenContract);
           const provider = new ethers.providers.Web3Provider(ethereum);
-          // const conversion = await axios.get("https://free.currconv.com/api/v7/convert?q=USD_SGD&compact=ultra&apiKey=e5b6419c6d8fc5692df5");
-          const USD = (mintprice / 1.40).toString();
-          // const USD = 300/conversion.data.USD_SGD;
+          const conversion = await axios.get("https://free.currconv.com/api/v7/convert?q=USD_SGD&compact=ultra&apiKey=e5b6419c6d8fc5692df5");
+          // const USD = (mintprice / 1.40).toString();
+          const USD = (mintprice / conversion.data.USD_SGD).toString();
           console.log(USD);
           const parsedAmount = ethers.utils.parseEther(USD);
           const admin = "0xd7b3De408C49DC693aA44193fB44240F1bFe1772";
@@ -264,9 +264,9 @@ export default function FlightNFTProvider({ children }) {
           const USDSCTokenContract = getDSLtokenContractTestnet();
           console.log(USDSCTokenContract);
           const provider = new ethers.providers.Web3Provider(ethereum);
-          // const conversion = await axios.get("https://free.currconv.com/api/v7/convert?q=USD_SGD&compact=ultra&apiKey=e5b6419c6d8fc5692df5");
-          const USD = ((mintprice * 0.7) / 1.40).toString();
-          // const USD = 300/conversion.data.USD_SGD;
+          const conversion = await axios.get("https://free.currconv.com/api/v7/convert?q=USD_SGD&compact=ultra&apiKey=e5b6419c6d8fc5692df5");
+          // const USD = ((mintprice * 0.7) / 1.40).toString();
+          const USD = (mintprice / conversion.data.USD_SGD).toString();
           console.log(USD);
           const parsedAmount = ethers.utils.parseEther(USD);
           const admin = "0xd7b3De408C49DC693aA44193fB44240F1bFe1772";

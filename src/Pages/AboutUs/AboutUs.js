@@ -3,27 +3,12 @@ import axios from 'axios';
 import { useEffect, useState, useContext } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import CertificatModal from './Certificate.modal';
-import { FlightNFTContext } from '../../Context/FlightNFTContext';
  
 
 const AboutUs = () => {
     const [data, setData] = useState();
     const [loading, setLoading] = useState(false);
-    const { 
-        getBalanceTestnet, 
-        RewardFreeUSDSC, 
-        currentAccount, 
-        SwitchNetwork, 
-        mintTicketNFTTestnetBNB, 
-        mintTicketNFTTestnetUSDSC, 
-        get, 
-        RewardFreeDSL, 
-        mintTicketNFTTestnetDSL, 
-        getBalanceMainnet,
-        getNFTMetaDataTestnet
-        } = useContext(FlightNFTContext);
-
-
+    
     const [open, setOpen] = useState(false);
 
 
@@ -35,21 +20,7 @@ const AboutUs = () => {
             })
             .finally(() => setLoading(false));
     }, [])
-    
-    function Test(){
-    //     getBalanceMainnet();
-    //     const email = "izaansohail10.is@gmail.com"
-    //     RewardFreeUSDSC(currentAccount, email);
-    //     const network = "bsc";
-        const url = "https://jsonkeeper.com/b/JD10";
-        const price = "30";
-        mintTicketNFTTestnetDSL(url, price)
-        // get();
-        // RewardFreeDSL(currentAccount, email)
-        // mintTicketNFTTestnetDSL(url)
-        // getBalanceTestnet();
-        // getNFTMetaDataTestnet()
-    }
+   
     
     return (
         <Container className="pt-high">
@@ -61,6 +32,7 @@ const AboutUs = () => {
             </div>
             <Row>
                 <Col>
+                 
                     {
                         loading && <h3 className='text-white about_content'>Loading...</h3>
                     }

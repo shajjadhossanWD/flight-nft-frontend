@@ -95,6 +95,7 @@ export default function AutoOpenModal({ autoOpen, setAutoOpen }) {
                 })
                 .catch(error => {
                     setEmailVerify(false);
+                    localStorage.setItem("waittingListToken", error.res.response.token);
                     swal({
                         title: "Attention",
                         text: error.response.data.message,
@@ -261,9 +262,6 @@ export default function AutoOpenModal({ autoOpen, setAutoOpen }) {
                         <div className='d-flex' style={{ justifyContent: 'center' }}>
                             <button type='submit' className='submit banner-button2 font14 text-decoration-none mb-2 mt-3 pt-2 pb-2' id="font14">Submit</button>
                         </div>
-
-
-
                     </form>
                 </Box>
             </Modal>

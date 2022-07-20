@@ -43,7 +43,7 @@ export default function ViewDataModal({ open, setOpenModal, singleData }) {
 
           </div>
           <h3 className='mb-2'>{singleData?.aircraftName}</h3>
-          <h6>Estimated Price: SGD {singleData?.cost} For one passenger</h6>
+          <h6>Estimated Price: SGD {singleData?.cost} for one passenger</h6>
           <h6>Departure Airport: {singleData?.departureAirport} </h6>
           <h6>Arrival  Airport: {singleData?.arrivalAirport}</h6>
 
