@@ -9,6 +9,9 @@ import swal from 'sweetalert';
 import EmailVerifyModal from '../../Ideas/VerifyModal/Email.Modal';
 import PhoneVerifyModal from '../../Ideas/VerifyModal/Phone.verify';
 
+import Tippy from '@tippy.js/react'
+import 'tippy.js/dist/tippy.css'
+
 const style = {
     position: 'absolute',
     top: '50%',
@@ -193,11 +196,6 @@ export default function AutoOpenModal({ autoOpen, setAutoOpen }) {
     }
 
 
-
-
-
-
-
     return (
         <div>
             <Modal
@@ -222,13 +220,18 @@ export default function AutoOpenModal({ autoOpen, setAutoOpen }) {
                     <form className="d-grid mt-2 mb-2" onSubmit={handleSubmit} >
                         <div className='mb-1'>
                             <label className='text14' for="comment">Name*</label>
-                            <input type="text" className='form-control' name="name" value={isName} onChange={e => setInputName(e.target.value)} placeholder="Name" required />
+                            <Tippy content="Please Enter Your Name">
+                                <input
+                                    type="text" className='form-control' name="name" value={isName} onChange={e => setInputName(e.target.value)} placeholder="Name" required />
+                            </Tippy>
                         </div>
 
                         <div className='mb-1'>
                             <label className='text14' for="comment">Email*</label>
                             <div className='d-flex'>
-                                <input type="text" className='form-control' name="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} style={{ borderRadius: "3px 0px 0px 3px" }} required />
+                                <Tippy content="Please Enter Your Email">
+                                    <input type="text" className='form-control' name="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} style={{ borderRadius: "3px 0px 0px 3px" }} required />
+                                </Tippy>
                                 <button type="button" className='btn btn-danger' onClick={sendEmailVerificationCode} style={{ borderRadius: "0px 3px 3px 0px", background: "#FF512F", border: "1px solid #FF512F" }}>verify</button>
                             </div>
                         </div>
@@ -241,7 +244,9 @@ export default function AutoOpenModal({ autoOpen, setAutoOpen }) {
                                         countryList.map((country, index) => <option value={country.callingCodes} key={index}>{country.alpha2Code} (+{country.callingCodes})</option>)
                                     }
                                 </select>
-                                <input type="number" className='form-control' name="phone" placeholder="Mobile number" value={mobile} onChange={e => setMobile(e.target.value)} style={{ borderRadius: '0' }} required />
+                                <Tippy content="Please Enter Your Number">
+                                    <input type="number" className='form-control' name="phone" placeholder="Mobile number" value={mobile} onChange={e => setMobile(e.target.value)} style={{ borderRadius: '0' }} required />
+                                </Tippy>
                                 <button type="button" className='btn btn-danger' onClick={sendMobileVerificationCode} style={{ borderRadius: "0px 3px 3px 0px", background: "#FF512F", border: "1px solid #FF512F" }}>verify</button>
                             </div>
                         </div>

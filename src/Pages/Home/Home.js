@@ -221,7 +221,7 @@ const Home = () => {
                                                     <div className='row' style={{ alignItems: 'center', color: "#303030" }}>
                                                         <div className='col-9'>
                                                             <h5 className='margin0'>{flight?.aircraftName}</h5>
-                                                            <p className='margin0 pb-2'>Estimate SGD {flight?.cost}</p>
+                                                            <p className='margin0 pb-2'>Estimated Price: SGD {flight?.cost}</p>
                                                             <span><i className="fa-solid fa-user" style={{ color: "cadetblue" }}></i> {flight?.aircraftSpecifications?.seats}</span>
                                                         </div>
                                                         <div className='col-3 buttonArr' >
@@ -246,7 +246,7 @@ const Home = () => {
                                 <h3 className='text-white averageText'>What is the average cost for one person in other Private Jets?</h3>
                                 <br />
                                 <p className='text-white'><b>SGD 11,000.00 (626,134.04 Indian Rupees)</b></p>
-                                <p className='text-white'>You need to share with another 9 passengers.</p>
+                                <p className='text-white'>You need to share with another 9 passengers or more passengers.</p>
                             </div>
                         </Col>
                     </Row>

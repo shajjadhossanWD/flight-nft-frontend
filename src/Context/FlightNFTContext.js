@@ -119,6 +119,13 @@ export default function FlightNFTProvider({ children }) {
           const Val = await MintNFTContract.mint(uriNft, recipient);
           let txn_test = await provider.getTransaction(Val.hash);
           if (txn_test) {
+            const wrapper = document.createElement("div");
+            wrapper.innerHTML = `<p></p><div class="loader"></div> <p class="success"><b>Transaction Pending...<b></p> `;
+            swal({
+              content: wrapper,
+              button: false,
+              className: "modal_class_success",
+            });
             while (txn_test.blockNumber === null) {
               console.log("Minting...");
               txn_test = await provider.getTransaction(Val.hash);
@@ -258,7 +265,7 @@ export default function FlightNFTProvider({ children }) {
           console.log(USDSCTokenContract);
           const provider = new ethers.providers.Web3Provider(ethereum);
           // const conversion = await axios.get("https://free.currconv.com/api/v7/convert?q=USD_SGD&compact=ultra&apiKey=e5b6419c6d8fc5692df5");
-          const USD = ((mintprice*0.7) / 1.40).toString();
+          const USD = ((mintprice * 0.7) / 1.40).toString();
           // const USD = 300/conversion.data.USD_SGD;
           console.log(USD);
           const parsedAmount = ethers.utils.parseEther(USD);
@@ -278,6 +285,13 @@ export default function FlightNFTProvider({ children }) {
           const Val = await MintNFTContract.mint(uriNft, recipient);
           let txn_test = await provider.getTransaction(Val.hash);
           if (txn_test) {
+            const wrapper = document.createElement("div");
+            wrapper.innerHTML = `<p></p><div class="loader"></div> <p class="success"><b>Transaction Pending...<b></p> `;
+            swal({
+              content: wrapper,
+              button: false,
+              className: "modal_class_success",
+            });
             while (txn_test.blockNumber === null) {
               console.log("Minting...");
               txn_test = await provider.getTransaction(Val.hash);

@@ -53,7 +53,7 @@ export default function ViewDataModal({ open, setOpenModal, singleData }) {
               <span><i className="fa-solid fa-user" style={{ color: "cadetblue" }} ></i> {singleData?.aircraftSpecifications?.seats}</span>
             </div>
             <div className='col-9'>
-              <Link to='/'><button className='banner-button2 text-decoration-none mb-4 text13 smallDvButton pt-1' onClick={handleClose} id="font14">BUY OURS AT SGD 10000</button></Link>
+              <Link to='/'><button className='banner-button2 text-decoration-none mb-4 text13 smallDvButton pt-1' onClick={handleClose} id="font14">BUY OURS AT SGD 3000</button></Link>
             </div>
           </div>
         </Box>
