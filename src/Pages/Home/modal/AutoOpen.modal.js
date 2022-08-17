@@ -8,13 +8,13 @@ import Button from 'react-bootstrap/Button';
 import swal from 'sweetalert';
 import EmailVerifyModal from '../../Ideas/VerifyModal/Email.Modal';
 import PhoneVerifyModal from '../../Ideas/VerifyModal/Phone.verify';
-
+import './AutoModal.css';
 import Tippy from '@tippy.js/react'
 import 'tippy.js/dist/tippy.css'
 
 const style = {
     position: 'relative',
-    top: '27%',
+    top: '50%',
     left: '50%',
     zIndex: 999999999999,
     transform: 'translate(-50%, -50%)',
@@ -211,12 +211,14 @@ export default function AutoOpenModal({ autoOpen, setAutoOpen }) {
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >
-                <Box sx={style} id="certificatModal">
+                <Box className='autoModalBody' id="certificatModal">
                     <div className='closeD'>
                         <Button className='iconClose' onClick={handleClose}><CloseIcon className='iconClose' style={{ color: "red" }} /></Button>
                     </div>
                     <Typography id="modal-modal-title text-light mb-2 text17" variant=" " style={{ fontSize: '15px', lineHeight: '1.3' }}>
-                        Join Our Waiting List. When we launch you might be the lucky 100 to get the NFT free.
+                        <p>Register your interest today. We will inform you when we launch. Stand a chance to win one of the 100 NFTs we give away.</p>
+
+                        <p>When we launch you might be the lucky 100 to get the NFT free worth SGD 3000.</p>
                     </Typography>
                     <Typography id="modal-modal-description text-light" sx={{ mt: 2 }}>
 
@@ -260,8 +262,8 @@ export default function AutoOpenModal({ autoOpen, setAutoOpen }) {
 
                         {isError ? <span style={{ color: "red" }}> {isError} </span> : ''}
 
-                        <div className='d-flex' style={{ justifyContent: 'center' }}>
-                            <button type='submit' className='submit banner-button2 font14 text-decoration-none mb-2 mt-3 pt-2 pb-2' id="font14">Submit</button>
+                        <div className='d-flex' style={{ justifyContent: 'center', cursor: "pointer" }}>
+                            <button type='submit' disabled={(!isName || !email || !mobile) ? true : false} className='submit banner-button2 font14 text-decoration-none mb-2 mt-3 pt-2 pb-2' id="font14">Submit</button>
                         </div>
                     </form>
                 </Box>
