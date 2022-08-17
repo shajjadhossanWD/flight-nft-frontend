@@ -263,7 +263,7 @@ export default function AutoOpenModal({ autoOpen, setAutoOpen }) {
                         {isError ? <span style={{ color: "red" }}> {isError} </span> : ''}
 
                         <div className='d-flex' style={{ justifyContent: 'center' }}>
-                            <button type='submit' disabled={(!isName || !mobile || !email) ? true : false} className='submit banner-button2 font14 text-decoration-none mb-2 mt-3 pt-2 pb-2' id="font14">Submit</button>
+                            <button type='submit' disabled={(!isName || !mobile || !email || !mobileVerify || !emailVerify) ? true : false} className={`submit  font14 text-decoration-none mb-2 mt-3 pt-2 pb-2 ${(!isName || !mobile || !email || !mobileVerify || !emailVerify) ? "btn-secondary rounded" : "banner-button2"}`} id="font14">Submit</button>
                         </div>
                     </form>
                 </Box>
