@@ -22,7 +22,8 @@
 .mobilelogin {
     display: none;
 }
-.discountText{
+
+.discountText {
     font-family: "Avenir Next", sans-serif;
     font-weight: 900;
     font-size: 14px;
@@ -33,7 +34,7 @@
     color: #d6579f;
 }
 
-.discountText2{
+.discountText2 {
     font-family: "Avenir Next", sans-serif;
     font-weight: 900;
     font-size: 14px;
@@ -111,9 +112,11 @@ span.underline {
     background: #DC3545 !important;
     bottom: 0;
 }
-body{
-    -webkit-text-size-adujust:100%;
+
+body {
+    -webkit-text-size-adujust: 100%;
 }
+
 span.underline2 {
     left: 40%;
     position: absolute;
@@ -141,10 +144,11 @@ img.logo {
     width: 52px;
     height: 52px;
 }
-.logoLink{
-    width:222px !important;
+
+.logoLink {
+    width: 222px !important;
 }
- 
+
 
 /* Footer */
 .text-center.my-3.footer {
@@ -542,12 +546,14 @@ p.ticket_to.mb-0 {
     p.ticket_to.mb-0 {
         font-size: 19px !important;
     }
-    .discountText{
+
+    .discountText {
         font-size: 13px;
         margin-right: 2rem;
         display: none;
     }
-    .discountText2{
+
+    .discountText2 {
         display: block;
         font-size: 13px;
         margin-right: 1rem;
@@ -575,18 +581,20 @@ p.ticket_to.mb-0 {
         font-size: 14px;
     }
 
-    
+
 
     /* -----------positioning------------- */
 
     p.fromto.ticket_color2 {
         font-size: 0.45rem !important;
     }
+
     p.to-right.mb-0 {
         right: 51px;
         top: 30px !important;
         min-width: 115px !important;
     }
+
     .from.position_ticket {
         top: 84px !important;
         left: 27px;
@@ -599,17 +607,17 @@ p.ticket_to.mb-0 {
     .to.position_ticket {
         top: 100px !important;
         font-size: 0.45rem !important;
-        -webkit-text-size-adujust:100%;
+        -webkit-text-size-adujust: 100%;
 
         max-width: 75px !important;
 
     }
 
-    
+
     .from.position_ticket {
         top: 100px !important;
         font-size: 0.45rem !important;
-        -webkit-text-size-adujust:100%;
+        -webkit-text-size-adujust: 100%;
 
         max-width: 86px !important;
 
@@ -630,13 +638,13 @@ p.ticket_to.mb-0 {
 
     p.ticket_to.mb-0 {
         font-size: 0.45rem !important;
-        -webkit-text-size-adujust:100%;
+        -webkit-text-size-adujust: 100%;
 
     }
 
     .ticket_right.d-flex {
         font-size: 0.45rem !important;
-        -webkit-text-size-adujust:100%;
+        -webkit-text-size-adujust: 100%;
 
         right: -32px;
         top: 49px;
@@ -648,7 +656,7 @@ p.ticket_to.mb-0 {
         min-width: 120px !important;
     }
 
-   
+
 
     p.ticket_to.mb-0 {
         right: 106px;
@@ -656,22 +664,26 @@ p.ticket_to.mb-0 {
     }
 
 }
+
 @media only screen and (min-width:390px) and (max-width:393px) {
     h3.ticket_color.text-center {
         font-size: 16px !important;
     }
+
     p.fromto.ticket_color2 {
         font-size: 0.45rem !important;
     }
+
     p.to-right.mb-0 {
         right: 51px;
         top: 30px !important;
         min-width: 115px !important;
     }
+
     p.ticket_to.mb-0 {
         font-size: 0.45rem !important;
         right: 105px !important;
-    top: 18px !important;
+        top: 18px !important;
     }
 
     .ticket_image_wrapper {
@@ -684,6 +696,7 @@ p.ticket_to.mb-0 {
         font-size: .30rem !important;
         top: 47px !important;
     }
+
     a.text-center.banner-button.text-decoration-none {
         font-size: 13px;
         padding: 10px 20px;
@@ -692,7 +705,7 @@ p.ticket_to.mb-0 {
     p.to-right.mb-0 {
         right: 67px !important;
         font-size: .30rem !important;
-        -webkit-text-size-adujust:100%;
+        -webkit-text-size-adujust: 100%;
         top: 27px !important;
         min-width: 85px !important;
     }
@@ -700,7 +713,7 @@ p.ticket_to.mb-0 {
     p.from-right.mb-0 {
         right: 67px !important;
         font-size: .30rem !important;
-        -webkit-text-size-adujust:100%;
+        -webkit-text-size-adujust: 100%;
         top: 0 !important;
         min-width: 85px !important;
     }
@@ -709,13 +722,13 @@ p.ticket_to.mb-0 {
         top: 93px !important;
         max-width: 70px !important;
         font-size: .30rem !important;
-        -webkit-text-size-adujust:100%;
+        -webkit-text-size-adujust: 100%;
     }
 
     .from.position_ticket {
         top: 93px !important;
         font-size: .30rem !important;
-        -webkit-text-size-adujust:100%;
+        -webkit-text-size-adujust: 100%;
         left: 38px !important;
         max-width: 50px !important;
     }
@@ -743,19 +756,23 @@ p.ticket_to.mb-0 {
     h3.ticket_color.text-center {
         font-size: 16px !important;
     }
+
     p.fromto.ticket_color2 {
         font-size: 0.45rem !important;
     }
+
     p.to-right.mb-0 {
         right: 51px;
         top: 30px !important;
         min-width: 115px !important;
     }
+
     p.ticket_to.mb-0 {
         font-size: 0.45rem !important;
         right: 105px !important;
-    top: 18px !important;
+        top: 18px !important;
     }
+
     .ticket_image_wrapper {
         background-size: 310px;
         height: 156px;
@@ -774,7 +791,7 @@ p.ticket_to.mb-0 {
     p.to-right.mb-0 {
         right: 67px !important;
         font-size: .30rem !important;
-        -webkit-text-size-adujust:100%;
+        -webkit-text-size-adujust: 100%;
 
         top: 27px !important;
         min-width: 85px !important;
@@ -783,7 +800,7 @@ p.ticket_to.mb-0 {
     p.from-right.mb-0 {
         right: 67px !important;
         font-size: .30rem !important;
-        -webkit-text-size-adujust:100%;
+        -webkit-text-size-adujust: 100%;
 
         top: 0 !important;
         min-width: 85px !important;
@@ -793,14 +810,14 @@ p.ticket_to.mb-0 {
         top: 93px !important;
         max-width: 70px !important;
         font-size: .30rem !important;
-        -webkit-text-size-adujust:100%;
+        -webkit-text-size-adujust: 100%;
 
     }
 
     .from.position_ticket {
         top: 93px !important;
         font-size: .30rem !important;
-        -webkit-text-size-adujust:100%;
+        -webkit-text-size-adujust: 100%;
 
         left: 35px !important;
         max-width: 50px !important;
@@ -830,17 +847,21 @@ p.ticket_to.mb-0 {
     h3.ticket_color.text-center {
         font-size: 16px !important;
     }
+
     p.fromto.ticket_color2 {
         font-size: 0.45rem !important;
     }
+
     p.to-right.mb-0 {
         right: 51px;
         top: 30px !important;
         min-width: 115px !important;
     }
+
     p.ticket_to.mb-0 {
         font-size: 0.45rem !important;
     }
+
     .ticket_image_wrapper {
         background-size: 321px !important;
         height: 141px;
@@ -864,7 +885,7 @@ p.ticket_to.mb-0 {
     .from.position_ticket {
         top: 80px !important;
         font-size: .30rem !important;
-        -webkit-text-size-adujust:100%;
+        -webkit-text-size-adujust: 100%;
 
         left: 22px !important;
         max-width: 48px !important;
@@ -874,7 +895,7 @@ p.ticket_to.mb-0 {
         top: 80px !important;
         max-width: 50px !important;
         font-size: .30rem !important;
-        -webkit-text-size-adujust:100%;
+        -webkit-text-size-adujust: 100%;
 
     }
 
@@ -886,7 +907,7 @@ p.ticket_to.mb-0 {
 
     p.from-right.mb-0 {
         font-size: .30rem !important;
-        -webkit-text-size-adujust:100%;
+        -webkit-text-size-adujust: 100%;
 
         right: 69px !important;
         min-width: 80px !important;
@@ -894,7 +915,7 @@ p.ticket_to.mb-0 {
 
     p.to-right.mb-0 {
         font-size: .30rem !important;
-        -webkit-text-size-adujust:100%;
+        -webkit-text-size-adujust: 100%;
 
         right: 69px !important;
         min-width: 80px !important;
@@ -910,21 +931,25 @@ p.ticket_to.mb-0 {
 
 
 
-@media  screen and (max-width:320px) {
+@media screen and (max-width:320px) {
     h3.ticket_color.text-center {
         font-size: 16px !important;
     }
+
     p.fromto.ticket_color2 {
         font-size: 0.45rem !important;
     }
+
     p.to-right.mb-0 {
         right: 51px;
         top: 30px !important;
         min-width: 115px !important;
     }
+
     p.ticket_to.mb-0 {
         font-size: 0.45rem !important;
     }
+
     .ticket_nft {
         font-size: 0.45rem !important;
         right: 39% !important;
@@ -947,7 +972,7 @@ p.ticket_to.mb-0 {
     .from.position_ticket {
         top: 80px !important;
         font-size: .30rem !important;
-        -webkit-text-size-adujust:100%;
+        -webkit-text-size-adujust: 100%;
 
         left: 22px !important;
         max-width: 48px !important;
@@ -957,13 +982,13 @@ p.ticket_to.mb-0 {
         top: 80px !important;
         max-width: 50px !important;
         font-size: .30rem !important;
-        -webkit-text-size-adujust:100%;
+        -webkit-text-size-adujust: 100%;
 
     }
 
     .ticket_right.d-flex {
         font-size: 0.30rem !important;
-        -webkit-text-size-adujust:100%;
+        -webkit-text-size-adujust: 100%;
 
         right: -50px !important;
         top: 42px !important;
@@ -971,11 +996,11 @@ p.ticket_to.mb-0 {
 
     p.from-right.mb-0 {
         font-size: .30rem !important;
-        -webkit-text-size-adujust:100%;
+        -webkit-text-size-adujust: 100%;
 
         right: 69px !important;
         min-width: 80px !important;
-        top:0px !important;
+        top: 0px !important;
     }
 
     p.to-right.mb-0 {
@@ -1084,6 +1109,7 @@ p.ticket_to.mb-0 {
         font-size: 19px !important;
     }
 }
+
 @media only screen and (width:540px) {
 
     .ticket_image_wrapper {
@@ -1171,6 +1197,7 @@ p.ticket_to.mb-0 {
     }
 
 }
+
 /* -----------ideaa------- */
 p.mb-0.text-danger.bg-light.p-1 {
     width: 50%;

@@ -1,14 +1,14 @@
-.autoModalBody{
+.handleAutoModalBody {
     position: relative;
-    top: 38%;
+    top: 40%;
     left: 50%;
-    z-index: 999999999999;
-    transform: translate(-50%, -50%);
+    z-index: 90000;
     width: 400px;
+    transform: translate(-50%, -50%);
     background-color: black;
     border: 2px solid white;
     box-shadow: 24px;
     color: white;
     border-radius: 5px;
-    padding: 18px;
+    padding: 14px;
 }

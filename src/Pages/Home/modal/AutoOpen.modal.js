@@ -8,7 +8,7 @@ import Button from 'react-bootstrap/Button';
 import swal from 'sweetalert';
 import EmailVerifyModal from '../../Ideas/VerifyModal/Email.Modal';
 import PhoneVerifyModal from '../../Ideas/VerifyModal/Phone.verify';
-import './AutoModal.css';
+import './AutoOpen.css';
 import Tippy from '@tippy.js/react'
 import 'tippy.js/dist/tippy.css'
 
@@ -174,13 +174,14 @@ export default function AutoOpenModal({ autoOpen, setAutoOpen }) {
         }
         const name = e.target.name.value;
         axios.post("https://backend.flightnft.net/api/v1/waiting-list/save-full-data-waitingList", {
-            name
+            name, mobile, email
         }, {
             headers: { "authorization": `Bearer ${localStorage.getItem("waittingListToken")}` }
         })
             .then(res => {
                 if (res.status === 200) {
-                    handleClose()
+                    handleClose();
+                    // console.log(res.data);
                     swal({
                         title: "Success",
                         text: res.data.message,
@@ -211,7 +212,7 @@ export default function AutoOpenModal({ autoOpen, setAutoOpen }) {
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >
-                <Box className='autoModalBody' id="certificatModal">
+                <Box className='handleAutoModalBody' id="certificatModal">
                     <div className='closeD'>
                         <Button className='iconClose' onClick={handleClose}><CloseIcon className='iconClose' style={{ color: "red" }} /></Button>
                     </div>
@@ -261,7 +262,6 @@ export default function AutoOpenModal({ autoOpen, setAutoOpen }) {
                         </div>
 
                         {isError ? <span style={{ color: "red" }}> {isError} </span> : ''}
-
                         <div className='d-flex' style={{ justifyContent: 'center', cursor: "pointer" }}>
                             <button type='submit' disabled={(!isName || !email || !mobile) ? true : false} className='submit banner-button2 font14 text-decoration-none mb-2 mt-3 pt-2 pb-2' id="font14">Submit</button>
                         </div>
