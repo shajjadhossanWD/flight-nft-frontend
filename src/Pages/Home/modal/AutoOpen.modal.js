@@ -13,9 +13,10 @@ import Tippy from '@tippy.js/react'
 import 'tippy.js/dist/tippy.css'
 
 const style = {
-    position: 'absolute',
-    top: '50%',
+    position: 'relative',
+    top: '27%',
     left: '50%',
+    zIndex: 999999999999,
     transform: 'translate(-50%, -50%)',
     width: 400,
     bgcolor: 'black',

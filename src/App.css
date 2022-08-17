@@ -219,7 +219,7 @@ nav.navbar.navbar-expand-lg.navbar-dark {
     position: fixed;
     width: 100%;
     opacity: .9;
-    z-index: 9999999;
+    z-index: 500;
 }
 
 .banner {
