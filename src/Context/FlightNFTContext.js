@@ -1,14 +1,19 @@
-import axios from 'axios';
-import React, { useEffect, useState, createContext } from 'react';
-import { ethers } from 'ethers';
-import swal from 'sweetalert';
+import axios from "axios";
+import React, { useEffect, useState, createContext } from "react";
+import { ethers } from "ethers";
+import swal from "sweetalert";
 import {
-  mintABITestnet, mintAddressTestnet,
-  USDSCtokenAddressTestnet, USDSCtokenABITestnet,
-  USDSCtokenAddressMainnet, USDSCtokenABIMainnet,
-  DSLtokenAddressTestnet, DSLtokenABITestnet,
-  DSLtokenAddressMainnet, DSLtokenABIMainnet
-} from '../utils/constant';
+  mintABITestnet,
+  mintAddressTestnet,
+  USDSCtokenAddressTestnet,
+  USDSCtokenABITestnet,
+  USDSCtokenAddressMainnet,
+  USDSCtokenABIMainnet,
+  DSLtokenAddressTestnet,
+  DSLtokenABITestnet,
+  DSLtokenAddressMainnet,
+  DSLtokenABIMainnet,
+} from "../utils/constant";
 
 export const FlightNFTContext = createContext();
 
@@ -17,50 +22,69 @@ const { ethereum } = window;
 const getMintContractTestnet = () => {
   const provider = new ethers.providers.Web3Provider(ethereum);
   const signer = provider.getSigner();
-  const MintNFTContract = new ethers.Contract(mintAddressTestnet, mintABITestnet, signer);
+  const MintNFTContract = new ethers.Contract(
+    mintAddressTestnet,
+    mintABITestnet,
+    signer
+  );
 
   return MintNFTContract;
-}
+};
 
 const getUSDSCtokenContractTestnet = () => {
   const provider = new ethers.providers.Web3Provider(ethereum);
   const signer = provider.getSigner();
-  const tokenContract = new ethers.Contract(USDSCtokenAddressTestnet, USDSCtokenABITestnet, signer);
+  const tokenContract = new ethers.Contract(
+    USDSCtokenAddressTestnet,
+    USDSCtokenABITestnet,
+    signer
+  );
 
   return tokenContract;
-}
+};
 
 const getUSDSCtokenContractMainnet = () => {
   const provider = new ethers.providers.Web3Provider(ethereum);
   const signer = provider.getSigner();
-  const tokenContract = new ethers.Contract(USDSCtokenAddressMainnet, USDSCtokenABIMainnet, signer);
+  const tokenContract = new ethers.Contract(
+    USDSCtokenAddressMainnet,
+    USDSCtokenABIMainnet,
+    signer
+  );
 
   return tokenContract;
-}
+};
 
 const getDSLtokenContractTestnet = () => {
   const provider = new ethers.providers.Web3Provider(ethereum);
   const signer = provider.getSigner();
-  const tokenContract = new ethers.Contract(DSLtokenAddressTestnet, DSLtokenABITestnet, signer);
+  const tokenContract = new ethers.Contract(
+    DSLtokenAddressTestnet,
+    DSLtokenABITestnet,
+    signer
+  );
 
   return tokenContract;
-}
+};
 
 const getDSLtokenContractMainnet = () => {
   const provider = new ethers.providers.Web3Provider(ethereum);
   const signer = provider.getSigner();
-  const tokenContract = new ethers.Contract(DSLtokenAddressMainnet, DSLtokenABIMainnet, signer);
+  const tokenContract = new ethers.Contract(
+    DSLtokenAddressMainnet,
+    DSLtokenABIMainnet,
+    signer
+  );
 
   return tokenContract;
-}
-
+};
 
 export default function FlightNFTProvider({ children }) {
   const [currentAccount, setCurrentAccount] = useState(null);
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(false);
   const [Id, setId] = useState();
-  const [chains, setChains] = useState('');
+  const [chains, setChains] = useState("");
   const [payAmount, setPayAmount] = useState(null);
   const [pageLoading, setPageLoading] = useState(true);
   const [metamaskBalance, setMetamaskBalance] = useState({});
@@ -69,18 +93,19 @@ export default function FlightNFTProvider({ children }) {
   const [requestLoading, setRequestLoading] = useState(false);
 
   const openWalletModal = () => {
-    (!user?.walletAddress || user?.walletAddress === "undefined") && setWalletModal(true)
+    (!user?.walletAddress || user?.walletAddress === "undefined") &&
+      setWalletModal(true);
   };
   const closeWalletModal = () => setWalletModal(false);
 
-  window.addEventListener('load', () => {
+  window.addEventListener("load", () => {
     setPageLoading(false);
   });
 
   const get = async () => {
     const inst = getDSLtokenContractMainnet();
     console.log(inst);
-  }
+  };
 
   const mintTicketNFTTestnetBNB = async (uriNft, mintprice) => {
     try {
@@ -93,15 +118,21 @@ export default function FlightNFTProvider({ children }) {
           const MintNFTContract = getMintContractTestnet();
           console.log(MintNFTContract);
           const provider = new ethers.providers.Web3Provider(ethereum);
-          const conversion = await axios.get("https://free.currconv.com/api/v7/convert?q=USD_SGD&compact=ultra&apiKey=e5b6419c6d8fc5692df5");
+          const conversion = await axios.get(
+            "https://free.currconv.com/api/v7/convert?q=USD_SGD&compact=ultra&apiKey=e5b6419c6d8fc5692df5"
+          );
           const USD = mintprice / conversion.data.USD_SGD;
           // const USD = mintprice / 1.40;
           console.log(USD);
-          const price1 = await axios.get("https://api.pancakeswap.info/api/v2/tokens/0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c");
+          const price1 = await axios.get(
+            "https://api.pancakeswap.info/api/v2/tokens/0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"
+          );
           console.log(price1.data.data.price);
-          const price = (parseFloat(USD) / parseFloat(price1.data.data.price)).toString();
-          console.log(price)
-          console.log(typeof (price))
+          const price = (
+            parseFloat(USD) / parseFloat(price1.data.data.price)
+          ).toString();
+          console.log(price);
+          console.log(typeof price);
           const parsedAmount = ethers.utils.parseEther(price);
           const admin = "0xd7b3De408C49DC693aA44193fB44240F1bFe1772";
           const payment = await MintNFTContract.charge(admin, {
@@ -133,9 +164,9 @@ export default function FlightNFTProvider({ children }) {
             console.log("txn_test.blockNumber: " + txn_test.blockNumber);
           }
           const ID = await MintNFTContract.totalSupply();
-          console.log(ID.toString())
+          console.log(ID.toString());
           let mint_hash = "https://testnet.bscscan.com/tx/" + Val.hash;
-          console.log("Mint link: " + mint_hash)
+          console.log("Mint link: " + mint_hash);
           return mint_hash;
         } else {
           console.log("No ethereum object");
@@ -181,15 +212,24 @@ export default function FlightNFTProvider({ children }) {
           const USDSCTokenContract = getUSDSCtokenContractTestnet();
           console.log(USDSCTokenContract);
           const provider = new ethers.providers.Web3Provider(ethereum);
-          const conversion = await axios.get("https://free.currconv.com/api/v7/convert?q=USD_SGD&compact=ultra&apiKey=e5b6419c6d8fc5692df5");
+          const conversion = await axios.get(
+            "https://free.currconv.com/api/v7/convert?q=USD_SGD&compact=ultra&apiKey=e5b6419c6d8fc5692df5"
+          );
           // const USD = (mintprice / 1.40).toString();
           const USD = (mintprice / conversion.data.USD_SGD).toString();
           console.log(USD);
           const parsedAmount = ethers.utils.parseEther(USD);
           const admin = "0xd7b3De408C49DC693aA44193fB44240F1bFe1772";
-          const gasLimit = await USDSCTokenContract.estimateGas.transfer(admin, parsedAmount._hex);
+          const gasLimit = await USDSCTokenContract.estimateGas.transfer(
+            admin,
+            parsedAmount._hex
+          );
           const gasPrice = await await provider.getGasPrice();
-          const payment = await USDSCTokenContract.transfer(admin, parsedAmount._hex, { gasLimit: gasLimit, gasPrice: gasPrice });
+          const payment = await USDSCTokenContract.transfer(
+            admin,
+            parsedAmount._hex,
+            { gasLimit: gasLimit, gasPrice: gasPrice }
+          );
           let payment_test = await provider.getTransaction(payment.hash);
           while (payment_test.blockNumber === null) {
             console.log("Payment In Progress...");
@@ -216,7 +256,7 @@ export default function FlightNFTProvider({ children }) {
             console.log("txn_test.blockNumber: " + txn_test.blockNumber);
           }
           const ID = await MintNFTContract.totalSupply();
-          console.log(ID.toString())
+          console.log(ID.toString());
           let mint_hash = "https://testnet.bscscan.com/tx/" + Val.hash;
           console.log("Mint link: " + mint_hash);
           return mint_hash;
@@ -264,15 +304,24 @@ export default function FlightNFTProvider({ children }) {
           const USDSCTokenContract = getDSLtokenContractTestnet();
           console.log(USDSCTokenContract);
           const provider = new ethers.providers.Web3Provider(ethereum);
-          const conversion = await axios.get("https://free.currconv.com/api/v7/convert?q=USD_SGD&compact=ultra&apiKey=e5b6419c6d8fc5692df5");
+          const conversion = await axios.get(
+            "https://free.currconv.com/api/v7/convert?q=USD_SGD&compact=ultra&apiKey=e5b6419c6d8fc5692df5"
+          );
           // const USD = ((mintprice * 0.7) / 1.40).toString();
           const USD = (mintprice / conversion.data.USD_SGD).toString();
           console.log(USD);
           const parsedAmount = ethers.utils.parseEther(USD);
           const admin = "0xd7b3De408C49DC693aA44193fB44240F1bFe1772";
-          const gasLimit = await USDSCTokenContract.estimateGas.transfer(admin, parsedAmount._hex);
+          const gasLimit = await USDSCTokenContract.estimateGas.transfer(
+            admin,
+            parsedAmount._hex
+          );
           const gasPrice = await await provider.getGasPrice();
-          const payment = await USDSCTokenContract.transfer(admin, parsedAmount._hex, { gasLimit: gasLimit, gasPrice: gasPrice });
+          const payment = await USDSCTokenContract.transfer(
+            admin,
+            parsedAmount._hex,
+            { gasLimit: gasLimit, gasPrice: gasPrice }
+          );
           let payment_test = await provider.getTransaction(payment.hash);
           while (payment_test.blockNumber === null) {
             console.log("Payment In Progress...");
@@ -299,9 +348,9 @@ export default function FlightNFTProvider({ children }) {
             console.log("txn_test.blockNumber: " + txn_test.blockNumber);
           }
           const ID = await MintNFTContract.totalSupply();
-          console.log(ID.toString())
+          console.log(ID.toString());
           let mint_hash = "https://testnet.bscscan.com/tx/" + Val.hash;
-          console.log("Mint link: " + mint_hash)
+          console.log("Mint link: " + mint_hash);
           return mint_hash;
         } else {
           console.log("No ethereum object");
@@ -352,7 +401,7 @@ export default function FlightNFTProvider({ children }) {
           });
         }
       }
-    } catch (err) { }
+    } catch (err) {}
   };
 
   const logOut = async () => {
@@ -365,7 +414,7 @@ export default function FlightNFTProvider({ children }) {
   const checkIfWalletIsConnect = async () => {
     try {
       if (!ethereum) {
-        return console.log("please use metamask")
+        return console.log("please use metamask");
       }
       //  return swal({
       //   title: "Attention",
@@ -397,17 +446,17 @@ export default function FlightNFTProvider({ children }) {
     const DSLbalance = await DSLtokenContract.balanceOf(currentAccount);
     const DSLamount = ethers.utils.formatEther(DSLbalance);
     const provider = new ethers.providers.Web3Provider(ethereum);
-    const balance1 = await provider.getBalance(currentAccount)
+    const balance1 = await provider.getBalance(currentAccount);
     // console.log("usdsc: " + amount);
     // console.log("dsl: " + DSLamount);
     // console.log("BNB Testnet: " + ethers.utils.formatEther(balance1));
     const metamask = {
       usdsc: amount,
       bnb: ethers.utils.formatEther(balance1),
-      dsl: DSLamount
-    }
+      dsl: DSLamount,
+    };
     return setMetamaskBalance(metamask);
-  }
+  };
 
   const getBalanceMainnet = async () => {
     const USDSCtokenContract = getUSDSCtokenContractMainnet();
@@ -417,17 +466,17 @@ export default function FlightNFTProvider({ children }) {
     const DSLbalance = await DSLtokenContract.balanceOf(currentAccount);
     const DSLamount = ethers.utils.formatEther(DSLbalance);
     const provider = new ethers.providers.Web3Provider(ethereum);
-    const balance1 = await provider.getBalance(currentAccount)
+    const balance1 = await provider.getBalance(currentAccount);
     console.log("usdsc: " + amount);
     console.log("dsl: " + DSLamount);
     console.log("BNB Testnet: " + ethers.utils.formatEther(balance1));
     const metamask = {
       usdsc: amount,
       bnb: ethers.utils.formatEther(balance1),
-      dsl: DSLamount
-    }
+      dsl: DSLamount,
+    };
     return setMetamaskBalance(metamask);
-  }
+  };
 
   const RewardFreeUSDSC = async (address, email) => {
     const tokenContract = getUSDSCtokenContractTestnet();
@@ -446,8 +495,7 @@ export default function FlightNFTProvider({ children }) {
           button: "OK",
           className: "modal_class_success",
         });
-      }
-      else {
+      } else {
         return swal({
           title: "Attention",
           text: "Error",
@@ -476,8 +524,7 @@ export default function FlightNFTProvider({ children }) {
           button: "OK",
           className: "modal_class_success",
         });
-      }
-      else {
+      } else {
         return swal({
           title: "Attention",
           text: "Error",
@@ -500,15 +547,15 @@ export default function FlightNFTProvider({ children }) {
           const MintNFTContract = getMintContractTestnet();
           // console.log(MintNFTContract);
           const ID = await MintNFTContract.totalSupply();
-          const token = parseInt(ID) + 1
+          const token = parseInt(ID) + 1;
           // console.log(token)
-          const tokenID = "10000" + token.toString()
+          const tokenID = "10000" + token.toString();
           // console.log(tokenID);
           const SerialNumber = "DSL" + tokenID;
           // console.log(SerialNumber);
           return setNFTMetaData({
             SerialNumber: SerialNumber,
-            ID: tokenID
+            ID: tokenID,
           });
         } else {
           console.log("No ethereum object");
@@ -520,13 +567,11 @@ export default function FlightNFTProvider({ children }) {
     }
   };
 
-
-
   useEffect(() => {
     if (user.walletAddress) {
       getBalanceTestnet();
     }
-  }, [user])
+  }, [user]);
 
   const connectWallet = async (wallet) => {
     try {
@@ -541,7 +586,7 @@ export default function FlightNFTProvider({ children }) {
         });
       }
       if (!ethereum) {
-        return console.log("please use metamask")
+        return console.log("please use metamask");
       }
       if (wallet === "Metamask") {
         setLoading(true);
@@ -553,23 +598,28 @@ export default function FlightNFTProvider({ children }) {
         //   dangerMode: true,
         //   className: "modal_class",
         // });
-        const chainid = await window.ethereum.request({ method: 'eth_chainId' });
-        console.log("This is Chain ID: ", chainid)
+        const chainid = await window.ethereum.request({
+          method: "eth_chainId",
+        });
+        console.log("This is Chain ID: ", chainid);
         setChains(chainid);
         if (chainid === "0x38" || chainid === "0x61") {
-          const accounts = await ethereum.request({ method: "eth_requestAccounts", });
+          const accounts = await ethereum.request({
+            method: "eth_requestAccounts",
+          });
           setCurrentAccount(accounts[0]);
 
-          await axios.post(`https://backend.flightnft.net/api/v1/user/`, {
-            walletAddress: accounts[0],
-          })
+          await axios
+            .post(`https://backend.flightnft.net/api/v1/user/`, {
+              walletAddress: accounts[0],
+            })
             .then((res) => {
               if (res.data.user) {
                 setUser(res.data.user);
                 setLoading(false);
                 closeWalletModal();
                 localStorage.setItem("token", res.data.token);
-                const wrapper = document.createElement('div');
+                const wrapper = document.createElement("div");
                 wrapper.innerHTML = `<p className='text-break text-white fs-6'>You have successfully logged in with <br/>Binance Chain.</p>`;
                 return swal({
                   title: "Success",
@@ -582,9 +632,7 @@ export default function FlightNFTProvider({ children }) {
                 });
               }
             });
-
-        }
-        else {
+        } else {
           swal({
             title: "Attention",
             text: "Please change to Binance Chain before connecting.",
@@ -599,9 +647,7 @@ export default function FlightNFTProvider({ children }) {
       console.log(error);
       throw new Error("No ethereum object");
     }
-
   };
-
 
   const setIDTestnet = async () => {
     try {
@@ -620,23 +666,81 @@ export default function FlightNFTProvider({ children }) {
     }
   };
 
+  const connectToCoinbase = async () => {
+    if (typeof window.ethereum === "undefined") {
+      // ask the user to install the extension
+      return;
+    }
+    let provider = window.ethereum;
+    // edge case if MM and CBW are both installed
+    if (window.ethereum.providers?.length) {
+      window.ethereum.providers.forEach(async (p) => {
+        if (p.isCoinbaseWallet) provider = p;
+      });
+    }
+    const chainid = await provider.request({
+      method: "eth_chainId",
+    });
+    console.log("This is Chain ID: ", chainid);
+    setChains(chainid);
+    if (chainid === "0x38" || chainid === "0x61") {
+      const accounts = await provider.request({
+        method: "eth_requestAccounts",
+      });
+      console.log(accounts[0]);
+      setCurrentAccount(accounts[0]);
+    } else {
+      console.log("Please Switch to Binance Chain");
+    }
+  };
+
+  const connectToMetamask = async () => {
+    let provider = null;
+    if (typeof window.ethereum !== "undefined") {
+      let providers = window.ethereum.providers;
+      provider = providers.find((p) => p.isMetaMask); // <-- LOOK HERE
+      try {
+        const chainid = await provider.request({
+          method: "eth_chainId",
+        });
+        console.log("This is Chain ID: ", chainid);
+        setChains(chainid);
+        if (chainid === "0x38" || chainid === "0x61") {
+          const accounts = await provider.request({
+            method: "eth_requestAccounts",
+          });
+          console.log(accounts[0]);
+          setCurrentAccount(accounts[0]);
+        } else {
+          console.log("Please Switch to Binance Chain");
+        }
+      } catch (error) {
+        throw new Error("User Rejected");
+      }
+    } else {
+      throw new Error("No MetaMask Wallet found");
+    }
+    console.log("MetaMask provider", provider);
+    return provider;
+  };
+
   useEffect(() => {
     checkIfWalletIsConnect();
-  }, [])
-
+  }, []);
 
   useEffect(() => {
     if (currentAccount && localStorage.getItem("token")) {
       setLoading(true);
-      axios.get(`https://backend.flightnft.net/api/v1/user/`, {
-        headers: {
-          "authorization": `Bearer ${localStorage.getItem("token")}`
-        }
-      })
-        .then(res => {
+      axios
+        .get(`https://backend.flightnft.net/api/v1/user/`, {
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        })
+        .then((res) => {
           setUser(res.data);
         })
-        .catch(err => {
+        .catch((err) => {
           console.log(err);
         })
         .finally(() => {
@@ -658,38 +762,42 @@ export default function FlightNFTProvider({ children }) {
   }, [requestLoading]);
 
   return (
-    <FlightNFTContext.Provider value={{
-      connectWallet,
-      currentAccount,
-      user,
-      setUser,
-      logOut,
-      loading,
-      mintAddressTestnet,
-      Id,
-      setIDTestnet,
-      chains,
-      pageLoading,
-      payAmount,
-      setPayAmount,
-      getBalanceTestnet,
-      getBalanceMainnet,
-      metamaskBalance,
-      RewardFreeUSDSC,
-      SwitchNetwork,
-      mintTicketNFTTestnetBNB,
-      mintTicketNFTTestnetUSDSC,
-      get,
-      RewardFreeDSL,
-      mintTicketNFTTestnetDSL,
-      getNFTMetaDataTestnet,
-      walletModal,
-      openWalletModal,
-      closeWalletModal,
-      NFTMetaData,
-      setRequestLoading
-    }}>
+    <FlightNFTContext.Provider
+      value={{
+        connectWallet,
+        currentAccount,
+        user,
+        setUser,
+        logOut,
+        loading,
+        mintAddressTestnet,
+        Id,
+        setIDTestnet,
+        chains,
+        pageLoading,
+        payAmount,
+        setPayAmount,
+        getBalanceTestnet,
+        getBalanceMainnet,
+        metamaskBalance,
+        RewardFreeUSDSC,
+        SwitchNetwork,
+        mintTicketNFTTestnetBNB,
+        mintTicketNFTTestnetUSDSC,
+        get,
+        RewardFreeDSL,
+        mintTicketNFTTestnetDSL,
+        getNFTMetaDataTestnet,
+        walletModal,
+        openWalletModal,
+        closeWalletModal,
+        NFTMetaData,
+        setRequestLoading,
+        connectToMetamask,
+        connectToCoinbase,
+      }}
+    >
       {children}
     </FlightNFTContext.Provider>
-  )
+  );
 }
