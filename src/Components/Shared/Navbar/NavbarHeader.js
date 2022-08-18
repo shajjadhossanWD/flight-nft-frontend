@@ -23,10 +23,10 @@ const NavbarHeader = () => {
                 <Container>
                     <Navbar.Brand href="#home">
                         <Nav>
-                            <Nav.Link href="#" as={NavLink} to="/" className="fw-bold text-danger fs-3 logoLink" style={{ color: "#fff"}}>
-                         
+                            <Nav.Link href="#" as={NavLink} to="/" className="fw-bold text-danger fs-3 logoLink" style={{ color: "#fff" }}>
+
                                 <img className='logo ' src="https://i.ibb.co/sFRh0Rk/logo-e.jpg" alt="logo" />
-                 
+
                             </Nav.Link>
                         </Nav>
                     </Navbar.Brand>
@@ -45,7 +45,7 @@ const NavbarHeader = () => {
                                     <span className='mobilelogin'>Login With Wallet</span>
                                 </Nav.Link>
                                 :
-                                <Nav.Link as={NavLink} to="/profile" className='mx-2 navitem'>PROFILE</Nav.Link>
+                                <Nav.Link as={NavLink} to="/profile" className='banner-button2 mx-2 navitem'>PROFILE</Nav.Link>
 
                             }
 

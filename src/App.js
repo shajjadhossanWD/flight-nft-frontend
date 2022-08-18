@@ -32,7 +32,6 @@ function App() {
         loading ?
           <Preloder />
           :
-
           <Routes>
             <Route path='/' element={<PublicLayout />}>
               <Route index element={<Home />} />

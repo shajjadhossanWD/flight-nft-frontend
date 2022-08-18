@@ -6,7 +6,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Col, Container, Modal, Row } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import AutoOpenModal from './modal/AutoOpen.modal';
+import Click from './modal/AutoOpen.modal';
 import ViewDataModal from './modal/ViewData.modal';
 
 const indianAirports = [
@@ -71,7 +71,6 @@ const Home = () => {
                 setFilterData(res.data.slice(0, 5))
             });
         //  home auto open model set state
-        setAutoOpen(true)
     }, [])
 
     const navigate = useNavigate();
@@ -109,6 +108,10 @@ const Home = () => {
         setSingleData(data)
         setOpenModalFlight(true)
     }
+
+    const AutoOpenModalClick = () => setAutoOpen(true)
+
+
     return (
         <>
             <div className='banner'>
@@ -124,15 +127,15 @@ const Home = () => {
                                 <video src="/videoHome.mp4" controls style={{ width: "100%", height: "100%" }} />
                             </div>
                         </Col>
-                        <Col md={4} className="text-center"
+                        <Col md={4} className="text-center mt-5"
                             data-aos="fade-zoom-in"
                             data-aos-duration="1000"
                             data-aos-easing="ease-in-back"
                         >
                             <div className='banner-content-wrapper'>
-                                <h1 className="text-danger pt-3">FLIGHT NFT</h1>
+                                <h1 className="text-danger pt-3 mt-3">FLIGHT NFT</h1>
                                 <p className="text-info text-white py-2">Fly in Private. {""}  Get your NFTs now. <br /> This NFT is your flight ticket for private flying. </p>
-                                <Link to="/how-it-works" className=' banner-button text-decoration-none' underline="none">LEARN MORE</Link>
+                                <button className='banner-button' onClick={AutoOpenModalClick} >Register your interest</button>
                                 <form className='mt-4' onSubmit={handleSubmit}>
                                     <p htmlFor='title' className="text-start text-white mb-0">Departure Airport</p>
                                     <select className='form-select mb-3' name="DepartureAirport" id="DepartureAirport" value={DepartureAirport} onChange={handleDepartureAirport} required>
@@ -236,7 +239,7 @@ const Home = () => {
                                 }
                                 {/* <img className="img-fluid" src="https://i.ibb.co/DKdNrn9/09.jpg" alt="Pricing" /> */}
                             </div>
-                            <AutoOpenModal autoOpen={autoOpen} setAutoOpen={setAutoOpen} />
+                            <Click autoOpen={autoOpen} setAutoOpen={setAutoOpen} />
                             <ViewDataModal open={openModalFlight} setOpenModal={setOpenModalFlight} singleData={singleData} />
                         </Col>
                         <Col md={5}

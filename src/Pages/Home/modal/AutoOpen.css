@@ -12,3 +12,9 @@
     border-radius: 5px;
     padding: 14px;
 }
+
+@media screen and (max-width: 750px) {
+    .handleResponsiveBtn{
+        margin-left: 0px;
+    }
+}

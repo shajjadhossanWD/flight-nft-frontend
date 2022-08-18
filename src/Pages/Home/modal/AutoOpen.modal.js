@@ -247,7 +247,7 @@ export default function AutoOpenModal({ autoOpen, setAutoOpen }) {
                         </div>
 
                         <div className='mb-1'>
-                            <label className='text14' for="comment">Mobile number*</label>
+                            <label className='text14' for="comment">Mobile*</label>
                             <div className='d-flex'>
                                 <select className='form-control w-auto' name='countryCode' value={countryCode} onChange={e => setCountryCode(e.target.value)} style={{ borderRadius: "3px 0px 0px 3px" }}>
                                     {
@@ -262,8 +262,9 @@ export default function AutoOpenModal({ autoOpen, setAutoOpen }) {
                         </div>
 
                         {isError ? <span style={{ color: "red" }}> {isError} </span> : ''}
+
                         <div className='d-flex' style={{ justifyContent: 'center', cursor: "pointer" }}>
-                            <button type='submit' disabled={(!isName || !email || !mobile) ? true : false} className='submit banner-button2 font14 text-decoration-none mb-2 mt-3 pt-2 pb-2' id="font14">Submit</button>
+                            <button type='submit' disabled={(!isName || !mobile || !email || !mobileVerify || !emailVerify) ? true : false} className={`submit  font14 text-decoration-none mb-2 mt-3 pt-2 pb-2 ${(!isName || !mobile || !email || !mobileVerify || !emailVerify) ? "btn-secondary rounded text-center text-uppercase handleResponsiveBtn" : "banner-button2"}`} id="font14">Submit</button>
                         </div>
                     </form>
                 </Box>
